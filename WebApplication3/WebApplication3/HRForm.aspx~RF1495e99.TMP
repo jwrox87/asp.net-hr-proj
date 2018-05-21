@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="HRForm.aspx.cs" Inherits="WebApplication3.HRForm" %>
+<%@ Register assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" namespace="System.Web.UI.DataVisualization.Charting" tagprefix="asp" %>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Add a Employee</title>
+    <style type="text/css">
+   label {
+    display: block;
+    float: left;
+    width: 60px;
+}
+
+div {
+    margin-bottom: 2px;
+}
+
+.ReqName
+{
+    color: crimson;
+}
+
+  </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+  <h1>Add a Employee&nbsp;&nbsp;&nbsp; </h1>
+
+        <p>   
+            <asp:Table ID="Table1" runat="server" Height="97px" Width="411px">
+                <asp:TableRow>
+                    <asp:TableCell> 
+
+                        <label>Name: </label>
+                      
+                        <asp:TextBox ID="NameText" runat="server" MaxLength="20"/>
+                    
+                       <asp:RequiredFieldValidator CssClass ="ReqName" runat="server" id="reqName" controltovalidate="NameText" errormessage=" Please enter your name!" />
+                   
+                      </asp:TableCell></asp:TableRow><asp:TableRow>
+                    <asp:TableCell> 
+
+                        <label>Phone: </label>
+                        <asp:TextBox ID="PhoneText" runat="server" MaxLength="8"/>
+
+                    </asp:TableCell></asp:TableRow></asp:Table></p><p>
+            <asp:Button ID="AddEmployeeBtn" runat="server" Text="Add Employee"  style="height: 26px" 
+                 OnClick="OnClick_AddEmployee"/>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        <asp:Button ID="EmployeeListBtn" runat="server" Text="Employee List" />
+        </p>
+    </form>
+</body>
+</html>

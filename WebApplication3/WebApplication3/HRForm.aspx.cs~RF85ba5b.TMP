@@ -1,0 +1,99 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+
+namespace WebApplication3
+{
+    public partial class HRForm : System.Web.UI.Page, IValidation
+    {
+        void TestingPurpose()
+        {
+            NameText.Text = "I am me";
+            PhoneText.Text = "82593245";
+            ICText.Text = "S9811724C";
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (IsPostBack)
+            {
+                SetValidations(false);
+            }
+            else
+            {
+                TestingPurpose();
+                InitDropDownList();                
+            }
+        }
+
+        public void SetValidations(bool b)
+        {
+            reqName.Visible = b;
+        }
+
+        private void InitDropDownList()
+        {
+            ListItem listItem0 = new ListItem("None");
+            ListItem listItem1 = new ListItem("System Analyst");
+            ListItem listItem2 = new ListItem("Lead System Analyst");
+
+            titleList.Items.Add(listItem0);
+            titleList.Items.Add(listItem1);
+            titleList.Items.Add(listItem2);
+        }
+
+        private void UpdateStatusLabel(string labelname, string text)
+        {      
+            UpdateStatus.Visible = true;
+            UpdateStatus.Text = text;
+        }
+
+        protected void InsertItem(int phoneNo)
+        {
+            HRTable hrtable = new HRTable();
+            TryUpdateModel(hrtable);
+
+            hrtable.Name = NameText.Text;
+            hrtable.Phone = phoneNo.ToString();
+            hrtable.IC = ICText.Text;
+
+            if (ModelState.IsValid)
+            {
+                using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
+                {
+                    myEntities.HRTables.Add(hrtable);
+                    myEntities.SaveChanges();
+                }
+            }
+
+        }
+
+        protected void OnClick_AddEmployee(object sender, EventArgs e)
+        {
+            int phone_number = 0;
+
+            if (PhoneText.Text != "")
+                phone_number = int.Parse(PhoneText.Text);
+
+            SetValidations(true);
+
+            //ExtensionMethods.Execute_Insert(NameText.Text, phone_number
+            //    , ICText.Text);
+            InsertItem();
+
+            UpdateStatusLabel("UpdateStatus", "Successfully added into database");
+
+            ExtensionMethods.ClearTextBoxes(Page);
+            ExtensionMethods.ResetDropDownLists(Page);
+        }
+
+        protected void OnClick_SeeEmployeeList(object sender, EventArgs e)
+        {
+            Response.Redirect("EmployeeList.aspx");
+        }
+    }
+}

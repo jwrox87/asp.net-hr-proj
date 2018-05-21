@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HRDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DepartmentTable">
+    <Key>
+      <PropertyRef Name="Department_ID" />
+    </Key>
+    <Property Name="Department_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Department_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HRTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="8" />
+    <Property Name="IC" Type="nchar" MaxLength="9" />
+    <Property Name="Job_ID" Type="int" Nullable="false" />
+    <Property Name="Department_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JobTable">
+    <Key>
+      <PropertyRef Name="Job_ID" />
+    </Key>
+    <Property Name="Job_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Job_Title" Type="nvarchar(max)" />
+    <Property Name="Job_Salary" Type="money" />
+  </EntityType>
+  <Association Name="FK_HRTable_ToTable">
+    <End Role="JobTable" Type="Self.JobTable" Multiplicity="1" />
+    <End Role="HRTable" Type="Self.HRTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobTable">
+        <PropertyRef Name="Job_ID" />
+      </Principal>
+      <Dependent Role="HRTable">
+        <PropertyRef Name="Job_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HRTable_ToTable_1">
+    <End Role="DepartmentTable" Type="Self.DepartmentTable" Multiplicity="1" />
+    <End Role="HRTable" Type="Self.HRTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DepartmentTable">
+        <PropertyRef Name="Department_ID" />
+      </Principal>
+      <Dependent Role="HRTable">
+        <PropertyRef Name="Department_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HRDatabaseModelStoreContainer">
+    <EntitySet Name="DepartmentTable" EntityType="Self.DepartmentTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HRTable" EntityType="Self.HRTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JobTable" EntityType="Self.JobTable" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_HRTable_ToTable" Association="Self.FK_HRTable_ToTable">
+      <End Role="JobTable" EntitySet="JobTable" />
+      <End Role="HRTable" EntitySet="HRTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HRTable_ToTable_1" Association="Self.FK_HRTable_ToTable_1">
+      <End Role="DepartmentTable" EntitySet="DepartmentTable" />
+      <End Role="HRTable" EntitySet="HRTable" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
