@@ -14,6 +14,9 @@ namespace WebApplication3
 
         private void HideIDColumn()
         {
+            if (GridView1.FooterRow.Cells[id_index] == null)
+                return;
+
             GridView1.FooterRow.Cells[id_index].Visible = false;
             GridView1.HeaderRow.Cells[id_index].Visible = false;
             foreach (GridViewRow g in GridView1.Rows)
@@ -26,7 +29,16 @@ namespace WebApplication3
             using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
             {
                 var reviews = from HRTable in myEntities.HRTables
-                              select HRTable;
+                              select new
+                              {
+                                  HRTable.Id,
+                                  HRTable.Name,
+                                  HRTable.Phone,
+                                  HRTable.IC,
+                                  HRTable.JobTable.Job_Title,
+                                  HRTable.JobTable.Job_Salary,
+                                  HRTable.DepartmentTable.Department_Name
+                              };
 
                 GridView1.DataSource = reviews.ToList();
                 GridView1.DataBind();

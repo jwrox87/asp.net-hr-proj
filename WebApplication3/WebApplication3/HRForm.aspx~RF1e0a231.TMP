@@ -91,10 +91,9 @@ div {
                 <asp:TableRow BorderWidth="20px" BorderColor="White">
                     <asp:TableCell>
                         <label style="width:20%">Job Salary: </label>            
-                        
-                        <asp:TextBox style="width:20%" ID="JobSalaryText" runat ="server" MaxLength="8"/>
-                    <asp:CompareValidator CssClass="ReqCSS" runat="server" Operator="DataTypeCheck" Type="Integer" 
+                        <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" 
  ControlToValidate="JobSalaryText" ErrorMessage="Enter numbers only" />
+                        <asp:TextBox style="width:20%" ID="JobSalaryText" runat ="server" MaxLength="8"/>
                     </asp:TableCell>
                  </asp:TableRow>
 

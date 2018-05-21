@@ -2,7 +2,7 @@
     MasterPageFile="~/Site.Master" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="HeaderContent" runat="server">
-    <h1>EmployeeList</h1>
+    <h1>Employee List</h1>
 </asp:Content>
 
 <asp:Content ID="HRMainContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -16,7 +16,7 @@
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Show All" UseSubmitBehavior="False" Width="80px" />
             
         </div>
-        <asp:GridView ID="GridView1" runat="server" Width="574px" CellPadding="4" ForeColor="#333333" GridLines="Horizontal" ShowHeaderWhenEmpty="True" ShowFooter="True" OnRowDeleting="GridView1_RowDeleting" OnSelectedIndexChanging="GridView1_SelectedIndexChanging"  >
+        <asp:GridView ID="GridView1" runat="server" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="Horizontal" ShowHeaderWhenEmpty="True" ShowFooter="True" OnRowDeleting="GridView1_RowDeleting" OnSelectedIndexChanging="GridView1_SelectedIndexChanging"  >
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:CommandField ShowSelectButton="True" />
