@@ -361,6 +361,7 @@
     </Content>
     <Content Include="HRForm.aspx" />
     <Content Include="Home.aspx" />
+    <Content Include="ManagePositions.aspx" />
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -458,6 +459,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="IValidation.cs" />
+    <Compile Include="JobPositionTable.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="JobTable.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -511,6 +515,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManagePositions.aspx.cs">
+      <DependentUpon>ManagePositions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManagePositions.aspx.designer.cs">
+      <DependentUpon>ManagePositions.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

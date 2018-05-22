@@ -23,6 +23,13 @@
           <Property Name="Job_ID" Type="int" Nullable="false" />
           <Property Name="Department_ID" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="JobPositionTable">
+          <Key>
+            <PropertyRef Name="JobPosition_ID" />
+          </Key>
+          <Property Name="JobPosition_ID" Type="int" Nullable="false" />
+          <Property Name="Job_Title" Type="nchar" MaxLength="20" />
+        </EntityType>
         <EntityType Name="JobTable">
           <Key>
             <PropertyRef Name="Job_ID" />
@@ -58,6 +65,7 @@
         <EntityContainer Name="HRDatabaseModelStoreContainer">
           <EntitySet Name="DepartmentTable" EntityType="Self.DepartmentTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HRTable" EntityType="Self.HRTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobPositionTable" EntityType="Self.JobPositionTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="JobTable" EntityType="Self.JobTable" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_HRTable_ToTable" Association="Self.FK_HRTable_ToTable">
             <End Role="JobTable" EntitySet="JobTable" />
@@ -138,7 +146,15 @@
             <End Role="JobTable" EntitySet="JobTables" />
             <End Role="HRTable" EntitySet="HRTables" />
           </AssociationSet>
+          <EntitySet Name="JobPositionTables" EntityType="HRDatabaseModel.JobPositionTable" />
         </EntityContainer>
+        <EntityType Name="JobPositionTable">
+          <Key>
+            <PropertyRef Name="JobPosition_ID" />
+          </Key>
+          <Property Name="JobPosition_ID" Type="Int32" Nullable="false" />
+          <Property Name="Job_Title" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -171,6 +187,14 @@
                 <ScalarProperty Name="Job_ID" ColumnName="Job_ID" />
                 <ScalarProperty Name="Job_Title" ColumnName="Job_Title" />
                 <ScalarProperty Name="Job_Salary" ColumnName="Job_Salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobPositionTables">
+            <EntityTypeMapping TypeName="HRDatabaseModel.JobPositionTable">
+              <MappingFragment StoreEntitySet="JobPositionTable">
+                <ScalarProperty Name="Job_Title" ColumnName="Job_Title" />
+                <ScalarProperty Name="JobPosition_ID" ColumnName="JobPosition_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

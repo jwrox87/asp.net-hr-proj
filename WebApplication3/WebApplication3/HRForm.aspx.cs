@@ -68,7 +68,7 @@ namespace WebApplication3
             {
                 jobtable.Job_Title = titleList.Text;
 
-                if (jobtable.Job_Salary.HasValue)
+                if (JobSalaryText.Text != string.Empty)
                     jobtable.Job_Salary = decimal.Parse(JobSalaryText.Text);
                 else
                     jobtable.Job_Salary = 0;

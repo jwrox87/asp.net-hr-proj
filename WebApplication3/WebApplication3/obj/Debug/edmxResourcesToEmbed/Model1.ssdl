@@ -18,6 +18,13 @@
     <Property Name="Job_ID" Type="int" Nullable="false" />
     <Property Name="Department_ID" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="JobPositionTable">
+    <Key>
+      <PropertyRef Name="JobPosition_ID" />
+    </Key>
+    <Property Name="JobPosition_ID" Type="int" Nullable="false" />
+    <Property Name="Job_Title" Type="nchar" MaxLength="20" />
+  </EntityType>
   <EntityType Name="JobTable">
     <Key>
       <PropertyRef Name="Job_ID" />
@@ -53,6 +60,7 @@
   <EntityContainer Name="HRDatabaseModelStoreContainer">
     <EntitySet Name="DepartmentTable" EntityType="Self.DepartmentTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HRTable" EntityType="Self.HRTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JobPositionTable" EntityType="Self.JobPositionTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="JobTable" EntityType="Self.JobTable" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_HRTable_ToTable" Association="Self.FK_HRTable_ToTable">
       <End Role="JobTable" EntitySet="JobTable" />

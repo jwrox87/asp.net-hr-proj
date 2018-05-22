@@ -66,5 +66,13 @@
       <End Role="JobTable" EntitySet="JobTables" />
       <End Role="HRTable" EntitySet="HRTables" />
     </AssociationSet>
+    <EntitySet Name="JobPositionTables" EntityType="HRDatabaseModel.JobPositionTable" />
   </EntityContainer>
+  <EntityType Name="JobPositionTable">
+    <Key>
+      <PropertyRef Name="JobPosition_ID" />
+    </Key>
+    <Property Name="JobPosition_ID" Type="Int32" Nullable="false" />
+    <Property Name="Job_Title" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+  </EntityType>
 </Schema>

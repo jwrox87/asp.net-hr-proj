@@ -28,5 +28,6 @@ namespace WebApplication3
         public virtual DbSet<DepartmentTable> DepartmentTables { get; set; }
         public virtual DbSet<HRTable> HRTables { get; set; }
         public virtual DbSet<JobTable> JobTables { get; set; }
+        public virtual DbSet<JobPositionTable> JobPositionTables { get; set; }
     }
 }
