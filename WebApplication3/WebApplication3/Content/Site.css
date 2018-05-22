@@ -1,7 +1,8 @@
 ﻿/* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    padding-top: 200px;
+    padding-top: 0px;
     padding-bottom: 20px;
+    height: 0px;
 }
 
 /* Wrapping element */
@@ -26,9 +27,9 @@ label {
 
 div {
     margin-bottom: 5px;
-    height: 127px;
+    height: 24px;
     margin-left: 0px;
-    margin-top: 100px;
+    margin-top: 0px;
 }
 
 table
@@ -39,7 +40,7 @@ table
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .jumbotron {
-        margin-top: 20px;
+        margin-top: 0px;
     }
 
     .body-content {

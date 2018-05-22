@@ -34,6 +34,7 @@ nav,
 section,
 summary {
   display: block;
+    height: 188px;
 }
 
 audio,
@@ -58,7 +59,7 @@ html {
 }
 
 body {
-  margin: 0;
+  margin: 4px 0 0 0;
 }
 
 a:focus {
@@ -4183,7 +4184,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-fixed-top {
-  top: -24px;
+  top: -100px;
   z-index: 1030;
 }
 

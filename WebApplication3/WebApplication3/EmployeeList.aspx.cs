@@ -99,7 +99,17 @@ namespace WebApplication3
                             where p.Id == s
                             select p).Single();
 
+                var data_job = (from p in myEntities.JobTables
+                            where p.Job_ID == data.Job_ID
+                            select p).Single();
+
+                var data_department = (from p in myEntities.DepartmentTables
+                             where p.Department_ID == data.Department_ID
+                             select p).Single();
+
                 myEntities.HRTables.Remove(data);
+                myEntities.JobTables.Remove(data_job);
+                myEntities.DepartmentTables.Remove(data_department);
                 myEntities.SaveChanges();
             }
 

@@ -312,6 +312,12 @@ C:\Users\cceganj\source\repos\WebApplication3\WebApplication3\obj\Debug\WebAppli
 C:\Users\cceganj\source\repos\WebApplication3\WebApplication3\obj\Debug\WebApplication3.dll
 C:\Users\cceganj\source\repos\WebApplication3\WebApplication3\obj\Debug\WebApplication3.pdb
 C:\Users\cceganj\source\repos\WebApplication3\WebApplication3\obj\Debug\WebApplication3.csprojResolveAssemblyReference.cache
+C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\System.IO.Compression.dll
+C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\VBCSCompiler.exe
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\ApplicationInsights.config
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\WebApplication3.dll.config
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\WebApplication3.dll
@@ -323,13 +329,9 @@ C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\csi.
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\csi.exe.config
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\csi.rsp
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\Microsoft.CodeAnalysis.dll
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\Microsoft.VisualBasic.Core.targets
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\Microsoft.Win32.Primitives.dll
@@ -339,7 +341,6 @@ C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\Syst
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\System.Diagnostics.Process.dll
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\System.IO.Compression.dll
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\System.IO.FileSystem.dll
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\System.IO.FileSystem.Primitives.dll
@@ -362,7 +363,6 @@ C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\Syst
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\vbc.exe
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\vbc.exe.config
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\vbc.rsp
-C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\VBCSCompiler.exe
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\Microsoft.Win32.Primitives.dll
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\netstandard.dll
@@ -621,8 +621,8 @@ C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\ru\Microsof
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\tr\Microsoft.Build.Utilities.Core.resources.dll
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\zh-Hans\Microsoft.Build.Utilities.Core.resources.dll
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\bin\zh-Hant\Microsoft.Build.Utilities.Core.resources.dll
-C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\obj\Debug\WebApplication3.csprojResolveAssemblyReference.cache
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\obj\Debug\WebApplication3.csproj.CoreCompileInputs.cache
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\obj\Debug\WebApplication3.csproj.CopyComplete
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\obj\Debug\WebApplication3.dll
 C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\obj\Debug\WebApplication3.pdb
+C:\Users\cceganj\Desktop\test hr\WebApplication3\WebApplication3\obj\Debug\WebApplication3.csprojResolveAssemblyReference.cache
