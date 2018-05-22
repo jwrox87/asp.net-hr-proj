@@ -37,22 +37,36 @@ namespace WebApplication3
 
         private void InitDropDownList()
         {
+            using (HRDatabaseEntities myEntity = new HRDatabaseEntities())
+            {
+                var data = from JobPositionTable in myEntity.JobPositionTables
+                           select new
+                           {
+                               JobPositionTable.Job_Title
+                           };
+
+                if (data.Count() <= 0)
+                {
+                    ListItem listItem = new ListItem("None");
+                    titleList.Items.Add(listItem);
+                    return;
+                }
+
+                for(int i=0; i < data.Count(); i++)
+                {
+                    ListItem listItem = new ListItem(data.ToList()[i].Job_Title);
+                    titleList.Items.Add(listItem);
+                }
+            }
+
+
             ListItem listItem0 = new ListItem("None");
-            ListItem listItem1 = new ListItem("System Analyst");
-            ListItem listItem2 = new ListItem("Lead System Analyst");
+            ListItem listItem1 = new ListItem("IT");
+            ListItem listItem2 = new ListItem("HR");
 
-            titleList.Items.Add(listItem0);
-            titleList.Items.Add(listItem1);
-            titleList.Items.Add(listItem2);
-
-
-            ListItem listItemDName0 = new ListItem("IT");
-            ListItem listItemDName1 = new ListItem("HR");
-            ListItem listItemDName2 = new ListItem("R & D");
-
-            DepartmentNameList.Items.Add(listItemDName0);
-            DepartmentNameList.Items.Add(listItemDName1);
-            DepartmentNameList.Items.Add(listItemDName2);
+            DepartmentNameList.Items.Add(listItem0);
+            DepartmentNameList.Items.Add(listItem1);
+            DepartmentNameList.Items.Add(listItem2);
         }
 
         private void UpdateStatusLabel(string labelname, string text)
@@ -77,9 +91,7 @@ namespace WebApplication3
                 myEntities.SaveChanges();
 
                 employee.job_id = jobtable.Job_ID;
-            }
-
-           
+            }   
         }
 
         public void InsertDepartmentTable(ref Employee employee)

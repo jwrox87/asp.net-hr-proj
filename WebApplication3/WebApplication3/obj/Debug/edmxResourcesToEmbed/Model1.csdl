@@ -72,7 +72,7 @@
     <Key>
       <PropertyRef Name="JobPosition_ID" />
     </Key>
-    <Property Name="JobPosition_ID" Type="Int32" Nullable="false" />
+    <Property Name="JobPosition_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Job_Title" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
   </EntityType>
 </Schema>

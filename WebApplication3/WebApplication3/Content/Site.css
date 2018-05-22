@@ -1,8 +1,8 @@
 ﻿/* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    padding-top: 0px;
+    padding-top: 0;
     padding-bottom: 20px;
-    height: 0px;
+    height: 0;
 }
 
 /* Wrapping element */
@@ -28,19 +28,19 @@ label {
 div {
     margin-bottom: 5px;
     height: 24px;
-    margin-left: 0px;
-    margin-top: 0px;
+    margin-left: 0;
+    margin-top: 0;
 }
 
 table
-{    margin-left: 0px;
-    margin-top: 0px;
+{    margin-left: 0;
+    margin-top: 0;
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .jumbotron {
-        margin-top: 0px;
+        margin-top: 0;
     }
 
     .body-content {

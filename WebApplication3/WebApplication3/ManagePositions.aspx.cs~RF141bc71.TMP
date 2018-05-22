@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace WebApplication3
+{
+    public partial class WebForm2 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                LoadJobPosDatabase();
+            }
+        }
+
+        protected void LoadJobPosDatabase()
+        {
+            using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
+            {
+                var reviews = from JobPosTable in myEntities.JobPositionTables
+                 select new
+                 {
+                     JobPosTable.JobPosition_ID,
+                     JobPosTable.Job_Title
+                 };
+
+                GridView1.DataSource = reviews.ToList();
+                GridView1.DataBind();
+            }
+        }
+
+        protected void AddPositionBtn_Click(object sender, EventArgs e)
+        {
+            if (AddPositionBtn.Visible)
+                AddPositionBtn.Visible = false;
+            else
+
+
+
+
+        }
+    }
+
+}

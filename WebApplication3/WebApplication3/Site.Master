@@ -15,7 +15,7 @@ height: 385px;
 
 
     </style>
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> - Human Resource Application</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -65,8 +65,7 @@ height: 385px;
                         <asp:Menu ID="Menu1" runat="server" Font-Size="Large">
 
                             <Items>
-                                    
-                                    
+                                                                       
                                 
 <asp:MenuItem Text="Add Employee" NavigateUrl="HRForm.aspx"/>
 <asp:MenuItem Text="Employee List" NavigateUrl="EmployeeList.aspx"/>
@@ -77,8 +76,6 @@ height: 385px;
                          <asp:TableCell VerticalAlign="Top" HorizontalAlign ="Center">
                              
                         <asp:ContentPlaceHolder ID="MainContent" runat="server">
-
-
                          </asp:ContentPlaceHolder>
 </asp:TableCell>
                     </asp:TableRow>
