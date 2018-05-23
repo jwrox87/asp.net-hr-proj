@@ -176,7 +176,7 @@ namespace WebApplication3
 
         protected void OnClick_SeeEmployeeList(object sender, EventArgs e)
         {
-            Response.Redirect("EmployeeList.aspx");
+            //Response.Redirect("EmployeeList.aspx");
         }
 
         protected void InsertIntoDatabase()
