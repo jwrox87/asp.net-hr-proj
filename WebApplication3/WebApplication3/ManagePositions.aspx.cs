@@ -13,9 +13,11 @@ namespace WebApplication3
         {
             if (!IsPostBack)
             {
+             
                 LoadJobPosDatabase();
             }
         }
+
 
         private bool CheckIfInDatabase(string s)
         {

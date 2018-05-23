@@ -8,21 +8,37 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:Button ID="AddPositionBtn" runat="server" Text="Add Position" OnClick="AddPositionBtn_Click"/>
     <p></p>
-    <asp:Panel ID="AddPosPanel" runat="server" Visible ="false" style="margin-left:100px; margin-bottom:50px;">
-         
-        <label style="padding-right:2em">Job Title:</label>
-        <input id="AddPositionText" runat="server" type="text" style="padding-left:2em"/>
+    <asp:Panel ID="AddPosPanel" runat="server" Visible ="false" style="margin-left:5px; margin-bottom:5px;">
+        
+        <asp:Table runat="server" >
+            <asp:TableRow >
+                <asp:TableCell>
+
+                     <label>Job Title:</label>
+                </asp:TableCell>
+                <asp:TableCell>
+
+                    <input id="AddPositionText" runat="server" type="text" style="padding-left:2em"/>
+
+                </asp:TableCell>
+                <asp:TableCell>
+
+                            <asp:Button ID="AddPosSubmitBtn" runat="server" Text="Add" style="margin-left:8px"
+            OnClick="AddPosSubmitBtn_Click"/>
+
+                </asp:TableCell>
+            </asp:TableRow>
+
+        </asp:Table>
         <p>
         </p>
-        <input id="AddDepartmentText" runat="server" type="text" />
-        <asp:Button ID="AddPosSubmitBtn" runat="server" Text="Add" style="margin-left:8px"
-            OnClick="AddPosSubmitBtn_Click"/>
 
     </asp:Panel>
    
-        <asp:CustomValidator ID="AddPosValidator" runat="server" ErrorMessage="Duplicate Entry"
+       <asp:CustomValidator ID="AddPosValidator" runat="server" ErrorMessage="Duplicate Entry"
       Display="Dynamic" ForeColor="Red" ControlToValidate="AddPositionText" OnServerValidate="AddPosValidator_ServerValidate"
       ></asp:CustomValidator>
+        
 
   <asp:RegularExpressionValidator runat="server"
           ControlToValidate="AddPositionText" ValidationExpression="^(?=.*?[A-Za-z])[^0-9]+$" Display="Dynamic"

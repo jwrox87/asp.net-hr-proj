@@ -84,7 +84,7 @@ div {
                 <asp:TableRow BorderWidth="20px" BorderColor="White">
                     <asp:TableCell >
                         <label style="width:20% ">Job Position: </label>                  
-                        <asp:DropDownList style="width:20%" ID="titleList" runat="server"></asp:DropDownList>
+                        <asp:DropDownList style="width:50%" ID="titleList" runat="server"></asp:DropDownList>
                     </asp:TableCell> 
                  </asp:TableRow>
 

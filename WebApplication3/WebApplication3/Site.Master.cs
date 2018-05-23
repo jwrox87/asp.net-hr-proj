@@ -11,7 +11,22 @@ namespace WebApplication3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                SelectedMenuItem();
+            }
+        }
 
+        private void SelectedMenuItem()
+        {
+            foreach (MenuItem mi in Menu1.Items)
+            {
+                string s = mi.NavigateUrl.ToLower();
+                if (Request.Url.AbsoluteUri.ToLower().Contains(Page.ResolveUrl(s)))
+                {
+                    mi.Selected = true;
+                }
+            }
         }
     }
 }
