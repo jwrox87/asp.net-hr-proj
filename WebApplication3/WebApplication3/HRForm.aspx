@@ -65,6 +65,10 @@ div {
                             errormessage=" Please enter a valid IC number"
                             ControlToValidate="ICText"    
                             ValidationExpression="^[SFTG]\d{7}[A-Z]$" Display="Dynamic" />
+                          <asp:CustomValidator ID="CheckICValidator" runat="server" ErrorMessage="Duplicate Entry"
+      Display="Dynamic" ForeColor="Red" ControlToValidate="ICText"
+                              OnServerValidate="CheckICValidator_ServerValidate"
+      ></asp:CustomValidator>
                         </asp:TableCell></asp:TableRow>
                 
                 <asp:TableRow BorderWidth="20px" BorderColor="White">
@@ -77,7 +81,10 @@ div {
                             errormessage=" Please enter a valid phone number"
                             ControlToValidate="PhoneText"    
                             ValidationExpression="^[89]\d{7}$" Display="Dynamic" />
-
+                        <asp:CustomValidator ID="CheckPhoneValidator" runat="server" ErrorMessage="Duplicate Entry"
+      Display="Dynamic" ForeColor="Red" ControlToValidate="PhoneText"
+                              OnServerValidate="CheckPhoneValidator_ServerValidate"
+      ></asp:CustomValidator>
                     </asp:TableCell>
                 </asp:TableRow>
                 

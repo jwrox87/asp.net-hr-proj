@@ -108,13 +108,18 @@ namespace WebApplication3
             }
         }
 
-        public void InsertHRTable(int phoneNo, Employee employee)
+        public void InsertHRTable(Employee employee)
         {
+            int phone_number = 0;
+
+            if (PhoneText.Text != "")
+                phone_number = int.Parse(PhoneText.Text);
+
             HRTable hrtable = new HRTable();
             using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
             {
                 hrtable.Name = NameText.Text;
-                hrtable.Phone = phoneNo.ToString();
+                hrtable.Phone = phone_number.ToString();
                 hrtable.IC = ICText.Text;
                 hrtable.Job_ID = employee.job_id;
                 hrtable.Department_ID = employee.department_id;
@@ -124,25 +129,39 @@ namespace WebApplication3
             }
         }
 
-        protected void OnClick_AddEmployee(object sender, EventArgs e)
+        private bool CheckIfICInDatabase(string s)
         {
-            int phone_number = 0;
+            using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
+            {
+                var reviews = from HRTable in myEntities.HRTables
+                              where HRTable.IC == s
+                              select HRTable;
 
-            if (PhoneText.Text != "")
-                phone_number = int.Parse(PhoneText.Text);
+                if (reviews.ToList().Count >= 1)
+                    return true;
+            }
 
+            return false;
+        }
+
+        private bool CheckIfPhoneInDatabase(string s)
+        {
+            using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
+            {
+                var reviews = from HRTable in myEntities.HRTables
+                              where HRTable.Phone == s
+                              select HRTable;
+
+                if (reviews.ToList().Count >= 1)
+                    return true;
+            }
+
+            return false;
+        }
+
+        protected void OnClick_AddEmployee(object sender, EventArgs e)
+        {      
             SetValidations(true);
-
-            Employee employee = new Employee();
-
-            InsertJobTable(ref employee);
-            InsertDepartmentTable(ref employee);
-            InsertHRTable(phone_number, employee);
-
-            UpdateStatusLabel("UpdateStatus", "Successfully added into database");
-
-            ExtensionMethods.ClearTextBoxes(Page);
-            ExtensionMethods.ResetDropDownLists(Page);
         }
 
         protected void OnClick_SeeEmployeeList(object sender, EventArgs e)
@@ -150,6 +169,49 @@ namespace WebApplication3
             Response.Redirect("EmployeeList.aspx");
         }
 
-     
+        protected void InsertIntoDatabase()
+        {
+            Employee employee = new Employee();
+
+            InsertJobTable(ref employee);
+            InsertDepartmentTable(ref employee);
+            InsertHRTable(employee);
+
+            UpdateStatusLabel("UpdateStatus", "Successfully added into database");
+
+            ExtensionMethods.ClearTextBoxes(Page);
+            ExtensionMethods.ResetDropDownLists(Page);
+        }
+
+        bool IC_Checked = false;
+        protected void CheckICValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (CheckIfICInDatabase(args.Value))
+            {
+                args.IsValid = false;
+                IC_Checked = false;
+            }
+            else
+            {
+                args.IsValid = true;
+                IC_Checked = true;             
+            }
+        }
+
+        protected void CheckPhoneValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (CheckIfPhoneInDatabase(args.Value))
+            {
+                args.IsValid = false;
+            }
+            else
+            {
+                if (IC_Checked)
+                {
+                    args.IsValid = true;
+                    InsertIntoDatabase();
+                }
+            }
+        }
     }
 }

@@ -67,6 +67,15 @@ namespace WebApplication3 {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator ReqIC;
         
         /// <summary>
+        /// CheckICValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CheckICValidator;
+        
+        /// <summary>
         /// PhoneText control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace WebApplication3 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator ReqPhone;
+        
+        /// <summary>
+        /// CheckPhoneValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CheckPhoneValidator;
         
         /// <summary>
         /// titleList control.
