@@ -86,6 +86,7 @@ height: 385px;
 <asp:MenuItem Text="Add Employee" NavigateUrl="HRForm"/>
 <asp:MenuItem Text="Employee List" NavigateUrl="EmployeeList"/>
 <asp:MenuItem Text="Manage Positions" NavigateUrl="ManagePositions"/>
+<asp:MenuItem Text="Manage Departments" NavigateUrl="ManageDepartments"/>
 </Items>
 </asp:Menu>
 </asp:TableCell>

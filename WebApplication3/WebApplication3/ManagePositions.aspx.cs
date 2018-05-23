@@ -7,19 +7,17 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication3
 {
-    public partial class WebForm2 : System.Web.UI.Page
+    public partial class WebForm2 : System.Web.UI.Page, IDatabaseRequirements
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
-             
-                LoadJobPosDatabase();
+            {           
+                LoadDatabase();
             }
         }
 
-
-        private bool CheckIfInDatabase(string s)
+        public bool CheckIfInDatabase(string s)
         {
             using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
             {
@@ -34,24 +32,21 @@ namespace WebApplication3
             return false;
         }
 
-        const int id_index = 1;
-        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            int s = int.Parse(GridView1.Rows[e.RowIndex].Cells[id_index].Text);
+        
+        public void DeleteInDatabase(string s)
+        {      
             using (var myEntities = new HRDatabaseEntities())
             {
                 var data = (from p in myEntities.JobPositionTables
-                            where p.JobPosition_ID == s
+                            where p.JobPosition_ID.ToString() == s
                             select p).Single();
 
                 myEntities.JobPositionTables.Remove(data);
                 myEntities.SaveChanges();
             }
-
-            LoadJobPosDatabase();
         }
 
-        public void InsertJobPosTable()
+        public void InsertDatabase()
         {
             JobPositionTable jobpostable = new JobPositionTable();
             using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
@@ -63,7 +58,7 @@ namespace WebApplication3
             }
         }
 
-        protected void LoadJobPosDatabase()
+        public void LoadDatabase()
         {
             using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
             {
@@ -78,6 +73,15 @@ namespace WebApplication3
                 GridView1.DataSource = reviews.ToList();
                 GridView1.DataBind();
             }
+        }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            const int id_index = 1;
+            int s = int.Parse(GridView1.Rows[e.RowIndex].Cells[id_index].Text);
+            DeleteInDatabase(s.ToString());
+
+            LoadDatabase();
         }
 
         protected void AddPositionBtn_Click(object sender, EventArgs e)
@@ -109,8 +113,8 @@ namespace WebApplication3
             {
                 args.IsValid = true;
 
-                InsertJobPosTable();
-                LoadJobPosDatabase();
+                InsertDatabase();
+                LoadDatabase();
             }
         }
     }

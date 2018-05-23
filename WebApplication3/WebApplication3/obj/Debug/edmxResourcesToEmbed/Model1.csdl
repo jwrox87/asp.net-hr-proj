@@ -67,6 +67,7 @@
       <End Role="HRTable" EntitySet="HRTables" />
     </AssociationSet>
     <EntitySet Name="JobPositionTables" EntityType="HRDatabaseModel.JobPositionTable" />
+    <EntitySet Name="DepartmentPositionTables" EntityType="HRDatabaseModel.DepartmentPositionTable" />
   </EntityContainer>
   <EntityType Name="JobPositionTable">
     <Key>
@@ -74,5 +75,12 @@
     </Key>
     <Property Name="JobPosition_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Job_Title" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DepartmentPositionTable">
+    <Key>
+      <PropertyRef Name="DepartmentPos_Id" />
+    </Key>
+    <Property Name="DepartmentPos_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Department_Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
   </EntityType>
 </Schema>

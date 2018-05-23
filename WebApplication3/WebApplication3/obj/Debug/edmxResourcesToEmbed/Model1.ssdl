@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="HRDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DepartmentPositionTable">
+    <Key>
+      <PropertyRef Name="DepartmentPos_Id" />
+    </Key>
+    <Property Name="DepartmentPos_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Department_Name" Type="nchar" MaxLength="10" />
+  </EntityType>
   <EntityType Name="DepartmentTable">
     <Key>
       <PropertyRef Name="Department_ID" />
@@ -58,6 +65,7 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="HRDatabaseModelStoreContainer">
+    <EntitySet Name="DepartmentPositionTable" EntityType="Self.DepartmentPositionTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DepartmentTable" EntityType="Self.DepartmentTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HRTable" EntityType="Self.HRTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="JobPositionTable" EntityType="Self.JobPositionTable" Schema="dbo" store:Type="Tables" />

@@ -57,8 +57,19 @@ namespace WebApplication3
                 var reviews = from HRTable in myEntities.HRTables
                               where HRTable.Name == s ||
                               HRTable.IC == s ||
-                              HRTable.Phone == s
-                              select HRTable;
+                              HRTable.Phone == s ||
+                              HRTable.JobTable.Job_Title == s ||
+                              HRTable.DepartmentTable.Department_Name == s
+                              select new
+                              {
+                                  HRTable.Id,
+                                  HRTable.Name,
+                                  HRTable.Phone,
+                                  HRTable.IC,
+                                  HRTable.JobTable.Job_Title,
+                                  HRTable.JobTable.Job_Salary,
+                                  HRTable.DepartmentTable.Department_Name
+                              };
 
                 GridView1.DataSource = reviews.ToList();
                 GridView1.DataBind();
@@ -73,10 +84,6 @@ namespace WebApplication3
             if (!IsPostBack)
             {
                 LoadHRDatabase();
-            }
-            else
-            {
-               
             }
         }
 
@@ -118,7 +125,7 @@ namespace WebApplication3
 
         protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
-            //Response.Write("Chang");
+           
         }
     }
 }

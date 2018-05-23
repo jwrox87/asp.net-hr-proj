@@ -38,5 +38,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="DepartmentPositionTables">
+      <EntityTypeMapping TypeName="HRDatabaseModel.DepartmentPositionTable">
+        <MappingFragment StoreEntitySet="DepartmentPositionTable">
+          <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+          <ScalarProperty Name="DepartmentPos_Id" ColumnName="DepartmentPos_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

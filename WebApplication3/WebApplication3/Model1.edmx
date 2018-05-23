@@ -5,6 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="HRDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DepartmentPositionTable">
+          <Key>
+            <PropertyRef Name="DepartmentPos_Id" />
+          </Key>
+          <Property Name="DepartmentPos_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Department_Name" Type="nchar" MaxLength="10" />
+        </EntityType>
         <EntityType Name="DepartmentTable">
           <Key>
             <PropertyRef Name="Department_ID" />
@@ -63,6 +70,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="HRDatabaseModelStoreContainer">
+          <EntitySet Name="DepartmentPositionTable" EntityType="Self.DepartmentPositionTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DepartmentTable" EntityType="Self.DepartmentTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HRTable" EntityType="Self.HRTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="JobPositionTable" EntityType="Self.JobPositionTable" Schema="dbo" store:Type="Tables" />
@@ -147,6 +155,7 @@
             <End Role="HRTable" EntitySet="HRTables" />
           </AssociationSet>
           <EntitySet Name="JobPositionTables" EntityType="HRDatabaseModel.JobPositionTable" />
+          <EntitySet Name="DepartmentPositionTables" EntityType="HRDatabaseModel.DepartmentPositionTable" />
         </EntityContainer>
         <EntityType Name="JobPositionTable">
           <Key>
@@ -154,6 +163,13 @@
           </Key>
           <Property Name="JobPosition_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Job_Title" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DepartmentPositionTable">
+          <Key>
+            <PropertyRef Name="DepartmentPos_Id" />
+          </Key>
+          <Property Name="DepartmentPos_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Department_Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -195,6 +211,14 @@
               <MappingFragment StoreEntitySet="JobPositionTable">
                 <ScalarProperty Name="Job_Title" ColumnName="Job_Title" />
                 <ScalarProperty Name="JobPosition_ID" ColumnName="JobPosition_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DepartmentPositionTables">
+            <EntityTypeMapping TypeName="HRDatabaseModel.DepartmentPositionTable">
+              <MappingFragment StoreEntitySet="DepartmentPositionTable">
+                <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+                <ScalarProperty Name="DepartmentPos_Id" ColumnName="DepartmentPos_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

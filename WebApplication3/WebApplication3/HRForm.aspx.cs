@@ -45,6 +45,12 @@ namespace WebApplication3
                                JobPositionTable.Job_Title
                            };
 
+                var data2 = from dTable in myEntity.DepartmentPositionTables
+                            select new
+                            {
+                                dTable.Department_Name
+                            };
+
                 if (data.Count() <= 0)
                 {
                     ListItem listItem = new ListItem("None");
@@ -52,21 +58,25 @@ namespace WebApplication3
                     return;
                 }
 
-                for(int i=0; i < data.Count(); i++)
+                for (int i = 0; i < data.Count(); i++)
                 {
                     ListItem listItem = new ListItem(data.ToList()[i].Job_Title);
                     titleList.Items.Add(listItem);
                 }
+
+                if (data2.Count() <= 0)
+                {
+                    ListItem listItem = new ListItem("None");
+                    titleList.Items.Add(listItem);
+                    return;
+                }
+
+                for (int i = 0; i < data2.Count(); i++)
+                {
+                    ListItem listItem = new ListItem(data2.ToList()[i].Department_Name);
+                    DepartmentNameList.Items.Add(listItem);
+                }
             }
-
-
-            ListItem listItem0 = new ListItem("None");
-            ListItem listItem1 = new ListItem("IT");
-            ListItem listItem2 = new ListItem("HR");
-
-            DepartmentNameList.Items.Add(listItem0);
-            DepartmentNameList.Items.Add(listItem1);
-            DepartmentNameList.Items.Add(listItem2);
         }
 
         private void UpdateStatusLabel(string labelname, string text)
@@ -187,23 +197,17 @@ namespace WebApplication3
         protected void CheckICValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
             if (CheckIfICInDatabase(args.Value))
-            {
                 args.IsValid = false;
-                IC_Checked = false;
-            }
             else
-            {
-                args.IsValid = true;
-                IC_Checked = true;             
-            }
+                args.IsValid = true;           
+
+            IC_Checked = args.IsValid;
         }
 
         protected void CheckPhoneValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
             if (CheckIfPhoneInDatabase(args.Value))
-            {
                 args.IsValid = false;
-            }
             else
             {
                 if (IC_Checked)
