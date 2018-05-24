@@ -117,12 +117,11 @@ div {
                         <label style="width:20%">Profile Picture: </label>                  
                         <asp:FileUpload ID="FileUpload1" runat="server" />
 
-   <asp:CustomValidator ID="UploadPicValidator" runat="server" ErrorMessage="Upload in JPG Format"
-      Display="Dynamic" ForeColor="Red" ControlToValidate="FileUpload1"
+                           <asp:CustomValidator ID="UploadPicValidator" runat="server" ErrorMessage="Upload in JPG or PNG Format"
+      Display="Dynamic" ForeColor="Red" ControlToValidate="FileUpload1" ValidateEmptyText="true"
                               OnServerValidate="UploadPicValidator_ServerValidate"
       ></asp:CustomValidator>
-
-                    </asp:TableCell>
+                        </asp:TableCell>
                  </asp:TableRow>
 
             </asp:Table>

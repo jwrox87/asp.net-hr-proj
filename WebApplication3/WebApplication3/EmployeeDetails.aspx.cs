@@ -28,9 +28,7 @@ namespace WebApplication3
             {
                 byte[] b = (byte[])Session["picture"];
                 Image1.ImageUrl = "data:image/jpg;base64," + Convert.ToBase64String(b);
-            }
-
-            
+            }  
         }
 
         public void LoadEmployeeDetails(Employee e)

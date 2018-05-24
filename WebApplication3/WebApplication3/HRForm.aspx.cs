@@ -208,7 +208,7 @@ namespace WebApplication3
        
         protected void UploadPicValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            if (args.Value != null)
+            if (FileUpload1.PostedFile.FileName != "")
             {
                 if (FileUpload1.FileName.Contains(".png")
                     || FileUpload1.FileName.Contains(".jpg"))
@@ -217,12 +217,11 @@ namespace WebApplication3
                     {
                         args.IsValid = true;
                         InsertIntoDatabase();
-                    }           
+                    }
                 }
             }
             else
             {
-
                 args.IsValid = false;
             }
         }
