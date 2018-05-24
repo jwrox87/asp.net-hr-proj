@@ -12,6 +12,7 @@
     <EntitySetMapping Name="HRTables">
       <EntityTypeMapping TypeName="HRDatabaseModel.HRTable">
         <MappingFragment StoreEntitySet="HRTable">
+          <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />

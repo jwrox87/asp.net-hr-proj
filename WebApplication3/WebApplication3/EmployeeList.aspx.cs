@@ -145,11 +145,12 @@ namespace WebApplication3
 
                 ExtensionMethods.Redirect
                (this.Response, "EmployeeDetails", "_blank",
-               "menubar=0,scrollbars=1,width=780,height=900,top=10");
+               "menubar=0,scrollbars=1,width=780,height=800,top=10");
 
                 Employee employee = new Employee(data.Name,
                     data.Phone, data.IC, data.JobTable.Job_Title,
-                    data.JobTable.Job_Salary.ToString(), data.DepartmentTable.Department_Name);
+                    data.JobTable.Job_Salary.ToString(), data.DepartmentTable.Department_Name
+                    , data.ProfilePicture);
 
                 employeedetails.LoadEmployeeDetails(employee);
             }

@@ -20,6 +20,7 @@ namespace WebApplication3
         public string IC { get; set; }
         public int Job_ID { get; set; }
         public int Department_ID { get; set; }
+        public byte[] ProfilePicture { get; set; }
     
         public virtual DepartmentTable DepartmentTable { get; set; }
         public virtual JobTable JobTable { get; set; }

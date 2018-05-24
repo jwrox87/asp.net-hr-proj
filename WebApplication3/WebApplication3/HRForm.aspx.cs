@@ -133,6 +133,7 @@ namespace WebApplication3
                 hrtable.IC = ICText.Text;
                 hrtable.Job_ID = employee.job_id;
                 hrtable.Department_ID = employee.department_id;
+                hrtable.ProfilePicture = FileUpload1.FileBytes;
 
                 myEntities.HRTables.Add(hrtable);
                 myEntities.SaveChanges();
@@ -204,18 +205,39 @@ namespace WebApplication3
             IC_Checked = args.IsValid;
         }
 
+       
+        protected void UploadPicValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value != null)
+            {
+                if (FileUpload1.FileName.Contains(".png")
+                    || FileUpload1.FileName.Contains(".jpg"))
+                {
+                    if (IC_Checked && Phone_Checked)
+                    {
+                        args.IsValid = true;
+                        InsertIntoDatabase();
+                    }           
+                }
+            }
+            else
+            {
+
+                args.IsValid = false;
+            }
+        }
+
+        bool Phone_Checked = false;
         protected void CheckPhoneValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
             if (CheckIfPhoneInDatabase(args.Value))
                 args.IsValid = false;
             else
-            {
-                if (IC_Checked)
-                {
-                    args.IsValid = true;
-                    InsertIntoDatabase();
-                }
-            }
+                args.IsValid = true;
+
+            Phone_Checked = args.IsValid;
         }
+
+        
     }
 }

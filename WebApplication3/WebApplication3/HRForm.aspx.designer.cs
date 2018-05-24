@@ -130,6 +130,24 @@ namespace WebApplication3 {
         protected global::System.Web.UI.WebControls.DropDownList DepartmentNameList;
         
         /// <summary>
+        /// FileUpload1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        
+        /// <summary>
+        /// UploadPicValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator UploadPicValidator;
+        
+        /// <summary>
         /// UpdateStatus control.
         /// </summary>
         /// <remarks>

@@ -10,33 +10,33 @@
     <form id="form1" runat="server">
         <div>
             <asp:Panel ID="Panel1" runat="server" Height="211px" Width="463px">
-                <asp:Image ID="Image1" runat="server" Height="145px" Width="127px"  ImageUrl="~/Art/AR_Marker_PNG_24.png" />
+                <asp:Image ID="Image1" runat="server" Height="145px" Width="127px"  ImageUrl="~/Art/AR_Marker_PNG_24.png" BorderColor="Black" BorderStyle="Dashed" />
                 <br />
-                <asp:Table ID="Table1" runat="server" GridLines="Both" Width="70%">
+                <asp:Table ID="Table1" runat="server" Width="100%" Font-Size="Larger" Font-Strikeout="False" CellPadding="15" CellSpacing="10">
                     <asp:TableRow runat="server">
                         <asp:TableCell>
-                            Name: <label id="nameLabel" runat="server"></label>
+                            Name: <label id="nameLabel" style="font:bold" runat="server"></label>
                         </asp:TableCell>
                          <asp:TableCell>
-                            IC: <label id="icLabel" runat="server"></label>
-                        </asp:TableCell>
-                    </asp:TableRow>
-                    <asp:TableRow runat="server">
-                         <asp:TableCell>
-                             Phone: <label id="phoneLabel" runat="server"></label>
+                            IC: <label id="icLabel" style="font:bold" runat="server"></label>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow runat="server">
                          <asp:TableCell>
-                             Job Position:<label id="jobPosLabel" runat="server"></label>
-                        </asp:TableCell>
-                         <asp:TableCell>
-                             Job Salary:<label id="jobSalaryLabel" runat="server"></label>
+                             Phone: <label id="phoneLabel" runat="server" style="font:bold"></label>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow runat="server">
                          <asp:TableCell>
-                            Department Name:<label id="depNameLabel" runat="server"></label>
+                             Job Position:<label id="jobPosLabel" runat="server" style="font:bold"></label>
+                        </asp:TableCell>
+                         <asp:TableCell>
+                             Job Salary:<label id="jobSalaryLabel" runat="server" style="font:bold"></label>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow runat="server">
+                         <asp:TableCell>
+                            Department Name:<label id="depNameLabel" runat="server" style="font:bold"></label>
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>

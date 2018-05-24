@@ -14,6 +14,7 @@ namespace WebApplication3
 
         //Other details
         private string name, ic, phone, job_pos, job_salary, department_name;
+        private byte[] picture;
 
         public Employee() { }
 
@@ -28,7 +29,7 @@ namespace WebApplication3
         }
 
         public Employee(string n, string p, string _ic,
-            string jp, string js, string dn)
+            string jp, string js, string dn, byte[] b)
         {
             name = n;
             phone = p;
@@ -36,6 +37,7 @@ namespace WebApplication3
             job_pos = jp;
             job_salary = js;
             department_name = dn;
+            picture = b;
         }
 
         public string Name{ get { return name; } }
@@ -44,5 +46,10 @@ namespace WebApplication3
         public string JobPos { get { return job_pos; } }
         public string JobSalary { get { return job_salary; } }
         public string DepartmentName { get { return department_name; } }
+        public byte[] Picture
+        {
+            get { return picture; }
+            set { picture = value; }
+        }
     }
 }

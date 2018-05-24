@@ -29,6 +29,7 @@
           <Property Name="IC" Type="nchar" MaxLength="9" />
           <Property Name="Job_ID" Type="int" Nullable="false" />
           <Property Name="Department_ID" Type="int" Nullable="false" />
+          <Property Name="ProfilePicture" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="JobPositionTable">
           <Key>
@@ -108,6 +109,7 @@
           <Property Name="Department_ID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="DepartmentTable" Relationship="Self.FK_HRTable_ToTable_1" FromRole="HRTable" ToRole="DepartmentTable" />
           <NavigationProperty Name="JobTable" Relationship="Self.FK_HRTable_ToTable" FromRole="HRTable" ToRole="JobTable" />
+          <Property Name="ProfilePicture" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="JobTable">
           <Key>
@@ -188,6 +190,7 @@
           <EntitySetMapping Name="HRTables">
             <EntityTypeMapping TypeName="HRDatabaseModel.HRTable">
               <MappingFragment StoreEntitySet="HRTable">
+                <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />

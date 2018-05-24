@@ -20,6 +20,7 @@
     <Property Name="Department_ID" Type="Int32" Nullable="false" />
     <NavigationProperty Name="DepartmentTable" Relationship="Self.FK_HRTable_ToTable_1" FromRole="HRTable" ToRole="DepartmentTable" />
     <NavigationProperty Name="JobTable" Relationship="Self.FK_HRTable_ToTable" FromRole="HRTable" ToRole="JobTable" />
+    <Property Name="ProfilePicture" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="JobTable">
     <Key>

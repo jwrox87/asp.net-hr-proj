@@ -23,6 +23,14 @@ namespace WebApplication3
             jobPosLabel.InnerText = Session["jobtitle"].ToString();
             jobSalaryLabel.InnerText = Session["jobsalary"].ToString();
             depNameLabel.InnerText = Session["departmentname"].ToString();
+
+            if (Session["picture"] != null)
+            {
+                byte[] b = (byte[])Session["picture"];
+                Image1.ImageUrl = "data:image/jpg;base64," + Convert.ToBase64String(b);
+            }
+
+            
         }
 
         public void LoadEmployeeDetails(Employee e)
@@ -33,6 +41,7 @@ namespace WebApplication3
             Session["jobtitle"] = e.JobPos;
             Session["jobsalary"] = e.JobSalary;
             Session["departmentname"] = e.DepartmentName;
+            Session["picture"] = e.Picture;
         }
     }
 }

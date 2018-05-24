@@ -24,6 +24,7 @@
     <Property Name="IC" Type="nchar" MaxLength="9" />
     <Property Name="Job_ID" Type="int" Nullable="false" />
     <Property Name="Department_ID" Type="int" Nullable="false" />
+    <Property Name="ProfilePicture" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="JobPositionTable">
     <Key>

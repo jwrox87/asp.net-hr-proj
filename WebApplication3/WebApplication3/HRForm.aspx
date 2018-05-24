@@ -39,7 +39,7 @@ div {
 </head>
 <body style="height: 100%">
         <p>   
-            <asp:Table ID="Table1" runat="server" Height="142px" Width="490px">
+            <asp:Table ID="Table1" runat="server" Height="142px" Width="490px" CellPadding="8">
                 
                 <asp:TableRow BorderWidth="20px" BorderColor="White">
                     <asp:TableCell> 
@@ -112,6 +112,19 @@ div {
                     </asp:TableCell>
                  </asp:TableRow>
 
+                <asp:TableRow BorderWidth="20px" BorderColor="White">
+                    <asp:TableCell>
+                        <label style="width:20%">Profile Picture: </label>                  
+                        <asp:FileUpload ID="FileUpload1" runat="server" />
+
+   <asp:CustomValidator ID="UploadPicValidator" runat="server" ErrorMessage="Upload in JPG Format"
+      Display="Dynamic" ForeColor="Red" ControlToValidate="FileUpload1"
+                              OnServerValidate="UploadPicValidator_ServerValidate"
+      ></asp:CustomValidator>
+
+                    </asp:TableCell>
+                 </asp:TableRow>
+
             </asp:Table>
 
         </p><p>   
@@ -121,9 +134,6 @@ div {
            
             <asp:Button ID="AddEmployeeBtn" runat="server" Text="Add Employee"  style="height: 26px" 
                  OnClick="OnClick_AddEmployee"/>
-           
-
-
         </p>
 
 </body>             
