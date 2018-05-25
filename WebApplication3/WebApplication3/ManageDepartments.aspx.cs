@@ -17,12 +17,12 @@ namespace WebApplication3
             }
         }
 
-        public bool CheckIfInDatabase(string s)
+        public bool CheckIfInDatabase<T>(T s)
         {
             using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
             {
                 var reviews = from d in myEntities.DepartmentPositionTables
-                              where d.Department_Name == s
+                              where d.Department_Name == s.ToString()
                               select d;
 
                 if (reviews.ToList().Count >= 1)
@@ -32,18 +32,20 @@ namespace WebApplication3
             return false;
         }
 
-        public void DeleteInDatabase(string s)
+        public void DeleteInDatabase<T>(T s)
         {
             using (var myEntities = new HRDatabaseEntities())
             {
                 var data = (from d in myEntities.DepartmentPositionTables
-                            where d.DepartmentPos_Id.ToString() == s
+                            where d.DepartmentPos_Id.ToString() == s.ToString()
                             select d).Single();
 
                 myEntities.DepartmentPositionTables.Remove(data);
                 myEntities.SaveChanges();
             }
         }
+
+        public void EditDatabase<T>(T t) { }
 
         public void InsertDatabase()
         {

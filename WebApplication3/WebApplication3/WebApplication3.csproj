@@ -365,6 +365,7 @@
     <Content Include="ManagePositions.aspx" />
     <Content Include="ManageDepartments.aspx" />
     <Content Include="EmployeeDetails.aspx" />
+    <Content Include="EmployeeEdit.aspx" />
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -544,6 +545,13 @@
     </Compile>
     <Compile Include="EmployeeDetails.aspx.designer.cs">
       <DependentUpon>EmployeeDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeEdit.aspx.cs">
+      <DependentUpon>EmployeeEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeEdit.aspx.designer.cs">
+      <DependentUpon>EmployeeEdit.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

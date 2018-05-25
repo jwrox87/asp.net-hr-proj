@@ -28,7 +28,11 @@ namespace WebApplication3
             {
                 byte[] b = (byte[])Session["picture"];
                 Image1.ImageUrl = "data:image/jpg;base64," + Convert.ToBase64String(b);
-            }  
+            }
+
+            idLabel.InnerText = Session["id"].ToString();
+            jobidLabel.InnerText = Session["job_id"].ToString();
+            didLabel.InnerText = Session["department_id"].ToString();
         }
 
         public void LoadEmployeeDetails(Employee e)
@@ -37,9 +41,13 @@ namespace WebApplication3
             Session["phone"] = e.Phone;
             Session["ic"] = e.IC;
             Session["jobtitle"] = e.JobPos;
-            Session["jobsalary"] = e.JobSalary;
+            Session["jobsalary"] = (float.Parse(e.JobSalary) * 100f) / 100f;
             Session["departmentname"] = e.DepartmentName;
             Session["picture"] = e.Picture;
+
+            Session["id"] = e.id;
+            Session["job_id"] = e.job_id;
+            Session["department_id"] = e.department_id;
         }
     }
 }

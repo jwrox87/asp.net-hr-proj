@@ -36,7 +36,6 @@ namespace WebApplication3
                                   HRTable.Phone,
                                   HRTable.IC,
                                   HRTable.JobTable.Job_Title,
-                                  HRTable.JobTable.Job_Salary,
                                   HRTable.DepartmentTable.Department_Name
                               };
 
@@ -51,14 +50,16 @@ namespace WebApplication3
         }
 
         public void InsertDatabase() { }
-        public bool CheckIfInDatabase(string s) { return false; }
+        public bool CheckIfInDatabase<T>(T s) { return false; }
 
-        public void DeleteInDatabase(string s)
+        public void EditDatabase<T>(T t) { }
+
+        public void DeleteInDatabase<T>(T s)
         {
             using (var myEntities = new HRDatabaseEntities())
             {
                 var data = (from p in myEntities.HRTables
-                            where p.Id.ToString() == s
+                            where p.Id.ToString() == s.ToString()
                             select p).Single();
 
                 var data_job = (from p in myEntities.JobTables
@@ -93,7 +94,6 @@ namespace WebApplication3
                                   HRTable.Phone,
                                   HRTable.IC,
                                   HRTable.JobTable.Job_Title,
-                                  HRTable.JobTable.Job_Salary,
                                   HRTable.DepartmentTable.Department_Name
                               };
 
@@ -150,12 +150,34 @@ namespace WebApplication3
                 Employee employee = new Employee(data.Name,
                     data.Phone, data.IC, data.JobTable.Job_Title,
                     data.JobTable.Job_Salary.ToString(), data.DepartmentTable.Department_Name
-                    , data.ProfilePicture);
+                    , data.ProfilePicture, data.Id, data.Job_ID, data.Department_ID);
 
                 employeedetails.LoadEmployeeDetails(employee);
             }
         
           
+        }
+
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+
+            using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
+            {
+                var reviews = from HRTable in myEntities.HRTables
+                              select new
+                              {
+                                  HRTable.Id,
+                                  HRTable.Name,
+                                  HRTable.Phone,
+                                  HRTable.IC,
+                                  HRTable.JobTable.Job_Title,
+                                  HRTable.DepartmentTable.Department_Name
+                              };
+
+                GridView1.DataSource = reviews.ToList();
+                GridView1.DataBind();
+            }
         }
     }
 }

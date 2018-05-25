@@ -12,7 +12,19 @@
             <asp:Panel ID="Panel1" runat="server" Height="211px" Width="463px">
                 <asp:Image ID="Image1" runat="server" Height="145px" Width="127px"  ImageUrl="~/Art/AR_Marker_PNG_24.png" BorderColor="Black" BorderStyle="Dashed" />
                 <br />
-                <asp:Table ID="Table1" runat="server" Width="100%" Font-Size="Larger" Font-Strikeout="False" CellPadding="15" CellSpacing="10">
+                <asp:Table ID="Table1" runat="server" Width="160%" Font-Size="Larger" Font-Strikeout="False" CellPadding="15" CellSpacing="10">
+                    <asp:TableRow runat="server">
+                        <asp:TableCell>
+                            Ref ID: <label id="idLabel" style="font:bold" runat="server"></label> 
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            Job ID: <label id="jobidLabel" style="font:bold" runat="server"></label> 
+                        </asp:TableCell>
+                         <asp:TableCell>
+                            Deparment ID: <label id="didLabel" style="font:bold" runat="server"></label> 
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    
                     <asp:TableRow runat="server">
                         <asp:TableCell>
                             Name: <label id="nameLabel" style="font:bold" runat="server"></label>

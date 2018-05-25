@@ -78,12 +78,13 @@ height: 385px;
                             StaticMenuItemStyle-BorderStyle="None" 
                             IncludeStyleBlock="True" 
                             StaticMenuStyle-BorderStyle="NotSet" 
-                            StaticSelectedStyle-BackColor="#FFFF99">
+                            StaticSelectedStyle-BackColor="#FFFF99" ItemWrap="True" StaticMenuStyle-VerticalPadding="10">
 
                             <Items> 
                                                                        
                                 
 <asp:MenuItem Text="Add Employee" NavigateUrl="HRForm"/>
+<asp:MenuItem Text="Edit Employee" NavigateUrl="EmployeeEdit"/>
 <asp:MenuItem Text="Employee List" NavigateUrl="EmployeeList"/>
 <asp:MenuItem Text="Manage Positions" NavigateUrl="ManagePositions"/>
 <asp:MenuItem Text="Manage Departments" NavigateUrl="ManageDepartments"/>

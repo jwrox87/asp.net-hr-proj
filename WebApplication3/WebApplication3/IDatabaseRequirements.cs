@@ -10,12 +10,14 @@ namespace WebApplication3
     public interface IDatabaseRequirements
     {
         //Check if variable in database
-        bool CheckIfInDatabase(string s);
+        bool CheckIfInDatabase<T>(T t);
         //Delete an item from database
-        void DeleteInDatabase(string s);
+        void DeleteInDatabase<T>(T t);
         //Insert an item in database
         void InsertDatabase();
         //Load the database
         void LoadDatabase();
+        //Edit existing database
+        void EditDatabase<T>(T t);
     }
 }

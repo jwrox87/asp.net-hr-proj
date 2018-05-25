@@ -29,7 +29,7 @@ namespace WebApplication3
         }
 
         public Employee(string n, string p, string _ic,
-            string jp, string js, string dn, byte[] b)
+            string jp, string js, string dn, byte[] b, int _id=0, int jid=0, int did=0)
         {
             name = n;
             phone = p;
@@ -38,6 +38,10 @@ namespace WebApplication3
             job_salary = js;
             department_name = dn;
             picture = b;
+
+            id = _id;
+            job_id = jid;
+            department_id = did;
         }
 
         public string Name{ get { return name; } }
