@@ -10,6 +10,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <body>
         <div style="height: 87px">
+            Enter search:
                 <asp:TextBox ID="SearchText" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>         
                 <br />
                 <br />
@@ -17,8 +18,11 @@
             
         </div>
         <asp:GridView ID="GridView1" runat="server" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="Horizontal" ShowHeaderWhenEmpty="True" ShowFooter="True" OnRowDeleting="GridView1_RowDeleting" OnSelectedIndexChanging="GridView1_SelectedIndexChanging"  
-             AllowPaging="true"  OnPageIndexChanging="GridView1_PageIndexChanging">
-                   <pagersettings mode="Numeric"
+             AllowPaging="true"  OnPageIndexChanging="GridView1_PageIndexChanging" AllowSorting="True" OnSorting="GridView1_Sorting">
+                   
+            
+            
+            <pagersettings mode="Numeric"
           position="Bottom"           
           pagebuttoncount="10"/>
 

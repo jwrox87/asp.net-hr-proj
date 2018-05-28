@@ -37,6 +37,9 @@
                          <asp:TableCell>
                              Phone: <label id="phoneLabel" runat="server" style="font:bold"></label>
                         </asp:TableCell>
+                          <asp:TableCell>
+                             Join Date: <label id="joinDateLabel" runat="server" style="font:bold"></label>
+                        </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow runat="server">
                          <asp:TableCell>

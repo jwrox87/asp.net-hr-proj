@@ -23,6 +23,7 @@ namespace WebApplication3
         public int Job_ID { get; set; }
         public string Job_Title { get; set; }
         public Nullable<decimal> Job_Salary { get; set; }
+        public Nullable<System.DateTime> Job_JoinDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HRTable> HRTables { get; set; }

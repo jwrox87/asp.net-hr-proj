@@ -71,7 +71,7 @@
                 <asp:RegularExpressionValidator ID="ReqPhone" runat="server"   
                  errormessage=" Please enter a valid phone number"
                  ControlToValidate="inputPhone"    
-                 ValidationExpression="^[89]\d{7}$" Display="Static" ForeColor="Red" />
+                 ValidationExpression="^[89]\d{7}$" Display="Dynamic" ForeColor="Red" />
             </asp:TableCell>
         </asp:TableRow>
 
@@ -83,7 +83,7 @@
                 Job Salary: <input id="inputJS" runat="server" />
                 <p></p>
        <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" 
-            ControlToValidate="inputJS" ErrorMessage="Enter numbers only" ForeColor="Red"  Display="Static"/>
+            ControlToValidate="inputJS" ErrorMessage="Enter numbers only" ForeColor="Red"  Display="Dynamic"/>
             </asp:TableCell>
           </asp:TableRow>
           
@@ -96,6 +96,12 @@
           <asp:TableRow>
                <asp:TableCell>
                Profile Picture: <asp:FileUpload runat="server" id="fileuploadPP"/>
+               
+       <asp:CustomValidator ID="UploadPicValidator" runat="server" ErrorMessage="Upload in JPG or PNG Format"
+      Display="Dynamic" ForeColor="Red" ControlToValidate="fileuploadPP" ValidateEmptyText="true"
+          OnServerValidate="UploadPicValidator_ServerValidate"
+      ></asp:CustomValidator>
+               
                </asp:TableCell>
           </asp:TableRow>
 

@@ -14,6 +14,7 @@ namespace WebApplication3
 
         //Other details
         private string name, ic, phone, job_pos, job_salary, department_name;
+        private DateTime? job_joinDate;
         private byte[] picture;
 
         public Employee() { }
@@ -29,7 +30,7 @@ namespace WebApplication3
         }
 
         public Employee(string n, string p, string _ic,
-            string jp, string js, string dn, byte[] b, int _id=0, int jid=0, int did=0)
+            string jp, string js, DateTime? jjd, string dn, byte[] b, int _id=0, int jid=0, int did=0)
         {
             name = n;
             phone = p;
@@ -38,6 +39,8 @@ namespace WebApplication3
             job_salary = js;
             department_name = dn;
             picture = b;
+
+            job_joinDate = jjd;
 
             id = _id;
             job_id = jid;
@@ -50,6 +53,16 @@ namespace WebApplication3
         public string JobPos { get { return job_pos; } }
         public string JobSalary { get { return job_salary; } }
         public string DepartmentName { get { return department_name; } }
+        public string JoinDate
+        {
+            get
+            {
+                if (job_joinDate != null)
+                return DateTime.Parse(job_joinDate.ToString()).ToShortDateString();
+
+                return null;
+            }
+        }
         public byte[] Picture
         {
             get { return picture; }

@@ -11,7 +11,10 @@ namespace WebApplication3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                InitDropDownList();
+            }
         }
 
         public void LoadDatabase(){ }
@@ -34,6 +37,8 @@ namespace WebApplication3
 
                     data.JobTable.Job_Title = ddlJP.Text;
                     data.DepartmentTable.Department_Name = ddlDN.Text;
+
+                    data.ProfilePicture = fileuploadPP.FileBytes;
                 }
 
                 myEntities.SaveChanges();
@@ -79,7 +84,7 @@ namespace WebApplication3
                             select hrTable).Single();
 
                 return new Employee(data.Name, data.Phone,
-                    data.IC, data.JobTable.Job_Title, data.JobTable.Job_Salary.ToString(),
+                    data.IC, data.JobTable.Job_Title, data.JobTable.Job_Salary.ToString(), data.JobTable.Job_JoinDate,
                     data.DepartmentTable.Department_Name, data.ProfilePicture,
                     data.Id, data.Job_ID, data.Department_ID);
             }
@@ -141,11 +146,12 @@ namespace WebApplication3
             inputIC.Value = e.IC;
         }
 
-        private void ShowNotification()
+        private void ShowNotification(bool b)
         {
             NotificationLabel.InnerText = "Changes saved";
-            NotificationLabel.Visible = true;
+            NotificationLabel.Visible = b;
         }
+
 
         private void ShowEmployeeDetailsTable()
         {
@@ -157,6 +163,7 @@ namespace WebApplication3
             if (args.Value == "")
             {
                 args.IsValid = false;
+                ShowNotification(false);
             }
             else
             {
@@ -166,22 +173,55 @@ namespace WebApplication3
 
                     ShowEmployeeDetailsTable();
                     AssignProperties(GetValueFromGridView());
-                    InitDropDownList();
+                    
 
                     AddOffset();
-                  
+
                 }
                 else
+                {
                     args.IsValid = false;
+                    ShowNotification(false);
+                }
             }
         }
 
-        protected void ApplyChangeBtn_Click(object sender, EventArgs e)
+        private void AddToDatabase()
         {
             Employee employee = GetValueFromGridView();
             EditDatabase(employee.id);
 
-            ShowNotification();
+            ExtensionMethods.ClearTextBoxes(Page);
+            ShowNotification(true);
+        }
+
+        protected void ApplyChangeBtn_Click(object sender, EventArgs e)
+        {
+            if (fileuploadPP.PostedFile == null)
+            {
+                AddToDatabase();
+            }
+        }
+
+        protected void UploadPicValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (fileuploadPP.PostedFile == null)
+                return;
+            
+            if (fileuploadPP.PostedFile.FileName != "")
+            {
+                if (fileuploadPP.FileName.Contains(".png")
+                    || fileuploadPP.FileName.Contains(".jpg"))
+                {  
+                        args.IsValid = true;
+                        AddToDatabase();
+                }
+                else
+                {
+                    args.IsValid = false;
+                    ShowNotification(false);
+                }
+            }
         }
     }
 }

@@ -12,9 +12,9 @@ namespace WebApplication3
     {
         void TestingPurpose()
         {
-            NameText.Text = "I am me";
-            PhoneText.Text = "82593245";
-            ICText.Text = "S9811724C";
+            NameText.Text = "I am meAA";
+            PhoneText.Text = "81593245";
+            ICText.Text = "S9811724Q";
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -97,6 +97,9 @@ namespace WebApplication3
                 else
                     jobtable.Job_Salary = 0;
 
+                var dt = DateTime.Now;
+                jobtable.Job_JoinDate = DateTime.Parse(dt.ToShortDateString());
+                 
                 myEntities.JobTables.Add(jobtable);
                 myEntities.SaveChanges();
 
@@ -218,6 +221,14 @@ namespace WebApplication3
                         args.IsValid = true;
                         InsertIntoDatabase();
                     }
+                    else
+                    {
+                        args.IsValid = false;
+                    }
+                }
+                else
+                {
+                    args.IsValid = false;
                 }
             }
             else

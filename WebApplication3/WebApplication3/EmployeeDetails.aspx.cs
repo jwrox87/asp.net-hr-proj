@@ -30,6 +30,9 @@ namespace WebApplication3
                 Image1.ImageUrl = "data:image/jpg;base64," + Convert.ToBase64String(b);
             }
 
+            if (Session["joinDate"] != null)
+                joinDateLabel.InnerText = Session["joinDate"].ToString();
+
             idLabel.InnerText = Session["id"].ToString();
             jobidLabel.InnerText = Session["job_id"].ToString();
             didLabel.InnerText = Session["department_id"].ToString();
@@ -42,6 +45,7 @@ namespace WebApplication3
             Session["ic"] = e.IC;
             Session["jobtitle"] = e.JobPos;
             Session["jobsalary"] = (float.Parse(e.JobSalary) * 100f) / 100f;
+            Session["joinDate"] = e.JoinDate;
             Session["departmentname"] = e.DepartmentName;
             Session["picture"] = e.Picture;
 

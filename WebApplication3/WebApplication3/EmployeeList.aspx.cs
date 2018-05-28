@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlClient;
+using System.Reflection;
 
 namespace WebApplication3
 {
@@ -24,6 +27,7 @@ namespace WebApplication3
                 g.Cells[id_index].Visible = false;
             }
         }
+
         public void LoadDatabase()
         {
             using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
@@ -41,6 +45,9 @@ namespace WebApplication3
 
                 GridView1.DataSource = reviews.ToList();
                 GridView1.DataBind();
+
+                Session["DataSource"] = ExtensionMethods.
+                    CreateDataTable(reviews.ToList());
             }
 
             SearchText.Text = string.Empty;
@@ -99,6 +106,8 @@ namespace WebApplication3
 
                 GridView1.DataSource = reviews.ToList();
                 GridView1.DataBind();
+
+                Session["DataSource"] = ExtensionMethods.CreateDataTable(reviews.ToList());
             }
 
             //Hacky solution
@@ -109,7 +118,7 @@ namespace WebApplication3
         {
             if (!IsPostBack)
             {
-                LoadDatabase();
+                LoadDatabase();                
             }
         }
 
@@ -149,13 +158,11 @@ namespace WebApplication3
 
                 Employee employee = new Employee(data.Name,
                     data.Phone, data.IC, data.JobTable.Job_Title,
-                    data.JobTable.Job_Salary.ToString(), data.DepartmentTable.Department_Name
+                    data.JobTable.Job_Salary.ToString(), data.JobTable.Job_JoinDate, data.DepartmentTable.Department_Name
                     , data.ProfilePicture, data.Id, data.Job_ID, data.Department_ID);
 
                 employeedetails.LoadEmployeeDetails(employee);
-            }
-        
-          
+            } 
         }
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -179,5 +186,44 @@ namespace WebApplication3
                 GridView1.DataBind();
             }
         }
+
+        public SortDirection direction
+        {
+            get
+            {
+                if (ViewState["directionState"] == null)
+                {
+                    ViewState["directionState"] = SortDirection.Ascending;
+                }
+
+                return (SortDirection)ViewState["directionState"];
+            }
+            set
+            {
+                ViewState["directionState"] = value;
+            }
+        }
+
+        protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            string sortingDirection = string.Empty;
+            if (direction == SortDirection.Ascending)
+            {
+                direction = SortDirection.Descending;
+                sortingDirection = "Desc";
+            }
+            else
+            {
+                direction = SortDirection.Ascending;
+                sortingDirection = "Asc";
+            }
+
+            DataView sortedView = new DataView(Session["DataSource"] as DataTable);
+
+            sortedView.Sort = e.SortExpression + " " + sortingDirection;
+            Session["SortedView"] = sortedView;
+            GridView1.DataSource = sortedView;
+            GridView1.DataBind();
+        }  
     }
 }

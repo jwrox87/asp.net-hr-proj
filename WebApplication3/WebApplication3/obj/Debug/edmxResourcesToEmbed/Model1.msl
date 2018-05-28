@@ -25,6 +25,7 @@
     <EntitySetMapping Name="JobTables">
       <EntityTypeMapping TypeName="HRDatabaseModel.JobTable">
         <MappingFragment StoreEntitySet="JobTable">
+          <ScalarProperty Name="Job_JoinDate" ColumnName="Job_JoinDate" />
           <ScalarProperty Name="Job_ID" ColumnName="Job_ID" />
           <ScalarProperty Name="Job_Title" ColumnName="Job_Title" />
           <ScalarProperty Name="Job_Salary" ColumnName="Job_Salary" />

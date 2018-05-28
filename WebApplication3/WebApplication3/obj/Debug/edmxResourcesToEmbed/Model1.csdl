@@ -13,7 +13,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="Phone" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
     <Property Name="IC" Type="String" MaxLength="9" FixedLength="true" Unicode="true" />
     <Property Name="Job_ID" Type="Int32" Nullable="false" />
@@ -30,6 +30,7 @@
     <Property Name="Job_Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Job_Salary" Type="Decimal" Precision="19" Scale="4" />
     <NavigationProperty Name="HRTables" Relationship="Self.FK_HRTable_ToTable" FromRole="JobTable" ToRole="HRTable" />
+    <Property Name="Job_JoinDate" Type="DateTime" Precision="0" />
   </EntityType>
   <Association Name="FK_HRTable_ToTable_1">
     <End Role="DepartmentTable" Type="Self.DepartmentTable" Multiplicity="1" />

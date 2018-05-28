@@ -19,7 +19,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="20" Nullable="false" />
     <Property Name="Phone" Type="nvarchar" MaxLength="8" />
     <Property Name="IC" Type="nchar" MaxLength="9" />
     <Property Name="Job_ID" Type="int" Nullable="false" />
@@ -40,6 +40,7 @@
     <Property Name="Job_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Job_Title" Type="nvarchar(max)" />
     <Property Name="Job_Salary" Type="money" />
+    <Property Name="Job_JoinDate" Type="date" />
   </EntityType>
   <Association Name="FK_HRTable_ToTable">
     <End Role="JobTable" Type="Self.JobTable" Multiplicity="1" />

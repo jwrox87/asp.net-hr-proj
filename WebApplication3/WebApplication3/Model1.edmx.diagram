@@ -5,9 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="40cb8ee41253424f9883ab79c3755893" Name="Diagram1">
-        <EntityTypeShape EntityType="HRDatabaseModel.DepartmentTable" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRDatabaseModel.DepartmentTable" Width="2" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="HRDatabaseModel.HRTable" Width="1.5" PointX="5.625" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRDatabaseModel.JobTable" Width="1.5" PointX="1.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRDatabaseModel.JobTable" Width="1.5" PointX="2.625" PointY="4.625" IsExpanded="true" />
         <AssociationConnector Association="HRDatabaseModel.FK_HRTable_ToTable_1" ManuallyRouted="false" />
         <AssociationConnector Association="HRDatabaseModel.FK_HRTable_ToTable" ManuallyRouted="false" />
         <EntityTypeShape EntityType="HRDatabaseModel.JobPositionTable" Width="1.5" PointX="8.5" PointY="3.125" IsExpanded="true" />
