@@ -16,6 +16,13 @@
                 <br />
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Show All" UseSubmitBehavior="False" Width="80px" />
             
+            &nbsp;
+            Show Select:
+            <asp:CheckBox ID="SelectCheckBox" runat="server"  OnCheckedChanged="SelectCheckBox_CheckedChanged" AutoPostBack="true"/>
+            &nbsp;
+            Show Delete:
+            <asp:CheckBox ID="DeleteCheckBox" runat="server" OnCheckedChanged="DeleteCheckBox_CheckedChanged" AutoPostBack="true"/>
+
         </div>
         <asp:GridView ID="GridView1" runat="server" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="Horizontal" ShowHeaderWhenEmpty="True" ShowFooter="True" OnRowDeleting="GridView1_RowDeleting" OnSelectedIndexChanging="GridView1_SelectedIndexChanging"  
              AllowPaging="true"  OnPageIndexChanging="GridView1_PageIndexChanging" AllowSorting="True" OnSorting="GridView1_Sorting">
@@ -33,8 +40,8 @@
 
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:CommandField ShowSelectButton="True" />
-                <asp:CommandField ShowDeleteButton="True" />
+                <asp:CommandField ShowSelectButton="True" Visible="false" />
+                <asp:CommandField ShowDeleteButton="True" Visible="false"/>
             </Columns>
             <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
             <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />

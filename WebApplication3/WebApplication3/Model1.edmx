@@ -19,6 +19,15 @@
           <Property Name="Department_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Department_Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="FieldInfoTable">
+          <Key>
+            <PropertyRef Name="FieldInfo_Id" />
+          </Key>
+          <Property Name="FieldInfo_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Update_Type" Type="nchar" MaxLength="10" />
+          <Property Name="Update_Text" Type="varchar" MaxLength="50" />
+          <Property Name="Update_Date" Type="datetime" />
+        </EntityType>
         <EntityType Name="HRTable">
           <Key>
             <PropertyRef Name="Id" />
@@ -74,6 +83,7 @@
         <EntityContainer Name="HRDatabaseModelStoreContainer">
           <EntitySet Name="DepartmentPositionTable" EntityType="Self.DepartmentPositionTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DepartmentTable" EntityType="Self.DepartmentTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FieldInfoTable" EntityType="Self.FieldInfoTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HRTable" EntityType="Self.HRTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="JobPositionTable" EntityType="Self.JobPositionTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="JobTable" EntityType="Self.JobTable" Schema="dbo" store:Type="Tables" />
@@ -160,6 +170,7 @@
           </AssociationSet>
           <EntitySet Name="JobPositionTables" EntityType="HRDatabaseModel.JobPositionTable" />
           <EntitySet Name="DepartmentPositionTables" EntityType="HRDatabaseModel.DepartmentPositionTable" />
+          <EntitySet Name="FieldInfoTables" EntityType="HRDatabaseModel.FieldInfoTable" />
         </EntityContainer>
         <EntityType Name="JobPositionTable">
           <Key>
@@ -174,6 +185,15 @@
           </Key>
           <Property Name="DepartmentPos_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Department_Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="FieldInfoTable">
+          <Key>
+            <PropertyRef Name="FieldInfo_Id" />
+          </Key>
+          <Property Name="FieldInfo_Id" Type="Int32" Nullable="false" />
+          <Property Name="Update_Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Update_Text" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -225,6 +245,16 @@
               <MappingFragment StoreEntitySet="DepartmentPositionTable">
                 <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
                 <ScalarProperty Name="DepartmentPos_Id" ColumnName="DepartmentPos_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FieldInfoTables">
+            <EntityTypeMapping TypeName="HRDatabaseModel.FieldInfoTable">
+              <MappingFragment StoreEntitySet="FieldInfoTable">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_Text" ColumnName="Update_Text" />
+                <ScalarProperty Name="Update_Type" ColumnName="Update_Type" />
+                <ScalarProperty Name="FieldInfo_Id" ColumnName="FieldInfo_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -56,6 +56,9 @@ namespace WebApplication3
 
                 myEntities.DepartmentPositionTables.Add(depTable);
                 myEntities.SaveChanges();
+
+                FieldInformationDB.CreateFieldInformation(
+                   TypeOfUpdate.Add, DateTime.Now, "Added new department: " +AddDepText);
             }
         }
 

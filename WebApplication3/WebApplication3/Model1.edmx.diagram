@@ -10,8 +10,9 @@
         <EntityTypeShape EntityType="HRDatabaseModel.JobTable" Width="1.5" PointX="2.625" PointY="4.625" IsExpanded="true" />
         <AssociationConnector Association="HRDatabaseModel.FK_HRTable_ToTable_1" ManuallyRouted="false" />
         <AssociationConnector Association="HRDatabaseModel.FK_HRTable_ToTable" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="HRDatabaseModel.JobPositionTable" Width="1.5" PointX="8.5" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRDatabaseModel.DepartmentPositionTable" Width="2" PointX="8.625" PointY="1.25" />
+        <EntityTypeShape EntityType="HRDatabaseModel.JobPositionTable" Width="1.5" PointX="10.125" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRDatabaseModel.DepartmentPositionTable" Width="2" PointX="10.125" PointY="0.625" />
+        <EntityTypeShape EntityType="HRDatabaseModel.FieldInfoTable" Width="1.5" PointX="10.125" PointY="4" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -430,6 +430,7 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="FieldInformation.cs" />
     <Compile Include="DBMethods.cs" />
     <Compile Include="DepartmentPositionTable.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -459,6 +460,10 @@
     </Compile>
     <Compile Include="EmployeeList.aspx.designer.cs">
       <DependentUpon>EmployeeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FieldInformationDB.cs" />
+    <Compile Include="FieldInfoTable.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

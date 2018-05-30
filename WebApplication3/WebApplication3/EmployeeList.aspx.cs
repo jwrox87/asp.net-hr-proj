@@ -187,7 +187,7 @@ namespace WebApplication3
             }
         }
 
-        public SortDirection direction
+        public SortDirection Direction
         {
             get
             {
@@ -207,14 +207,14 @@ namespace WebApplication3
         protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
         {
             string sortingDirection = string.Empty;
-            if (direction == SortDirection.Ascending)
+            if (Direction == SortDirection.Ascending)
             {
-                direction = SortDirection.Descending;
+                Direction = SortDirection.Descending;
                 sortingDirection = "Desc";
             }
             else
             {
-                direction = SortDirection.Ascending;
+                Direction = SortDirection.Ascending;
                 sortingDirection = "Asc";
             }
 
@@ -224,6 +224,22 @@ namespace WebApplication3
             Session["SortedView"] = sortedView;
             GridView1.DataSource = sortedView;
             GridView1.DataBind();
-        }  
+        }
+
+        protected void SelectCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (SelectCheckBox.Checked)
+                GridView1.Columns[0].Visible = true;
+            else
+                GridView1.Columns[0].Visible = false;
+        }
+
+        protected void DeleteCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DeleteCheckBox.Checked)
+                GridView1.Columns[1].Visible = true;
+            else
+                GridView1.Columns[1].Visible = false;
+        }
     }
 }

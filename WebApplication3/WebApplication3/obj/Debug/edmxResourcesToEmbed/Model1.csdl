@@ -70,6 +70,7 @@
     </AssociationSet>
     <EntitySet Name="JobPositionTables" EntityType="HRDatabaseModel.JobPositionTable" />
     <EntitySet Name="DepartmentPositionTables" EntityType="HRDatabaseModel.DepartmentPositionTable" />
+    <EntitySet Name="FieldInfoTables" EntityType="HRDatabaseModel.FieldInfoTable" />
   </EntityContainer>
   <EntityType Name="JobPositionTable">
     <Key>
@@ -84,5 +85,14 @@
     </Key>
     <Property Name="DepartmentPos_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Department_Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="FieldInfoTable">
+    <Key>
+      <PropertyRef Name="FieldInfo_Id" />
+    </Key>
+    <Property Name="FieldInfo_Id" Type="Int32" Nullable="false" />
+    <Property Name="Update_Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Update_Text" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Update_Date" Type="DateTime" Precision="3" />
   </EntityType>
 </Schema>
