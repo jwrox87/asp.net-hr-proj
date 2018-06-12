@@ -10,7 +10,7 @@ namespace WebApplication3
     public partial class WebForm2 : System.Web.UI.Page, IDatabaseRequirements
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {         
             if (!IsPostBack)
             {           
                 LoadDatabase();
@@ -44,6 +44,9 @@ namespace WebApplication3
 
                 myEntities.JobPositionTables.Remove(data);
                 myEntities.SaveChanges();
+
+                FieldInformationDB.CreateFieldInformation(
+   TypeOfUpdate.Delete, DateTime.Now, "Deleted Job Position: " + data.Job_Title);
             }
         }
 
@@ -56,6 +59,9 @@ namespace WebApplication3
 
                 myEntities.JobPositionTables.Add(jobpostable);
                 myEntities.SaveChanges();
+
+                FieldInformationDB.CreateFieldInformation(
+   TypeOfUpdate.Add, DateTime.Now, "Added new job: " + AddPositionText.Value);
             }
         }
 

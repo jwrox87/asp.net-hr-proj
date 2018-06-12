@@ -81,6 +81,9 @@ namespace WebApplication3
                 myEntities.JobTables.Remove(data_job);
                 myEntities.DepartmentTables.Remove(data_department);
                 myEntities.SaveChanges();
+
+                FieldInformationDB.CreateFieldInformation(
+       TypeOfUpdate.Delete, DateTime.Now, "Deleted employee: " + data.Name);
             }
         }
 

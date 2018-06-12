@@ -20,7 +20,7 @@
     </Key>
     <Property Name="FieldInfo_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Update_Type" Type="nchar" MaxLength="10" />
-    <Property Name="Update_Text" Type="varchar" MaxLength="50" />
+    <Property Name="Update_Text" Type="ntext" />
     <Property Name="Update_Date" Type="datetime" />
   </EntityType>
   <EntityType Name="HRTable">

@@ -92,7 +92,7 @@
     </Key>
     <Property Name="FieldInfo_Id" Type="Int32" Nullable="false" />
     <Property Name="Update_Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="Update_Text" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Update_Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Update_Date" Type="DateTime" Precision="3" />
   </EntityType>
 </Schema>

@@ -42,6 +42,9 @@ namespace WebApplication3
 
                 myEntities.DepartmentPositionTables.Remove(data);
                 myEntities.SaveChanges();
+
+                FieldInformationDB.CreateFieldInformation(
+                   TypeOfUpdate.Delete, DateTime.Now, "Deleted department: " + data.Department_Name);
             }
         }
 
@@ -58,7 +61,7 @@ namespace WebApplication3
                 myEntities.SaveChanges();
 
                 FieldInformationDB.CreateFieldInformation(
-                   TypeOfUpdate.Add, DateTime.Now, "Added new department: " +AddDepText);
+                   TypeOfUpdate.Add, DateTime.Now, "Added new department: " +AddDepText.Value);
             }
         }
 

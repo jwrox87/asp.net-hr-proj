@@ -19,6 +19,8 @@ namespace WebApplication3
         DateTime date_time_added;
         string updateText;
 
+        string color;
+
         public FieldInformation() { }
 
         public FieldInformation(TypeOfUpdate tou, DateTime dt, string ut)
@@ -31,6 +33,25 @@ namespace WebApplication3
         public (TypeOfUpdate, DateTime, string) GetFieldInfo()
         {
             return (updateType, date_time_added, updateText);
+        }
+
+        public string GetColor()
+        {
+            switch (updateType)
+            {
+                case TypeOfUpdate.Add:
+                    color = "cornsilk";
+                break;
+
+                case TypeOfUpdate.Delete:
+                    color = "indianred";
+                break;
+
+                case TypeOfUpdate.Modify:
+                    color = "lightgreen";
+                break;
+            }
+            return color;
         }
     }
 }

@@ -25,7 +25,7 @@
           </Key>
           <Property Name="FieldInfo_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Update_Type" Type="nchar" MaxLength="10" />
-          <Property Name="Update_Text" Type="varchar" MaxLength="50" />
+          <Property Name="Update_Text" Type="ntext" />
           <Property Name="Update_Date" Type="datetime" />
         </EntityType>
         <EntityType Name="HRTable">
@@ -192,7 +192,7 @@
           </Key>
           <Property Name="FieldInfo_Id" Type="Int32" Nullable="false" />
           <Property Name="Update_Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Update_Text" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Update_Date" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>

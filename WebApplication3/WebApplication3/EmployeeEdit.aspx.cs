@@ -42,6 +42,9 @@ namespace WebApplication3
                 }
 
                 myEntities.SaveChanges();
+
+                FieldInformationDB.CreateFieldInformation(TypeOfUpdate.Modify,
+                    DateTime.Now, "Employee: " + data.Name + " has been edited");
             }
         }
 
@@ -197,7 +200,7 @@ namespace WebApplication3
 
         protected void ApplyChangeBtn_Click(object sender, EventArgs e)
         {
-            if (fileuploadPP.PostedFile == null)
+            if (fileuploadPP.PostedFile.FileName == "")
             {
                 AddToDatabase();
             }

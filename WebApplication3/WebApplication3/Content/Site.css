@@ -23,11 +23,12 @@ label {
     display: block;
     float: left;
     width: 150px;
+    height: 9px;
 }
 
 div {
     margin-bottom: 5px;
-    height: 24px;
+    height: 22px;
     margin-left: 0;
     margin-top: 0;
 }

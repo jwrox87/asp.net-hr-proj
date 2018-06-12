@@ -10,11 +10,11 @@
 <asp:Content ID="HRFormMainContent" ContentPlaceHolderID="MainContent" runat="server">
 <!DOCTYPE html>
 <style type="text/css">
-   label {
+   /*label {
     display: block;
     float: left;
     width: 60px;
-}
+}*/
 
 div {
     margin-bottom: 2px;

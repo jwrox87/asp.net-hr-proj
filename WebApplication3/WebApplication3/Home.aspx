@@ -6,26 +6,23 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     
-
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+     <h3>What's new:</h3>
+    <asp:DropDownList ID="DropDownList1" runat="server" style="margin-left:80%" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+    <div id="div1" runat="server" style="height:100%;width:100%;overflow:scroll; overflow-x:hidden">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"  
+        ></asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
 
-        <ContentTemplate>
-
-            What's new:
+        <ContentTemplate>               
             <p></p>
-
-<%--            <fieldset id="fieldset1">                
-                <legend style="background-color:cornsilk">
-                    Nothing new
-                </legend> 
-            </fieldset>--%>
-            
-
         </ContentTemplate>
-
+        <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="DropDownList1" />
+            </Triggers>
 
     </asp:UpdatePanel>
+        </div>
+
    
 <p></p>
 

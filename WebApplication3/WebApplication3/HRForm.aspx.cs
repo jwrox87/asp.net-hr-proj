@@ -140,6 +140,9 @@ namespace WebApplication3
 
                 myEntities.HRTables.Add(hrtable);
                 myEntities.SaveChanges();
+
+                FieldInformationDB.CreateFieldInformation(
+        TypeOfUpdate.Add, DateTime.Now, "Added new employee: " +NameText.Text);
             }
         }
 

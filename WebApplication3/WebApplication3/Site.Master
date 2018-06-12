@@ -15,6 +15,7 @@ height: 385px;
 
 
     </style>
+
     <title><%: Page.Title %> - Human Resource Application</title>
 
     <asp:PlaceHolder runat="server">
@@ -39,6 +40,11 @@ height: 385px;
                 </div>
             </div>
         </div>--%>
+        <div style="margin:1px;  ">
+           <label runat="server" ID="username_text"/>
+            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="Sign_Out" Font-Underline="true">Sign Out</asp:LinkButton>
+        </div>
+           
         <div id ="header">
             
          <asp:Table ID="Table2" runat="server" style =border:1px Height="56px" Width="898px" >
