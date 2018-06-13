@@ -40,14 +40,14 @@ height: 385px;
                 </div>
             </div>
         </div>--%>
-        <div style="margin:1px;  ">
+        <div style="margin-bottom:2%;" >
            <label runat="server" ID="username_text"/>
-            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="Sign_Out" Font-Underline="true">Sign Out</asp:LinkButton>
+            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="Sign_Out" Font-Underline="true" CausesValidation="false">Sign Out</asp:LinkButton>
         </div>
            
-        <div id ="header">
+        <div id ="header" style="margin-left:5%">
             
-         <asp:Table ID="Table2" runat="server" style =border:1px Height="56px" Width="898px" >
+         <asp:Table ID="Table2" runat="server" style ="border:1px; border-style:double" Height="56px" Width="898px" >
 
              <asp:TableHeaderRow>
                  <asp:TableCell VerticalAlign="Top" HorizontalAlign ="Center">
@@ -84,7 +84,7 @@ height: 385px;
                             StaticMenuItemStyle-BorderStyle="None" 
                             IncludeStyleBlock="True" 
                             StaticMenuStyle-BorderStyle="NotSet" 
-                            StaticSelectedStyle-BackColor="#FFFF99" ItemWrap="True" StaticMenuStyle-VerticalPadding="10">
+                            StaticSelectedStyle-BackColor="#FFFF99" ItemWrap="True" StaticMenuStyle-VerticalPadding="10" StaticMenuItemStyle-VerticalPadding="10">
 
                             <Items> 
                                                                        

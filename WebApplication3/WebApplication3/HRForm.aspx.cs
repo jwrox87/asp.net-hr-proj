@@ -25,7 +25,7 @@ namespace WebApplication3
             }
             else
             {
-                TestingPurpose();
+                //TestingPurpose();
                 InitDropDownList();                
             }
         }
@@ -251,6 +251,6 @@ namespace WebApplication3
             Phone_Checked = args.IsValid;
         }
 
-        
+       
     }
 }

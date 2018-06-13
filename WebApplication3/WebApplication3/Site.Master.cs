@@ -20,7 +20,7 @@ namespace WebApplication3
                 else
                     username_text.InnerText = "None";
 
-
+                //If user is not admin, disable menu items 
                 if (!HttpContext.Current.User.IsInRole("Admin"))
                 {
                     foreach (MenuItem mi in Menu1.Items)
@@ -40,6 +40,7 @@ namespace WebApplication3
             }
         }
 
+        //Show previously selected menu item
         private void SelectedMenuItem()
         {
             foreach (MenuItem mi in Menu1.Items)
@@ -52,6 +53,7 @@ namespace WebApplication3
             }
         }
 
+        //Sign out event
         protected void Sign_Out(object sender, EventArgs e)
         {
             var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;

@@ -28,6 +28,7 @@ namespace WebFormsIdentity
             }
         }
 
+        //Sign in event
         protected void SignIn(object sender, EventArgs e)
         {
             var userStore = new UserStore<IdentityUser>();
@@ -49,6 +50,8 @@ namespace WebFormsIdentity
             }
         }
 
+
+        //Sign out event
         protected void SignOut(object sender, EventArgs e)
         {
             var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;

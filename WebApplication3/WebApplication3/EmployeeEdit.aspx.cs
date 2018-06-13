@@ -38,6 +38,7 @@ namespace WebApplication3
                     data.JobTable.Job_Title = ddlJP.Text;
                     data.DepartmentTable.Department_Name = ddlDN.Text;
 
+                    if (fileuploadPP.PostedFile.FileName != "")
                     data.ProfilePicture = fileuploadPP.FileBytes;
                 }
 

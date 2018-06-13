@@ -31,7 +31,6 @@ namespace WebFormsIdentity
 
             IdentityResult result = manager.Create(user, Password.Text);
 
-
             var roleStore = new RoleStore<IdentityRole>();
             var roleManager = new RoleManager<IdentityRole>(roleStore);
 
@@ -45,7 +44,6 @@ namespace WebFormsIdentity
                 //authenticationManager.SignIn(new AuthenticationProperties() { }, userIdentity);
 
                 manager.AddToRole(user.Id, DropDownList1.SelectedValue.ToString());
-
 
                 Response.Redirect("Login.aspx");
             }

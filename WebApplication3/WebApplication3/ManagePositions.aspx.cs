@@ -46,7 +46,7 @@ namespace WebApplication3
                 myEntities.SaveChanges();
 
                 FieldInformationDB.CreateFieldInformation(
-   TypeOfUpdate.Delete, DateTime.Now, "Deleted Job Position: " + data.Job_Title);
+                    TypeOfUpdate.Delete, DateTime.Now, "Deleted Job Position: " + data.Job_Title);
             }
         }
 
@@ -61,7 +61,7 @@ namespace WebApplication3
                 myEntities.SaveChanges();
 
                 FieldInformationDB.CreateFieldInformation(
-   TypeOfUpdate.Add, DateTime.Now, "Added new job: " + AddPositionText.Value);
+                    TypeOfUpdate.Add, DateTime.Now, "Added new job: " + AddPositionText.Value);
             }
         }
 

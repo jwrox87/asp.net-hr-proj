@@ -17,6 +17,9 @@ namespace WebApplication3
 
         private void HideIDColumn()
         {
+            if (GridView1.FooterRow == null)
+                return;
+
             if (GridView1.FooterRow.Cells[id_index] == null)
                 return;
 

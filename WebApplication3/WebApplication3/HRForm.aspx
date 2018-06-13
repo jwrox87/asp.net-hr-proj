@@ -17,7 +17,7 @@
 }*/
 
 div {
-    margin-bottom: 2px;
+    /*margin-bottom: 2px;*/
 }
 
 .ReqCSS
@@ -25,11 +25,6 @@ div {
     color: crimson;
 }
 
-.tableCSS
-{
-    margin-top: 20px;
-    border-top: 20px;
-}
 
 </style>
 
@@ -37,18 +32,20 @@ div {
 <head>
 <title>Add a Employee</title>
 </head>
-<body style="height: 100%">
+<body>
+   
+    <div style="height:100%; overflow:visible">
         <p>   
-            <asp:Table ID="Table1" runat="server" Height="142px" Width="490px" CellPadding="8">
+            <asp:Table ID="Table1" runat="server" Height="100%" Width="490px" CellPadding="8">
                 
                 <asp:TableRow BorderWidth="20px" BorderColor="White">
                     <asp:TableCell> 
 
-                        <label>Name: </label>
+                        <label style="width:20%">Name: </label>
                                          
                         <asp:TextBox ID="NameText"  runat="server" MaxLength="20" />
                     
-                       <asp:RequiredFieldValidator CssClass ="ReqCSS" runat="server" id="reqName" controltovalidate="NameText" errormessage=" Please enter your name!" ViewStateMode="Inherit" ValidateRequestMode="Inherit" Visible="True" Display="Dynamic" />                
+                       <asp:RequiredFieldValidator CssClass ="ReqCSS" runat="server" id="reqName" controltovalidate="NameText" errormessage=" Please enter your name!" ViewStateMode="Inherit" ValidateRequestMode="Inherit" Visible="True" Display="Dynamic"/>                
                         <asp:RegularExpressionValidator CssClass ="ReqCSS" runat="server" id ="reqName2" ControlToValidate="NameText" errormessage=" Please enter only letters!" Visible ="true"
                             ValidationExpression="^(?=.*?[A-Za-z])[^0-9]+$" Display="Dynamic" />
 
@@ -58,7 +55,7 @@ div {
 
                 <asp:TableRow BorderWidth="20px" BorderColor="White">
                     <asp:TableCell> 
-                        <label>IC No.: </label>
+                        <label style="width:20%">IC No.: </label>
                          <asp:TextBox ID="ICText" runat ="server" MaxLength="9"/>
                      <asp:RegularExpressionValidator ID="ReqIC" runat="server"   
                             CssClass ="ReqCSS"
@@ -69,11 +66,13 @@ div {
       Display="Dynamic" ForeColor="Red" ControlToValidate="ICText"
                               OnServerValidate="CheckICValidator_ServerValidate"
       ></asp:CustomValidator>
-                        </asp:TableCell></asp:TableRow>
+                        </asp:TableCell>
+
+                </asp:TableRow>
                 
                 <asp:TableRow BorderWidth="20px" BorderColor="White">
                     <asp:TableCell> 
-                        <label>Phone: </label>
+                        <label style="width:20%">Phone: </label>
                         <asp:TextBox ID="PhoneText" runat ="server" MaxLength="8"/>
 
                         <asp:RegularExpressionValidator ID="ReqPhone" runat="server"   
@@ -105,15 +104,15 @@ div {
                     </asp:TableCell>
                  </asp:TableRow>
 
-                <asp:TableRow BorderWidth="20px" BorderColor="White">
-                    <asp:TableCell>
+                <asp:TableRow>
+                    <asp:TableCell Height="30px">
                         <label style="width:20%">Department Name: </label>                  
                         <asp:DropDownList style="width:50%" ID="DepartmentNameList" runat="server"></asp:DropDownList>
                     </asp:TableCell>
                  </asp:TableRow>
 
-                <asp:TableRow BorderWidth="20px" BorderColor="White">
-                    <asp:TableCell>
+                <asp:TableRow>
+                    <asp:TableCell Height="90px">
                         <label style="width:20%">Profile Picture: </label>                  
                         <asp:FileUpload ID="FileUpload1" runat="server" />
 
@@ -126,7 +125,9 @@ div {
 
             </asp:Table>
 
-        </p><p>   
+        </p>
+       
+    <p>   
             <asp:Label ID="UpdateStatus" runat="server" Text="Label" Visible="False"/></p>
        
         <p></p><p>
@@ -134,6 +135,8 @@ div {
             <asp:Button ID="AddEmployeeBtn" runat="server" Text="Add Employee"  style="height: 26px" 
                  OnClick="OnClick_AddEmployee"/>
         </p>
+
+        </div>
 
 </body>             
     
