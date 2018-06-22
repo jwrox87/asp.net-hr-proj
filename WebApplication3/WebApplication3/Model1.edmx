@@ -11,6 +11,7 @@
           </Key>
           <Property Name="DepartmentPos_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Department_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentPos_Identifier" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="DepartmentTable">
           <Key>
@@ -18,6 +19,7 @@
           </Key>
           <Property Name="Department_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Department_Name" Type="nvarchar(max)" />
+          <Property Name="Department_Identifier" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="FieldInfoTable">
           <Key>
@@ -46,6 +48,7 @@
           </Key>
           <Property Name="JobPosition_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Job_Title" Type="nchar" MaxLength="20" />
+          <Property Name="JobPosition_Identifier" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="JobTable">
           <Key>
@@ -55,6 +58,7 @@
           <Property Name="Job_Title" Type="nvarchar(max)" />
           <Property Name="Job_Salary" Type="money" />
           <Property Name="Job_JoinDate" Type="date" />
+          <Property Name="Job_Identifier" Type="uniqueidentifier" />
         </EntityType>
         <Association Name="FK_HRTable_ToTable">
           <End Role="JobTable" Type="Self.JobTable" Multiplicity="1" />
@@ -107,6 +111,7 @@
           <Property Name="Department_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Department_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="HRTables" Relationship="Self.FK_HRTable_ToTable_1" FromRole="DepartmentTable" ToRole="HRTable" />
+          <Property Name="Department_Identifier" Type="Guid" />
         </EntityType>
         <EntityType Name="HRTable">
           <Key>
@@ -131,6 +136,7 @@
           <Property Name="Job_Salary" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="HRTables" Relationship="Self.FK_HRTable_ToTable" FromRole="JobTable" ToRole="HRTable" />
           <Property Name="Job_JoinDate" Type="DateTime" Precision="0" />
+          <Property Name="Job_Identifier" Type="Guid" />
         </EntityType>
         <Association Name="FK_HRTable_ToTable_1">
           <End Role="DepartmentTable" Type="Self.DepartmentTable" Multiplicity="1" />
@@ -178,6 +184,7 @@
           </Key>
           <Property Name="JobPosition_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Job_Title" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="JobPosition_Identifier" Type="Guid" Nullable="false" />
         </EntityType>
         <EntityType Name="DepartmentPositionTable">
           <Key>
@@ -185,6 +192,7 @@
           </Key>
           <Property Name="DepartmentPos_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Department_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentPos_Identifier" Type="Guid" Nullable="false" />
         </EntityType>
         <EntityType Name="FieldInfoTable">
           <Key>
@@ -204,6 +212,7 @@
           <EntitySetMapping Name="DepartmentTables">
             <EntityTypeMapping TypeName="HRDatabaseModel.DepartmentTable">
               <MappingFragment StoreEntitySet="DepartmentTable">
+                <ScalarProperty Name="Department_Identifier" ColumnName="Department_Identifier" />
                 <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
                 <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
               </MappingFragment>
@@ -225,6 +234,7 @@
           <EntitySetMapping Name="JobTables">
             <EntityTypeMapping TypeName="HRDatabaseModel.JobTable">
               <MappingFragment StoreEntitySet="JobTable">
+                <ScalarProperty Name="Job_Identifier" ColumnName="Job_Identifier" />
                 <ScalarProperty Name="Job_JoinDate" ColumnName="Job_JoinDate" />
                 <ScalarProperty Name="Job_ID" ColumnName="Job_ID" />
                 <ScalarProperty Name="Job_Title" ColumnName="Job_Title" />
@@ -235,6 +245,7 @@
           <EntitySetMapping Name="JobPositionTables">
             <EntityTypeMapping TypeName="HRDatabaseModel.JobPositionTable">
               <MappingFragment StoreEntitySet="JobPositionTable">
+                <ScalarProperty Name="JobPosition_Identifier" ColumnName="JobPosition_Identifier" />
                 <ScalarProperty Name="Job_Title" ColumnName="Job_Title" />
                 <ScalarProperty Name="JobPosition_ID" ColumnName="JobPosition_ID" />
               </MappingFragment>
@@ -243,6 +254,7 @@
           <EntitySetMapping Name="DepartmentPositionTables">
             <EntityTypeMapping TypeName="HRDatabaseModel.DepartmentPositionTable">
               <MappingFragment StoreEntitySet="DepartmentPositionTable">
+                <ScalarProperty Name="DepartmentPos_Identifier" ColumnName="DepartmentPos_Identifier" />
                 <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
                 <ScalarProperty Name="DepartmentPos_Id" ColumnName="DepartmentPos_Id" />
               </MappingFragment>

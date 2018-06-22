@@ -13,27 +13,38 @@ namespace WebFormsIdentity
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                ListItem listItem = new ListItem("Admin");
-                ListItem listItem1 = new ListItem("Normal");
-                DropDownList1.Items.Add(listItem);
-                DropDownList1.Items.Add(listItem1);
-            }
+            //if (!IsPostBack)
+            //{
+            //    ListItem listItem = new ListItem("Admin");
+            //    ListItem listItem1 = new ListItem("Normal");
+            //    DropDownList1.Items.Add(listItem);
+            //    DropDownList1.Items.Add(listItem1);
+            //}
         }
 
         protected void CreateUser_Click(object sender, EventArgs e)
         {
+
+            if (Password.Value != ConfirmPassword.Value)
+            {
+                StatusMessage.Text = "Password is not identical";
+                return;
+            }
+
             // Default UserStore constructor uses the default connection string named: DefaultConnection
             var userStore = new UserStore<IdentityUser>();
             var manager = new UserManager<IdentityUser>(userStore);
-            var user = new IdentityUser() { UserName = UserName.Text };
-
-            IdentityResult result = manager.Create(user, Password.Text);
+            var user = new IdentityUser()
+            {
+                UserName =Username.Value
+            };
+           
+            IdentityResult result = manager.Create(user, Password.Value);
 
             var roleStore = new RoleStore<IdentityRole>();
             var roleManager = new RoleManager<IdentityRole>(roleStore);
-
+            
+            
             if (!roleManager.RoleExists(DropDownList1.SelectedValue))
             roleManager.Create(new IdentityRole(DropDownList1.SelectedValue));
 
@@ -57,6 +68,11 @@ namespace WebFormsIdentity
         protected void Login_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Login.aspx");
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //DropDownList1.BackColor = System.Drawing.Color.FromArgb(0, DropDownList1.BackColor.R, DropDownList1.BackColor.G, DropDownList1.BackColor.B);
         }
     }
 }

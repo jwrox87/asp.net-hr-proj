@@ -55,7 +55,7 @@ namespace WebFormsIdentity {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UserName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText UserName;
         
         /// <summary>
         /// Password control.
@@ -64,7 +64,7 @@ namespace WebFormsIdentity {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Password;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword Password;
         
         /// <summary>
         /// LogoutButton control.

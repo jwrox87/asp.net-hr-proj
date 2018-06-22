@@ -17,6 +17,12 @@ namespace WebApplication3
             }
         }
 
+        protected override void OnInitComplete(EventArgs e)
+        {
+            base.OnInitComplete(e);
+
+        }
+
         public bool CheckIfInDatabase<T>(T s)
         {
             using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
@@ -42,9 +48,37 @@ namespace WebApplication3
 
                 myEntities.DepartmentPositionTables.Remove(data);
                 myEntities.SaveChanges();
-
+        
                 FieldInformationDB.CreateFieldInformation(
                    TypeOfUpdate.Delete, DateTime.Now, "Deleted department: " + data.Department_Name);
+            }
+        }
+
+        public void RemoveDepartmentForAllEntries(string name)
+        {
+            using (var myEntities = new HRDatabaseEntities())
+            {
+                var department_data = from d in myEntities.DepartmentTables
+                                       where d.Department_Name == name
+                                       select d;
+
+                var hr_data = from d in myEntities.HRTables
+                              select d;
+                
+                for (int i=0; i < department_data.Count(); i++)
+                {
+                    department_data.ToList()[i].Department_Name = "None";
+
+                    foreach (HRTable ht in hr_data)
+                    {
+                        if (ht.Department_ID == department_data.ToList()[i].Department_ID)
+                        {
+                           // ht.Name = "None";
+                        }
+                    }
+                }
+
+                myEntities.SaveChanges();
             }
         }
 
@@ -80,13 +114,20 @@ namespace WebApplication3
                 GridView1.DataSource = reviews.ToList();
                 GridView1.DataBind();
             }
+
+            WebForm1.DeleteOldDepartmentData();
         }
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             const int id_index = 1;
+            const int id_index_name = 2;
+
             int s = int.Parse(GridView1.Rows[e.RowIndex].Cells[id_index].Text);
             DeleteInDatabase(s.ToString());
+
+            string s2 = GridView1.Rows[e.RowIndex].Cells[id_index_name].Text;
+            RemoveDepartmentForAllEntries(s2);
 
             LoadDatabase();
         }
@@ -124,5 +165,7 @@ namespace WebApplication3
                 LoadDatabase();
             }
         }
+
+
 }
 }

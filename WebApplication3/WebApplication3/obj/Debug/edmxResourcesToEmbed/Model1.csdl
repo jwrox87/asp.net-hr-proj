@@ -7,6 +7,7 @@
     <Property Name="Department_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Department_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="HRTables" Relationship="Self.FK_HRTable_ToTable_1" FromRole="DepartmentTable" ToRole="HRTable" />
+    <Property Name="Department_Identifier" Type="Guid" />
   </EntityType>
   <EntityType Name="HRTable">
     <Key>
@@ -31,6 +32,7 @@
     <Property Name="Job_Salary" Type="Decimal" Precision="19" Scale="4" />
     <NavigationProperty Name="HRTables" Relationship="Self.FK_HRTable_ToTable" FromRole="JobTable" ToRole="HRTable" />
     <Property Name="Job_JoinDate" Type="DateTime" Precision="0" />
+    <Property Name="Job_Identifier" Type="Guid" />
   </EntityType>
   <Association Name="FK_HRTable_ToTable_1">
     <End Role="DepartmentTable" Type="Self.DepartmentTable" Multiplicity="1" />
@@ -78,6 +80,7 @@
     </Key>
     <Property Name="JobPosition_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Job_Title" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="JobPosition_Identifier" Type="Guid" Nullable="false" />
   </EntityType>
   <EntityType Name="DepartmentPositionTable">
     <Key>
@@ -85,6 +88,7 @@
     </Key>
     <Property Name="DepartmentPos_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Department_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DepartmentPos_Identifier" Type="Guid" Nullable="false" />
   </EntityType>
   <EntityType Name="FieldInfoTable">
     <Key>

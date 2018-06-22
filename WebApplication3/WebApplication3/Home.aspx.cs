@@ -63,6 +63,59 @@ namespace WebApplication3
             }
         }
 
+        public static void DeleteOldDepartmentData()
+        {
+            using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
+            {
+                var department_data = from d in myEntities.DepartmentTables
+                                      select d;
+
+                var hr_data = from d in myEntities.HRTables
+                             select new
+                             {
+                                 d.Department_ID
+                             };
+             
+                foreach (DepartmentTable dt in department_data.ToList())
+                {
+                    var j = new { dt.Department_ID };
+                    if (!hr_data.ToList().Contains(j))
+                    {
+                        myEntities.DepartmentTables.Remove(dt);
+                    }
+                }
+
+                myEntities.SaveChanges();
+                    
+            }
+        }
+
+        public static void DeleteOldPositionData()
+        {
+            using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
+            {
+                var position_data = from d in myEntities.JobTables
+                                      select d;
+
+                var hr_data = from d in myEntities.HRTables
+                              select new
+                              {
+                                  d.Job_ID
+                              };
+
+                foreach (JobTable jt in position_data.ToList())
+                {
+                    var j = new { jt.Job_ID };
+                    if (!hr_data.ToList().Contains(j))
+                    {
+                        myEntities.JobTables.Remove(jt);
+                    }
+                }
+
+                myEntities.SaveChanges();
+            }
+        }
+
         public bool CheckIfInDatabase<T>(T t) { return false; }
 
         private void PrintTypeOfUse(Label label_ut, FieldInformation fi)
@@ -98,15 +151,6 @@ namespace WebApplication3
             Label label_time = new Label();
             Label label_desc = new Label();
 
-            //Button button = new Button();
-            //button.Text = "Delete";
-            //button.PostBackUrl = "Home";
-            //button.Attributes.Add("runat", "server");
-
-            //button.Click += (sender, e) =>
-            //{
-            //};
-
             PrintTypeOfUse(label_ut, fi);
             PrintTime(label_time, fi);
             PrintDescription(label_desc, fi);
@@ -121,8 +165,7 @@ namespace WebApplication3
 
             UpdatePanel1.ContentTemplateContainer.Controls.Add(label_desc);
             UpdatePanel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
-
-            //UpdatePanel1.ContentTemplateContainer.Controls.Add(button);
+            
             UpdatePanel1.ContentTemplateContainer.Controls.Add(new LiteralControl("</fieldset>"));
         }
 
@@ -141,11 +184,11 @@ namespace WebApplication3
             FillDropDownList(listItem2);
 
             DeleteInDatabase<string>(null);
+            DeleteOldDepartmentData();
         }
 
         protected void Page_Load(object sender, EventArgs e)
-        {
-            
+        {            
             LoadDatabase();
 
             if (fieldInfo_List.Count > 5

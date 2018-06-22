@@ -31,13 +31,13 @@ namespace WebFormsIdentity {
         protected global::System.Web.UI.WebControls.Literal StatusMessage;
         
         /// <summary>
-        /// UserName control.
+        /// Username control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UserName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Username;
         
         /// <summary>
         /// Password control.
@@ -46,7 +46,7 @@ namespace WebFormsIdentity {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Password;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword Password;
         
         /// <summary>
         /// ConfirmPassword control.
@@ -55,7 +55,7 @@ namespace WebFormsIdentity {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ConfirmPassword;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword ConfirmPassword;
         
         /// <summary>
         /// DropDownList1 control.
@@ -73,6 +73,6 @@ namespace WebFormsIdentity {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.HtmlControls.HtmlButton Button1;
     }
 }

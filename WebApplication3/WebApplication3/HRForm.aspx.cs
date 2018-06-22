@@ -104,6 +104,7 @@ namespace WebApplication3
                 myEntities.SaveChanges();
 
                 employee.job_id = jobtable.Job_ID;
+                
             }   
         }
 

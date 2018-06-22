@@ -24,6 +24,7 @@ namespace WebApplication3
         public string Job_Title { get; set; }
         public Nullable<decimal> Job_Salary { get; set; }
         public Nullable<System.DateTime> Job_JoinDate { get; set; }
+        public Nullable<System.Guid> Job_Identifier { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HRTable> HRTables { get; set; }

@@ -4,6 +4,7 @@
     <EntitySetMapping Name="DepartmentTables">
       <EntityTypeMapping TypeName="HRDatabaseModel.DepartmentTable">
         <MappingFragment StoreEntitySet="DepartmentTable">
+          <ScalarProperty Name="Department_Identifier" ColumnName="Department_Identifier" />
           <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
           <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
         </MappingFragment>
@@ -25,6 +26,7 @@
     <EntitySetMapping Name="JobTables">
       <EntityTypeMapping TypeName="HRDatabaseModel.JobTable">
         <MappingFragment StoreEntitySet="JobTable">
+          <ScalarProperty Name="Job_Identifier" ColumnName="Job_Identifier" />
           <ScalarProperty Name="Job_JoinDate" ColumnName="Job_JoinDate" />
           <ScalarProperty Name="Job_ID" ColumnName="Job_ID" />
           <ScalarProperty Name="Job_Title" ColumnName="Job_Title" />
@@ -35,6 +37,7 @@
     <EntitySetMapping Name="JobPositionTables">
       <EntityTypeMapping TypeName="HRDatabaseModel.JobPositionTable">
         <MappingFragment StoreEntitySet="JobPositionTable">
+          <ScalarProperty Name="JobPosition_Identifier" ColumnName="JobPosition_Identifier" />
           <ScalarProperty Name="Job_Title" ColumnName="Job_Title" />
           <ScalarProperty Name="JobPosition_ID" ColumnName="JobPosition_ID" />
         </MappingFragment>
@@ -43,6 +46,7 @@
     <EntitySetMapping Name="DepartmentPositionTables">
       <EntityTypeMapping TypeName="HRDatabaseModel.DepartmentPositionTable">
         <MappingFragment StoreEntitySet="DepartmentPositionTable">
+          <ScalarProperty Name="DepartmentPos_Identifier" ColumnName="DepartmentPos_Identifier" />
           <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
           <ScalarProperty Name="DepartmentPos_Id" ColumnName="DepartmentPos_Id" />
         </MappingFragment>

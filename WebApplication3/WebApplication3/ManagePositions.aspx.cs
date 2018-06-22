@@ -80,13 +80,49 @@ namespace WebApplication3
                 GridView1.DataSource = reviews.ToList();
                 GridView1.DataBind();
             }
+
+            WebForm1.DeleteOldPositionData();
+        }
+
+        public void RemovePositionForAllEntries(string name)
+        {
+            using (var myEntities = new HRDatabaseEntities())
+            {
+                var job_data = from d in myEntities.JobTables
+                                      where d.Job_Title == name
+                                      select d;
+
+                var hr_data = from d in myEntities.HRTables
+                              select d;
+
+                for (int i = 0; i < job_data.Count(); i++)
+                {
+                    job_data.ToList()[i].Job_Title = "None";
+
+                    foreach (HRTable ht in hr_data)
+                    {
+                        if (ht.Job_ID == job_data.ToList()[i].Job_ID)
+                        {
+                            //ht.JobTable = "None";
+                        }
+                    }
+                }
+
+                myEntities.SaveChanges();
+            }
         }
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             const int id_index = 1;
+            const int id_index_name = 2;
+
             int s = int.Parse(GridView1.Rows[e.RowIndex].Cells[id_index].Text);
+            string s2 = GridView1.Rows[e.RowIndex].Cells[id_index_name].Text;
+
             DeleteInDatabase(s.ToString());
+
+            RemovePositionForAllEntries(s2);
 
             LoadDatabase();
         }

@@ -33,7 +33,7 @@ namespace WebFormsIdentity
         {
             var userStore = new UserStore<IdentityUser>();
             var userManager = new UserManager<IdentityUser>(userStore);
-            var user = userManager.Find(UserName.Text, Password.Text);
+            var user = userManager.Find(UserName.Value, Password.Value);
 
             if (user != null)
             {
