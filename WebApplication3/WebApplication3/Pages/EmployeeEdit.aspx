@@ -34,14 +34,14 @@
 
      <div class="form-group row">
              
-    <label for="RefIDText" class="col-sm-1 col-form-label">Enter reference id: </label>
+    <label for="RefIDText" class="col-sm-5 col-form-label">Enter reference id: </label>
 
              <div class="col-sm-8">
         <input id="RefIDText" class="form-control" placeholder="Enter Ref ID"
                         runat="server" type="text" style="padding: 0 7px 2px;"/>
 
            <button id="RefIDBtn" runat="server" class="rounded"
-                        type="submit" style="margin-left:8px; width:100px;height:35px;padding: 0 7px 2px;" > Submit </button>
+                        type="submit" style="margin-left:8px; width:100px;height:23px;padding: 0 7px 2px;" > Submit </button>
 
                                 <asp:CustomValidator ID="RefIDValidator" runat="server" ErrorMessage="Entry not found"
       Display="Static" ForeColor="Red" ControlToValidate="RefIDText" ValidateEmptyText ="true"

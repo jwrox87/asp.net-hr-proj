@@ -66,7 +66,7 @@ span.psw {
 }
 
 /* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 600px) {
     span.psw {
         display: block;
         float: none;
@@ -83,16 +83,21 @@ span.psw {
 }
 
 .footer {
-    border-style: none;
+    /*border-style: none;
     border-color: inherit;
     border-width: 3px;
-    background-color: #003D7C;
+    background-color: #003D7C;*/
     margin-top: 2%;
-    color: whitesmoke;
+    /*color: whitesmoke;*/
     text-align: center;
-    padding: 14px 20px;
-    height: 105px;
-    border-top: 10px solid #EF7C00;
+    /*padding: 14px 20px;
+    height: 105px;*/
+    border-top: 2px solid #EF7C00;
+}
+
+.footertext 
+{
+    margin-left: 40%;
 }
 
 .content {
@@ -143,4 +148,10 @@ a {
 
 .navbar-toggler {
     background: white; /*replace with desired color*/
+}
+
+.navbar-visual {
+    background-color: #003D7C;
+    border-bottom: 2px solid #EF7C00;
+    border-top: 2px solid #EF7C00;
 }

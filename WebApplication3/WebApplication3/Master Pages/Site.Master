@@ -25,6 +25,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" runat="server" media="screen" href="~/Styles/Main.css" />
+       <link href="../lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="../Styles/NUS%20Style/styleguide.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -43,10 +45,9 @@
     <img class="img-responsive; img-rounded; logo" src="../images/logo.png" id="panel_img"/>
        </a>
       
-       <div class="container-fluid">
+       <div>
 
-<nav class="navbar navbar-expand-lg" style="background-color:#003D7C; border-bottom: 5px solid #EF7C00; 
-                border-top: 5px solid #EF7C00">
+<nav class="navbar navbar-expand-md navbar-visual">
 
     <div class="navbar-brand">
                 <asp:ContentPlaceHolder ID="HeaderContent" runat="server"
@@ -59,10 +60,10 @@
   </button>
         </div>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left:50%;">
+  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
     <ul class="navbar-nav">
       <li class="nav-item active navbarhover navbarfocus">
-        <a class="nav-link" href="../Pages/Home.aspx">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="../Pages/Home.aspx" style="padding-left:30px">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown navbarfocus navbarhover" style="padding-left:30px">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Toggle navigation">
@@ -100,89 +101,93 @@
 
 </form>
  
- <%--      
-        <div >
-           <label runat="server" ID="username_text"/>
-            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="Sign_Out" Font-Underline="true" CausesValidation="false">Sign Out</asp:LinkButton>
-        </div>--%>
-           
-      <%--  <div id ="header" style="margin-left:5%">
-            
-         <asp:Table ID="Table2" runat="server" style ="border:1px; border-style:double" Height="56px" Width="898px" >
-
-             <asp:TableHeaderRow>
-                 <asp:TableCell VerticalAlign="Top" HorizontalAlign ="Center">
-
-                     <asp:ContentPlaceHolder ID="HeaderContent" runat="server"></asp:ContentPlaceHolder>
-
-                 </asp:TableCell>
-             </asp:TableHeaderRow>
-            
-             </asp:Table>
-        
-        </div>--%>
-
-       <%-- <div id="body">
-           
-                  <asp:Table ID="Table1" runat="server" Height="69%" Width="60%" GridLines="Both" HorizontalAlign="Left"
-                      style =border:1px >
-
-                    <asp:TableRow>
-                        <asp:TableCell Width ="20%" VerticalAlign="Top">
-                                                    
-                        <asp:Menu ID="Menu1" runat="server" Font-Size="Large" 
-                            StaticSelectedStyle-ForeColor="Black" 
-                            StaticSelectedStyle-BorderStyle="Double" 
-                            StaticSelectedStyle-BorderColor="White" 
-                            DynamicSelectedStyle-ForeColor="#99CCFF" 
-                            DynamicSelectedStyle-BackColor="#99CCFF" 
-                            DynamicSelectedStyle-BorderStyle="Solid" 
-                            StaticMenuStyle-ForeColor="#CCFFFF" 
-                            StaticMenuItemStyle-BackColor="White" 
-                            StaticHoverStyle-BackColor="#FFFFCC" 
-                            DynamicMenuItemStyle-BackColor="#FF3300" 
-                            DynamicMenuStyle-BackColor="#FF3300" 
-                            StaticMenuItemStyle-ForeColor="Black" 
-                            StaticMenuItemStyle-BorderStyle="None" 
-                            IncludeStyleBlock="True" 
-                            StaticMenuStyle-BorderStyle="NotSet" 
-                            StaticSelectedStyle-BackColor="#FFFF99" ItemWrap="True" StaticMenuStyle-VerticalPadding="10" StaticMenuItemStyle-VerticalPadding="10">
-
-                            <Items> 
-                                                                       
-    
-<asp:MenuItem Text="Home" NavigateUrl="Home"/>
-<asp:MenuItem Text="Add Employee" NavigateUrl="HRForm"/>
-<asp:MenuItem Text="Edit Employee" NavigateUrl="EmployeeEdit"/>
-<asp:MenuItem Text="Employee List" NavigateUrl="EmployeeList"/>
-<asp:MenuItem Text="Manage Positions" NavigateUrl="ManagePositions"/>
-<asp:MenuItem Text="Manage Departments" NavigateUrl="ManageDepartments"/>
-</Items>
-</asp:Menu>
-</asp:TableCell>
-                         <asp:TableCell VerticalAlign="Top" HorizontalAlign ="Center">
-                             
-                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                         </asp:ContentPlaceHolder>
-</asp:TableCell>
-                    </asp:TableRow>
-                </asp:Table>
-           
-            
-        </div>--%>
-
-          
+       <br />
    <div class="panel-footer; footer">
 
-        <br />
-       <br />
-       <br />
-       <br />
-       <br />
-       <hr style="opacity:0.2"  />
+    <%--   <hr style="opacity:0.2"  />
                       <label runat="server" style="opacity:0.4"> @ National University of Singapore All Rights Reserved </label>
                       <br />
-                       <label runat="server" style="opacity:0.4"> Legal | Branding Guidelines </label>
+                       <label runat="server" style="opacity:0.4"> Legal | Branding Guidelines </label>--%>
+
+               <div class="nus-body-container">
+
+            <div class="nus-wrapper">
+
+                <!-- FOOTER - START -->
+                <footer class="nus-footer">
+
+                    <!-- FOOT NAVIGATION - START -->
+                    <div class="container; footertext">
+                        <div class="row wrapper navigator">
+
+                            <div class="text-center">
+                                <div class="nus-social-box">
+                                    <div class="nus-module module">
+                                        <div class="module-inner">
+                                            <h3 class="title"><span>National University of Singapore</span></h3>
+                                            <div class="module-ct">
+                                                <ul class="nus-contact-us">
+
+                                                    <li><span class="icon faicon fa-address"></span>21 Lower Kent Ridge Road<br>
+                                                        Singapore 119077</li>
+                                                    <li><span class="icon faicon fa-phone"></span>+65 6516 6666</li>
+                                                    <li><span class="icon faicon fa-email"></span><a href="mailto:enquiry@nus.edu.sg">enquiry@nus.edu.sg</a></li>
+                                                </ul>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="nus-module module footnav-alt">
+                                        <div class="module-inner">
+                                            <div class="module-ct">
+                                                <div>
+                                                    <a href="http://www.facebook.com/nus.singapore" target="_blank">
+                                                        <img src="../images/facebook.png" alt="facebook" width="35" height="35" /></a>&nbsp;
+													<a href="http://twitter.com/NUSingapore" target="_blank">
+                                                        <img src="../images/twitter.png" alt="twitter" width="35" height="35" /></a>&nbsp;
+													<a href="http://www.youtube.com/nuscast" target="_blank">
+                                                        <img src="../images/youtube.png" alt="youtube" width="35" height="35" /></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- FOOT NAVIGATION - END -->
+
+
+                    <!-- FOOTER - COPYRIGHT - START -->
+                    <div class="copyright">
+                        <div class="container" style="text-align:center">
+                            <div class="row">
+                                <div class="info" style="margin-left:35%">© <a href="http://www.nus.edu.sg/">National University of Singapore</a>. All Rights Reserved.</div>
+                    
+                                <div style="margin-left:40%" >
+                                     <p></p>
+                                    <ul class="nav-copyright" >
+                                        <li><a href="http://www.nus.edu.sg/legal-information-notices">Legal</a></li>
+                                        <li class="bullet"><a href="#">Branding guidelines</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FOOTER - COPYRIGHT - END -->
+
+
+                </footer>
+                <!-- FOOTER - END -->
+
+
+            </div>
+            <!-- NUS WRAPPER -->
+
+        </div>
+        <!-- NUS BODY CONTAINER -->
+
    </div>
 
     </div>
