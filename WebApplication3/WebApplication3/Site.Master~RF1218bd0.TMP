@@ -1,0 +1,279 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication3.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+    <title><%: Page.Title %> - Human Resource Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+      <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/umd/popper.min.js"></script>
+
+      <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+      <style>
+        /* Bordered form */
+form {
+    border: 0px solid #f1f1f1;
+}
+
+body
+{
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    font-size: small;
+    background-color: #003D7C;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+/* Add padding to containers */
+.container {
+    padding: 16px;
+}
+
+/* The "Forgot password" text */
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+}
+
+.header
+{
+    background-color:#EF7C00;
+    margin-top:0%;
+}
+
+.footer
+{
+    background-color: #003D7C;
+    margin-top:0%;
+
+    color:white;
+   text-align: center;
+   text-decoration-color:wheat;
+    border: 3px;
+}
+
+.content
+{
+
+}
+
+.logo
+{
+    padding: 20px;
+              height: 96px;
+              width: 172px;
+          }
+
+ .ddl
+        {
+            border:2px solid #7d6754;
+            border-radius:5px;
+            padding:3px;
+            -webkit-appearance: none;    
+            background-position:88px;
+            background-repeat:no-repeat;
+            text-indent: 0.01px;/*In Firefox*/
+            text-overflow: '';/*In Firefox*/
+        }
+
+ .navbar-nav{
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+</style>
+
+<form id="form1" runat="server">
+
+
+   <div class="panel-heading; header">
+
+  <%--  <img class="img-responsive; img-rounded; logo" src="images/logo.png" id="panel_img"/>--%>
+
+<%--       <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="active"><a href="#"></a></li>
+      <li class="dropdown">
+        <a data-toggle="dropdown" href="#">Employee
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="HRForm.aspx">Add Employee</a></li>
+          <li><a href="EmployeeEdit.aspx">Edit Employee</a></li>
+          <li><a href="EmployeeList.aspx">Employee List</a></li>
+        </ul>
+      </li>
+      <li><a href="ManagePositions.aspx">Manage Positions</a></li>
+      <li><a href="ManageDepartments.aspx">Manage Departments</a></li>
+    </ul>
+  </div>
+           </nav>--%>
+       
+
+       </div> 
+        </form>
+
+ 
+
+    
+    
+       
+   <%--     <div >
+           <label runat="server" ID="username_text"/>
+            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="Sign_Out" Font-Underline="true" CausesValidation="false">Sign Out</asp:LinkButton>
+        </div>--%>
+           
+      <%--  <div id ="header" style="margin-left:5%">
+            
+         <asp:Table ID="Table2" runat="server" style ="border:1px; border-style:double" Height="56px" Width="898px" >
+
+             <asp:TableHeaderRow>
+                 <asp:TableCell VerticalAlign="Top" HorizontalAlign ="Center">
+
+                     <asp:ContentPlaceHolder ID="HeaderContent" runat="server"></asp:ContentPlaceHolder>
+
+                 </asp:TableCell>
+             </asp:TableHeaderRow>
+            
+             </asp:Table>
+        
+        </div>--%>
+
+       <%-- <div id="body">
+           
+                  <asp:Table ID="Table1" runat="server" Height="69%" Width="60%" GridLines="Both" HorizontalAlign="Left"
+                      style =border:1px >
+
+                    <asp:TableRow>
+                        <asp:TableCell Width ="20%" VerticalAlign="Top">
+                                                    
+                        <asp:Menu ID="Menu1" runat="server" Font-Size="Large" 
+                            StaticSelectedStyle-ForeColor="Black" 
+                            StaticSelectedStyle-BorderStyle="Double" 
+                            StaticSelectedStyle-BorderColor="White" 
+                            DynamicSelectedStyle-ForeColor="#99CCFF" 
+                            DynamicSelectedStyle-BackColor="#99CCFF" 
+                            DynamicSelectedStyle-BorderStyle="Solid" 
+                            StaticMenuStyle-ForeColor="#CCFFFF" 
+                            StaticMenuItemStyle-BackColor="White" 
+                            StaticHoverStyle-BackColor="#FFFFCC" 
+                            DynamicMenuItemStyle-BackColor="#FF3300" 
+                            DynamicMenuStyle-BackColor="#FF3300" 
+                            StaticMenuItemStyle-ForeColor="Black" 
+                            StaticMenuItemStyle-BorderStyle="None" 
+                            IncludeStyleBlock="True" 
+                            StaticMenuStyle-BorderStyle="NotSet" 
+                            StaticSelectedStyle-BackColor="#FFFF99" ItemWrap="True" StaticMenuStyle-VerticalPadding="10" StaticMenuItemStyle-VerticalPadding="10">
+
+                            <Items> 
+                                                                       
+    
+<asp:MenuItem Text="Home" NavigateUrl="Home"/>
+<asp:MenuItem Text="Add Employee" NavigateUrl="HRForm"/>
+<asp:MenuItem Text="Edit Employee" NavigateUrl="EmployeeEdit"/>
+<asp:MenuItem Text="Employee List" NavigateUrl="EmployeeList"/>
+<asp:MenuItem Text="Manage Positions" NavigateUrl="ManagePositions"/>
+<asp:MenuItem Text="Manage Departments" NavigateUrl="ManageDepartments"/>
+</Items>
+</asp:Menu>
+</asp:TableCell>
+                         <asp:TableCell VerticalAlign="Top" HorizontalAlign ="Center">
+                             
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                         </asp:ContentPlaceHolder>
+</asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+           
+            
+        </div>--%>
+
+            
+    
+    <asp:ContentPlaceHolder ID="HeaderContent" runat="server"
+          ></asp:ContentPlaceHolder>
+
+
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" Visible="false">
+                         </asp:ContentPlaceHolder>
+</body>
+</html>

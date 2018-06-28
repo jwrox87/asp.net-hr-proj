@@ -1,0 +1,152 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication3.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style type="text/css">
+        #body {
+width: 100%;
+height: 385px;
+            margin-top: 120px;
+        }
+
+
+    </style>
+
+    <title><%: Page.Title %> - Human Resource Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+      <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/umd/popper.min.js"></script>
+
+      <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <form runat="server">
+
+       <%-- <div class="navbar navbar-inverse navbar-fixed-top" style="vertical-align: top">
+            <div class="container">
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/">Homee</a></li>
+                        <li><a runat="server" href="~/About">About</a></li>
+                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>--%>
+        <div style="margin-bottom:2%;" >
+           <label runat="server" ID="username_text"/>
+            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="Sign_Out" Font-Underline="true" CausesValidation="false">Sign Out</asp:LinkButton>
+        </div>
+           
+        <div id ="header" style="margin-left:5%">
+            
+         <asp:Table ID="Table2" runat="server" style ="border:1px; border-style:double" Height="56px" Width="898px" >
+
+             <asp:TableHeaderRow>
+                 <asp:TableCell VerticalAlign="Top" HorizontalAlign ="Center">
+
+                      <asp:ContentPlaceHolder ID="HeaderContent" runat="server"></asp:ContentPlaceHolder>
+
+                 </asp:TableCell>
+             </asp:TableHeaderRow>
+            
+             </asp:Table>
+        
+        </div>
+
+        <div>
+
+            <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+    </ul>
+    <form class="navbar-form navbar-left" action="/action_page.php">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+</nav>
+
+        </div>
+
+
+        <div id="body">
+           
+                  <asp:Table ID="Table1" runat="server" Height="69%" Width="60%" GridLines="Both" HorizontalAlign="Left"
+                      style =border:1px >
+
+                    <asp:TableRow>
+                        <asp:TableCell Width ="20%" VerticalAlign="Top">
+                                                    
+                        <asp:Menu ID="Menu1" runat="server" Font-Size="Large" 
+                            StaticSelectedStyle-ForeColor="Black" 
+                            StaticSelectedStyle-BorderStyle="Double" 
+                            StaticSelectedStyle-BorderColor="White" 
+                            DynamicSelectedStyle-ForeColor="#99CCFF" 
+                            DynamicSelectedStyle-BackColor="#99CCFF" 
+                            DynamicSelectedStyle-BorderStyle="Solid" 
+                            StaticMenuStyle-ForeColor="#CCFFFF" 
+                            StaticMenuItemStyle-BackColor="White" 
+                            StaticHoverStyle-BackColor="#FFFFCC" 
+                            DynamicMenuItemStyle-BackColor="#FF3300" 
+                            DynamicMenuStyle-BackColor="#FF3300" 
+                            StaticMenuItemStyle-ForeColor="Black" 
+                            StaticMenuItemStyle-BorderStyle="None" 
+                            IncludeStyleBlock="True" 
+                            StaticMenuStyle-BorderStyle="NotSet" 
+                            StaticSelectedStyle-BackColor="#FFFF99" ItemWrap="True" StaticMenuStyle-VerticalPadding="10" StaticMenuItemStyle-VerticalPadding="10">
+
+                            <Items> 
+                                                                       
+    
+<asp:MenuItem Text="Home" NavigateUrl="Home"/>
+<asp:MenuItem Text="Add Employee" NavigateUrl="HRForm"/>
+<asp:MenuItem Text="Edit Employee" NavigateUrl="EmployeeEdit"/>
+<asp:MenuItem Text="Employee List" NavigateUrl="EmployeeList"/>
+<asp:MenuItem Text="Manage Positions" NavigateUrl="ManagePositions"/>
+<asp:MenuItem Text="Manage Departments" NavigateUrl="ManageDepartments"/>
+</Items>
+</asp:Menu>
+</asp:TableCell>
+                         <asp:TableCell VerticalAlign="Top" HorizontalAlign ="Center">
+                             
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                         </asp:ContentPlaceHolder>
+</asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+           
+            
+        </div>
+
+        <footer>
+            </footer>
+    </form>
+</body>
+</html>

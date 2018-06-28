@@ -1,32 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="HRDatabaseModelStoreContainer" CdmEntityContainer="HRDatabaseEntities">
-    <EntitySetMapping Name="HRTables">
-      <EntityTypeMapping TypeName="IsTypeOf(HRDatabaseModel.HRTable)">
-        <MappingFragment StoreEntitySet="HRTable">
-          <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
-          <ScalarProperty Name="Job_ID" ColumnName="Job_ID" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IC" ColumnName="IC" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="DepartmentTables">
       <EntityTypeMapping TypeName="HRDatabaseModel.DepartmentTable">
         <MappingFragment StoreEntitySet="DepartmentTable">
+          <ScalarProperty Name="Department_Identifier" ColumnName="Department_Identifier" />
+          <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
           <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HRTables">
+      <EntityTypeMapping TypeName="HRDatabaseModel.HRTable">
+        <MappingFragment StoreEntitySet="HRTable">
+          <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="IC" ColumnName="IC" />
+          <ScalarProperty Name="Job_ID" ColumnName="Job_ID" />
           <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="JobTables">
-      <EntityTypeMapping TypeName="IsTypeOf(HRDatabaseModel.JobTable)">
+      <EntityTypeMapping TypeName="HRDatabaseModel.JobTable">
         <MappingFragment StoreEntitySet="JobTable">
+          <ScalarProperty Name="Job_Identifier" ColumnName="Job_Identifier" />
+          <ScalarProperty Name="Job_JoinDate" ColumnName="Job_JoinDate" />
           <ScalarProperty Name="Job_ID" ColumnName="Job_ID" />
-          <ScalarProperty Name="Job_Salary" ColumnName="Job_Salary" />
           <ScalarProperty Name="Job_Title" ColumnName="Job_Title" />
+          <ScalarProperty Name="Job_Salary" ColumnName="Job_Salary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobPositionTables">
+      <EntityTypeMapping TypeName="HRDatabaseModel.JobPositionTable">
+        <MappingFragment StoreEntitySet="JobPositionTable">
+          <ScalarProperty Name="JobPosition_Identifier" ColumnName="JobPosition_Identifier" />
+          <ScalarProperty Name="Job_Title" ColumnName="Job_Title" />
+          <ScalarProperty Name="JobPosition_ID" ColumnName="JobPosition_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepartmentPositionTables">
+      <EntityTypeMapping TypeName="HRDatabaseModel.DepartmentPositionTable">
+        <MappingFragment StoreEntitySet="DepartmentPositionTable">
+          <ScalarProperty Name="DepartmentPos_Identifier" ColumnName="DepartmentPos_Identifier" />
+          <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+          <ScalarProperty Name="DepartmentPos_Id" ColumnName="DepartmentPos_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FieldInfoTables">
+      <EntityTypeMapping TypeName="HRDatabaseModel.FieldInfoTable">
+        <MappingFragment StoreEntitySet="FieldInfoTable">
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="Update_Text" ColumnName="Update_Text" />
+          <ScalarProperty Name="Update_Type" ColumnName="Update_Type" />
+          <ScalarProperty Name="FieldInfo_Id" ColumnName="FieldInfo_Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
