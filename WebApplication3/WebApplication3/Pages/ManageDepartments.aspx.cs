@@ -50,7 +50,8 @@ namespace WebApplication3
                 myEntities.SaveChanges();
         
                 FieldInformationDB.CreateFieldInformation(
-                   TypeOfUpdate.Delete, DateTime.Now, "Deleted department: " + data.Department_Name);
+                   TypeOfUpdate.Delete, DateTime.Now, "Deleted department: " + data.Department_Name,
+                   HttpContext.Current.User.Identity.Name);
             }
         }
 
@@ -68,14 +69,6 @@ namespace WebApplication3
                 for (int i=0; i < department_data.Count(); i++)
                 {
                     department_data.ToList()[i].Department_Name = "None";
-
-                    foreach (HRTable ht in hr_data)
-                    {
-                        if (ht.Department_ID == department_data.ToList()[i].Department_ID)
-                        {
-                           // ht.Name = "None";
-                        }
-                    }
                 }
 
                 myEntities.SaveChanges();
@@ -95,7 +88,8 @@ namespace WebApplication3
                 myEntities.SaveChanges();
 
                 FieldInformationDB.CreateFieldInformation(
-                   TypeOfUpdate.Add, DateTime.Now, "Added new department: " +AddDepText.Value);
+                   TypeOfUpdate.Add, DateTime.Now, "Added new department: " +AddDepText.Value,
+                   HttpContext.Current.User.Identity.Name);
             }
         }
 

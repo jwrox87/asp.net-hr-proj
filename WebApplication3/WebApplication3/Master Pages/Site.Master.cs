@@ -12,45 +12,23 @@ namespace WebApplication3
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
-                // SelectedMenuItem();
-
+            {             
                 if (HttpContext.Current.User.Identity.Name != null)
                     username_text.InnerText = "Welcome, " + HttpContext.Current.User.Identity.Name;
                 else
                     username_text.InnerText = "None";
 
-                //If user is not admin, disable menu items 
-                //if (!HttpContext.Current.User.IsInRole("Admin"))
-                //{
-                //    foreach (MenuItem mi in Menu1.Items)
-                //    {
-                //        if (mi.Text == "Manage Positions" ||
-                //            mi.Text == "Manage Departments" ||
-                //            mi.Text == "Edit Employee" ||
-                //            mi.Text == "Employee List"
-                //            )
-                //        {
-                //            mi.Enabled = false;
-                //            mi.Selected = false;
-                //            mi.Selectable = false;
-                //        }
-                //    }
-                //}
-            }
-        }
+                //If user is not admin, disable menu items
+                if (!HttpContext.Current.User.IsInRole("Admin"))
+                {
+                    manage_departments_link.Visible = false;
+                    manage_positions_link.Visible = false;
+                    employee_edit_link.Visible = false;
+                    employee_list_link.Visible = false;
 
-        //Show previously selected menu item
-        private void SelectedMenuItem()
-        {
-            //foreach (MenuItem mi in Menu1.Items)
-            //{
-            //    string s = mi.NavigateUrl.ToLower();
-            //    if (Request.Url.AbsoluteUri.ToLower().Contains(Page.ResolveUrl(s)))
-            //    {
-            //        mi.Selected = true;
-            //    }
-            //}
+                    //manage_positions_link.Disabled = true;
+                }
+            }
         }
 
         //Sign out event

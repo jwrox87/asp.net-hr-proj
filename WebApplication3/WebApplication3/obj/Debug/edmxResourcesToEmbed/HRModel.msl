@@ -55,6 +55,7 @@
     <EntitySetMapping Name="FieldInfoTables">
       <EntityTypeMapping TypeName="HRDatabaseModel.FieldInfoTable">
         <MappingFragment StoreEntitySet="FieldInfoTable">
+          <ScalarProperty Name="Author" ColumnName="Author" />
           <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
           <ScalarProperty Name="Update_Text" ColumnName="Update_Text" />
           <ScalarProperty Name="Update_Type" ColumnName="Update_Type" />

@@ -45,7 +45,8 @@ namespace WebApplication3
                 myEntities.SaveChanges();
 
                 FieldInformationDB.CreateFieldInformation(TypeOfUpdate.Modify,
-                    DateTime.Now, "Employee: " + data.Name + " has been edited");
+                    DateTime.Now, "Employee: " + data.Name + " has been edited",
+                    HttpContext.Current.User.Identity.Name);
             }
         }
 

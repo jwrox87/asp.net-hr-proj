@@ -86,7 +86,8 @@ namespace WebApplication3
                 myEntities.SaveChanges();
 
                 FieldInformationDB.CreateFieldInformation(
-       TypeOfUpdate.Delete, DateTime.Now, "Deleted employee: " + data.Name);
+       TypeOfUpdate.Delete, DateTime.Now, "Deleted employee: " + data.Name,
+       HttpContext.Current.User.Identity.Name);
             }
         }
 
@@ -160,7 +161,7 @@ namespace WebApplication3
 
                 ExtensionMethods.Redirect
                (this.Response, "~/Pages/EmployeeDetails.aspx", "_blank",
-               "menubar=0,scrollbars=1,width=780,height=800,top=10");
+               "menubar=0,scrollbars=1,width=640,height=640,top=10");
 
                 Employee employee = new Employee(data.Name,
                     data.Phone, data.IC, data.JobTable.Job_Title,

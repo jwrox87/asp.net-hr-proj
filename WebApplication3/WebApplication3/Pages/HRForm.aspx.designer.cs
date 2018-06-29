@@ -58,6 +58,15 @@ namespace WebApplication3 {
         protected global::System.Web.UI.WebControls.TextBox ICText;
         
         /// <summary>
+        /// reqIC2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqIC2;
+        
+        /// <summary>
         /// ReqIC control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace WebApplication3 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PhoneText;
+        
+        /// <summary>
+        /// RedPhone2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RedPhone2;
         
         /// <summary>
         /// ReqPhone control.

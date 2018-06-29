@@ -30,7 +30,8 @@ namespace WebApplication3
         }
 
         public Employee(string n, string p, string _ic,
-            string jp, string js, DateTime? jjd, string dn, byte[] b, int _id=0, int jid=0, int did=0)
+            string jp, string js, DateTime? jjd, string dn, byte[] b, 
+            int _id=0, int jid=0, int did=0)
         {
             name = n;
             phone = p;
@@ -63,6 +64,7 @@ namespace WebApplication3
                 return null;
             }
         }
+
         public byte[] Picture
         {
             get { return picture; }

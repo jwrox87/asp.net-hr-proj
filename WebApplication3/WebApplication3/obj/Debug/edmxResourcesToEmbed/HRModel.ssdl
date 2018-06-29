@@ -24,6 +24,7 @@
     <Property Name="Update_Type" Type="nchar" MaxLength="10" />
     <Property Name="Update_Text" Type="ntext" />
     <Property Name="Update_Date" Type="datetime" />
+    <Property Name="Author" Type="nchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="HRTable">
     <Key>

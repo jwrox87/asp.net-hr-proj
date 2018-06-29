@@ -12,10 +12,10 @@ namespace WebApplication3
             InsertDatabase(fieldInfo);
         }
 
-        public static void CreateFieldInformation(TypeOfUpdate ut, DateTime dt, string description)
+        public static void CreateFieldInformation(TypeOfUpdate ut, DateTime dt, string description,string author)
         {
             FieldInformation fieldInfo
-                = new FieldInformation(ut, dt, description);
+                = new FieldInformation(ut, dt, description,author);
 
             InsertDatabase(fieldInfo);
         }
@@ -30,6 +30,8 @@ namespace WebApplication3
 
                 fieldInfoTables.Update_Date = fieldInformation.GetFieldInfo().Item2;
                 fieldInfoTables.Update_Text = fieldInformation.GetFieldInfo().Item3;
+
+                fieldInfoTables.Author = fieldInformation.GetAuthor();
 
                 myEntities.FieldInfoTables.Add(fieldInfoTables);
                 myEntities.SaveChanges();

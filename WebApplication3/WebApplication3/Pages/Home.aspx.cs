@@ -31,7 +31,8 @@ namespace WebApplication3
 
                     FieldInformation fi
                        = new FieldInformation(tou,
-                        cdt, fieldInfoTables[i].Update_Text);
+                        cdt, fieldInfoTables[i].Update_Text,
+                        fieldInfoTables[i].Author);
 
                     fieldInfo_List.Add(fi);
                 }
@@ -144,16 +145,25 @@ namespace WebApplication3
             //label_desc.Style.Add("background-color", fi.GetColor());
         }
 
+        private void PrintAuthor(Label label_author, FieldInformation fi)
+        {
+            label_author.Text = "Author: " + fi.GetAuthor();
+            label_author.Width = Unit.Percentage(100);
+            label_author.Font.Size = FontUnit.Large;
+        }
+
 
         private void PrintInfo(FieldInformation fi)
         {
             Label label_ut = new Label();
             Label label_time = new Label();
             Label label_desc = new Label();
+            Label label_author = new Label();
 
             PrintTypeOfUse(label_ut, fi);
             PrintTime(label_time, fi);
             PrintDescription(label_desc, fi);
+            PrintAuthor(label_author,fi);
 
             string div_type = "<div class='alert-primary rounded;border border-secondary' role='alert' style='width:600px'>";
 
@@ -166,12 +176,12 @@ namespace WebApplication3
                 div_type = "<div class='alert-info rounded;border border-secondary' role='alert' style='width:600px'>";
             }
           
-
             UpdatePanel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<div style='padding-left:20%'>"));
             UpdatePanel1.ContentTemplateContainer.Controls.Add(new LiteralControl(div_type));
             
             UpdatePanel1.ContentTemplateContainer.Controls.Add(label_ut);
             UpdatePanel1.ContentTemplateContainer.Controls.Add(label_time);
+            UpdatePanel1.ContentTemplateContainer.Controls.Add(label_author);
 
             UpdatePanel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<hr style='opacity=0.2'/>"));
             UpdatePanel1.ContentTemplateContainer.Controls.Add(label_desc);
@@ -179,19 +189,6 @@ namespace WebApplication3
             UpdatePanel1.ContentTemplateContainer.Controls.Add(new LiteralControl("</div>"));
             UpdatePanel1.ContentTemplateContainer.Controls.Add(new LiteralControl("</div>"));
             UpdatePanel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
-
-            //UpdatePanel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<fieldset> "));
-            //UpdatePanel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
-            //UpdatePanel1.ContentTemplateContainer.Controls.Add(label_ut);
-
-            //UpdatePanel1.ContentTemplateContainer.Controls.Add(label_time);
-
-            //UpdatePanel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
-
-            //UpdatePanel1.ContentTemplateContainer.Controls.Add(label_desc);
-            //UpdatePanel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
-
-            //UpdatePanel1.ContentTemplateContainer.Controls.Add(new LiteralControl("</fieldset>"));
         }
 
         private void FillDropDownList(ListItem li)

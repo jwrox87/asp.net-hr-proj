@@ -46,7 +46,8 @@ namespace WebApplication3
                 myEntities.SaveChanges();
 
                 FieldInformationDB.CreateFieldInformation(
-                    TypeOfUpdate.Delete, DateTime.Now, "Deleted Job Position: " + data.Job_Title);
+                    TypeOfUpdate.Delete, DateTime.Now, "Deleted Job Position: " + data.Job_Title,
+                    HttpContext.Current.User.Identity.Name);
             }
         }
 
@@ -61,7 +62,8 @@ namespace WebApplication3
                 myEntities.SaveChanges();
 
                 FieldInformationDB.CreateFieldInformation(
-                    TypeOfUpdate.Add, DateTime.Now, "Added new job: " + AddPositionText.Value);
+                    TypeOfUpdate.Add, DateTime.Now, "Added new job: " + AddPositionText.Value,
+                    HttpContext.Current.User.Identity.Name);
             }
         }
 
@@ -98,14 +100,6 @@ namespace WebApplication3
                 for (int i = 0; i < job_data.Count(); i++)
                 {
                     job_data.ToList()[i].Job_Title = "None";
-
-                    foreach (HRTable ht in hr_data)
-                    {
-                        if (ht.Job_ID == job_data.ToList()[i].Job_ID)
-                        {
-                            //ht.JobTable = "None";
-                        }
-                    }
                 }
 
                 myEntities.SaveChanges();

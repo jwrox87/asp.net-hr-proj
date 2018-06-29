@@ -49,6 +49,42 @@ namespace WebApplication3 {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder HeaderContent;
         
         /// <summary>
+        /// employee_edit_link control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor employee_edit_link;
+        
+        /// <summary>
+        /// employee_list_link control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor employee_list_link;
+        
+        /// <summary>
+        /// manage_departments_link control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor manage_departments_link;
+        
+        /// <summary>
+        /// manage_positions_link control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor manage_positions_link;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

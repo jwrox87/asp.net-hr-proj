@@ -13,8 +13,6 @@ namespace WebApplication3
             {
                 var data = from table in dataTables
                            select table;
-
-
             }
         }
     }

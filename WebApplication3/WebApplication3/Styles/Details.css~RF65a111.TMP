@@ -1,0 +1,21 @@
+﻿/*Employee details*/
+.employee-details-bg {
+    background-color: #003D7C;
+}
+
+.employee-details-margin
+{
+    margin-top:5%;
+}
+
+.employee-details-bg label 
+{
+    font: bold;
+    color: crimson;
+}
+
+
+.employee-details-fg {
+    background-color: #F8F8F8;
+    outline: 2px solid #EF7C00;
+}

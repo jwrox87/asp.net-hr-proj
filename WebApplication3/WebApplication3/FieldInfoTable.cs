@@ -17,6 +17,7 @@ namespace WebApplication3
         public int FieldInfo_Id { get; set; }
         public string Update_Type { get; set; }
         public string Update_Text { get; set; }
+        public string Author { get; set; }
         public Nullable<System.DateTime> Update_Date { get; set; }
     }
 }

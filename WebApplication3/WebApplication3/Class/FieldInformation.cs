@@ -18,21 +18,28 @@ namespace WebApplication3
         TypeOfUpdate updateType = TypeOfUpdate.None;
         DateTime date_time_added;
         string updateText;
+        string author;
 
         string color;
 
         public FieldInformation() { }
 
-        public FieldInformation(TypeOfUpdate tou, DateTime dt, string ut)
+        public FieldInformation(TypeOfUpdate tou, DateTime dt, string ut,string a)
         {
             updateType = tou;
             date_time_added = dt;
             updateText = ut;
+            author = a;
         }
 
         public (TypeOfUpdate, DateTime, string) GetFieldInfo()
         {
             return (updateType, date_time_added, updateText);
+        }
+
+        public string GetAuthor()
+        {
+            return author;
         }
 
         public string GetColor()
