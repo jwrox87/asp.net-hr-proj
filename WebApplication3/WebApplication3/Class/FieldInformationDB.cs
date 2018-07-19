@@ -5,6 +5,8 @@ using System.Web;
 
 namespace WebApplication3
 {
+    //Static class for storing information when adding to database
+
     public static class FieldInformationDB
     {
         public static void CreateFieldInformation(FieldInformation fieldInfo)

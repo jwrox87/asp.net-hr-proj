@@ -15,6 +15,7 @@ namespace WebApplication3
             AssignProperties();
         }
 
+        //Assign labels with session variables
         void AssignProperties()
         {
             nameLabel.InnerText = Session["name"].ToString();
@@ -36,8 +37,11 @@ namespace WebApplication3
             idLabel.InnerText = Session["id"].ToString();
             jobidLabel.InnerText = Session["job_id"].ToString();
             didLabel.InnerText = Session["department_id"].ToString();
+
+            Session.Clear();
         }
 
+        //Store session variables from employee - taken from employee list page
         public void LoadEmployeeDetails(Employee e)
         {
             Session["name"] = e.Name;

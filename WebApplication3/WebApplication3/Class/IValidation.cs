@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebApplication3
 {
+    // interface for setting validation state
     public interface IValidation
     {
         void SetValidations(bool b);

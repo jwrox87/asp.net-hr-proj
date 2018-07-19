@@ -17,15 +17,16 @@
 
     <link rel="stylesheet" runat="server" media="screen" href="~/Styles/Details.css" />
 
-<%--    <script type="text/javascript">
-    function GetEmployeeName()
-    {
-        var username = '<%= Session["name"] %>';
-        alert(username );
-    }
+    <script type="text/javascript">
 
-    document.getElementById("employeenametitle").setAttribute("title", GetEmployeeName());
-</script>--%>
+        function GetEmployeeName() {
+            return '<%= Session["name"] %>';
+        }
+
+        top.document.title = "Employee: " + GetEmployeeName();
+
+    </script>
+
 </head>
 <body class="employee-details-bg">
     <form id="form1" runat="server">
@@ -91,7 +92,7 @@
 
                 <div class="form-row">
                     <div class="justify-content-sm-start col">
-                         Job Salary:
+                        Job Salary:
                         <label id="jobSalaryLabel" runat="server"></label>
                     </div>
 
@@ -99,7 +100,7 @@
                 </div>
 
                 <div class="form-row">
-                      <div class="justify-content-sm-start col">
+                    <div class="justify-content-sm-start col">
                         Department:
                         <label id="depNameLabel" runat="server"></label>
                     </div>

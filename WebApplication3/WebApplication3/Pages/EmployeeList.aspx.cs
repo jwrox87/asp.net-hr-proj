@@ -169,7 +169,10 @@ namespace WebApplication3
                     , data.ProfilePicture, data.Id, data.Job_ID, data.Department_ID);
 
                 employeedetails.LoadEmployeeDetails(employee);
-            } 
+                employee = null;
+            }
+
+            employeedetails = null;
         }
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
