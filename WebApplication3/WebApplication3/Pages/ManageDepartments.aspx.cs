@@ -28,7 +28,7 @@ namespace WebApplication3
             using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
             {
                 var reviews = from d in myEntities.DepartmentPositionTables
-                              where d.Department_Name == s.ToString()
+                              where d.Department_Name.ToLower().Replace(" ", string.Empty) == s.ToString()
                               select d;
 
                 if (reviews.ToList().Count >= 1)
@@ -102,7 +102,7 @@ namespace WebApplication3
                               select new
                               {
                                   d.DepartmentPos_Id,
-                                  d.Department_Name
+                                  DepartmentName = d.Department_Name
                               };
 
                 GridView1.DataSource = reviews.ToList();
@@ -110,6 +110,7 @@ namespace WebApplication3
             }
 
             WebForm1.DeleteOldDepartmentData();
+            ExtensionMethods.HideIDColumn(GridView1, 1);
         }
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -147,7 +148,9 @@ namespace WebApplication3
             if (AddDepText.Value == string.Empty)
                 args.IsValid = false;
 
-            if (CheckIfInDatabase(AddDepText.Value))
+            string deptext = AddDepText.Value.ToLower().Replace(" ", string.Empty); 
+
+            if (CheckIfInDatabase(deptext))
             {
                 args.IsValid = false;
             }

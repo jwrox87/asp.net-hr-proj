@@ -5,14 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="40cb8ee41253424f9883ab79c3755893" Name="Diagram1">
-        <EntityTypeShape EntityType="HRDatabaseModel.DepartmentTable" Width="2" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRDatabaseModel.HRTable" Width="1.5" PointX="5.625" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRDatabaseModel.JobTable" Width="1.5" PointX="2.625" PointY="4.25" IsExpanded="true" />
-        <AssociationConnector Association="HRDatabaseModel.FK_HRTable_ToTable_1" ManuallyRouted="false" />
-        <AssociationConnector Association="HRDatabaseModel.FK_HRTable_ToTable" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="HRDatabaseModel.JobPositionTable" Width="1.5" PointX="10.125" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRDatabaseModel.DepartmentPositionTable" Width="2" PointX="10.125" PointY="0.5" />
-        <EntityTypeShape EntityType="HRDatabaseModel.FieldInfoTable" Width="1.5" PointX="10.125" PointY="4.125" />
+        <EntityTypeShape EntityType="HRDatabaseModel.DepartmentPositionTable" Width="1.5" PointX="10.875" PointY="4.75" />
+        <EntityTypeShape EntityType="HRDatabaseModel.FieldInfoTable" Width="1.5" PointX="10.75" PointY="2.375" />
+        <EntityTypeShape EntityType="HRDatabaseModel.HRTable" Width="1.5" PointX="7.375" PointY="0.875" />
+        <EntityTypeShape EntityType="HRDatabaseModel.JobPositionTable" Width="1.5" PointX="10.5" PointY="0.5" />
+        <EntityTypeShape EntityType="HRDatabaseModel.JobTable" Width="1.5" PointX="3.5" PointY="1.125" />
+        <AssociationConnector Association="HRDatabaseModel.FK_HRTable_ToTable" />
+        <EntityTypeShape EntityType="HRDatabaseModel.DepartmentTable" Width="1.5" PointX="4.5" PointY="4" />
+        <AssociationConnector Association="HRDatabaseModel.FK_HRTable_ToTable_1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

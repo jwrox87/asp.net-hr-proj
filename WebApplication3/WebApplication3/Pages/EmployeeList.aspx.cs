@@ -15,22 +15,6 @@ namespace WebApplication3
     {
         private const int id_index = 2;
 
-        private void HideIDColumn()
-        {
-            if (GridView1.FooterRow == null)
-                return;
-
-            if (GridView1.FooterRow.Cells[id_index] == null)
-                return;
-
-            GridView1.FooterRow.Cells[id_index].Visible = false;
-            GridView1.HeaderRow.Cells[id_index].Visible = false;
-            foreach (GridViewRow g in GridView1.Rows)
-            {
-                g.Cells[id_index].Visible = false;
-            }
-        }
-
         public void LoadDatabase()
         {
             using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
@@ -42,11 +26,12 @@ namespace WebApplication3
                                   HRTable.Name,
                                   HRTable.Phone,
                                   HRTable.IC,
-                                  HRTable.JobTable.Job_Title,
-                                  HRTable.DepartmentTable.Department_Name
+                                  JobTitle = HRTable.JobTable.Job_Title,
+                                  DepartmentName = HRTable.DepartmentTable.Department_Name
                               };
 
                 GridView1.DataSource = reviews.ToList();
+
                 GridView1.DataBind();
 
                 Session["DataSource"] = ExtensionMethods.
@@ -56,7 +41,7 @@ namespace WebApplication3
             SearchText.Text = string.Empty;
 
             //Hacky solution
-            HideIDColumn();
+            ExtensionMethods.HideIDColumn(GridView1,id_index);
         }
 
         public void InsertDatabase() { }
@@ -107,8 +92,8 @@ namespace WebApplication3
                                   HRTable.Name,
                                   HRTable.Phone,
                                   HRTable.IC,
-                                  HRTable.JobTable.Job_Title,
-                                  HRTable.DepartmentTable.Department_Name
+                                  JobTitle = HRTable.JobTable.Job_Title,
+                                  DepartmentName = HRTable.DepartmentTable.Department_Name
                               };
 
                 GridView1.DataSource = reviews.ToList();
@@ -118,7 +103,7 @@ namespace WebApplication3
             }
 
             //Hacky solution
-            HideIDColumn();
+            ExtensionMethods.HideIDColumn(GridView1,id_index);
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -188,13 +173,15 @@ namespace WebApplication3
                                   HRTable.Name,
                                   HRTable.Phone,
                                   HRTable.IC,
-                                  HRTable.JobTable.Job_Title,
-                                  HRTable.DepartmentTable.Department_Name
+                                  JobTitle = HRTable.JobTable.Job_Title,
+                                  DepartmentName = HRTable.DepartmentTable.Department_Name
                               };
 
                 GridView1.DataSource = reviews.ToList();
                 GridView1.DataBind();
             }
+
+            ExtensionMethods.HideIDColumn(GridView1,id_index);
         }
 
         public SortDirection Direction
@@ -214,6 +201,18 @@ namespace WebApplication3
             }
         }
 
+        private int GetColumnIndex(GridView gridview, string sortExpression)
+        {
+            int i = 0;
+            foreach (DataControlField c in gridview.Columns)
+            {
+                if (c.SortExpression == sortExpression) break;
+                i++;
+            }
+            return i;
+        }
+
+
         protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
         {
             string sortingDirection = string.Empty;
@@ -221,19 +220,39 @@ namespace WebApplication3
             {
                 Direction = SortDirection.Descending;
                 sortingDirection = "Desc";
+                //GridView1.HeaderRow.Cells[GetColumnIndex(e.SortExpression)].CssClass = "sortdesc";
             }
             else
             {
                 Direction = SortDirection.Ascending;
                 sortingDirection = "Asc";
+                //GridView1.HeaderRow.Cells[GetColumnIndex(e.SortExpression)].CssClass = "sortasc";
             }
 
             DataView sortedView = new DataView(Session["DataSource"] as DataTable);
-
             sortedView.Sort = e.SortExpression + " " + sortingDirection;
             Session["SortedView"] = sortedView;
             GridView1.DataSource = sortedView;
             GridView1.DataBind();
+
+            ExtensionMethods.HideIDColumn(GridView1,id_index);
+
+            int offset = GridView1.HeaderRow.Cells.Count - sortedView.Table.Columns.Count;
+            DataColumn dc = sortedView.Table.Columns[e.SortExpression];
+            TableCell tableCell = GridView1.HeaderRow.Cells[dc.Ordinal+offset]; //+2 because of select and delete columns
+
+            if (sortingDirection == "Desc")
+            {
+                Image img = new Image();
+                img.ImageUrl = "~/images/arrow-desc.png";
+                tableCell.Controls.Add(img);
+            }
+            else
+            {
+                Image img = new Image();
+                img.ImageUrl = "~/images/arrow-asc.png";
+                tableCell.Controls.Add(img);
+            }
         }
 
         protected void SelectCheckBox_CheckedChanged(object sender, EventArgs e)

@@ -22,7 +22,7 @@ namespace WebApplication3
             using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
             {
                 var reviews = from JobPositionTable in myEntities.JobPositionTables
-                              where JobPositionTable.Job_Title == s.ToString()
+                              where JobPositionTable.Job_Title.ToLower().Replace(" ", string.Empty) == s.ToString()
                               select JobPositionTable;
 
                 if (reviews.ToList().Count >= 1)
@@ -76,7 +76,7 @@ namespace WebApplication3
                              select new
                              {
                                  JobPosTable.JobPosition_ID,
-                                 JobPosTable.Job_Title
+                                 JobTitle = JobPosTable.Job_Title
                              };
 
                 GridView1.DataSource = reviews.ToList();
@@ -84,6 +84,7 @@ namespace WebApplication3
             }
 
             WebForm1.DeleteOldPositionData();
+            ExtensionMethods.HideIDColumn(GridView1, 1);
         }
 
         public void RemovePositionForAllEntries(string name)
@@ -142,7 +143,9 @@ namespace WebApplication3
             if (AddPositionText.Value == string.Empty)
                 args.IsValid = false;
 
-            if (CheckIfInDatabase(AddPositionText.Value))
+            string postext = AddPositionText.Value.ToLower().Replace(" ", string.Empty);
+
+            if (CheckIfInDatabase(postext))
             {
                 args.IsValid = false;
             }

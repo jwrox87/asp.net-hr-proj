@@ -167,3 +167,23 @@ a {
 {
     margin-left:20%;
 }
+
+.title-visual {
+    color: White;
+    padding-left: 30px;
+}
+
+.sortasc {
+    color: Yellow;
+    background: url(../images/arrow-asc.png) right center no-repeat;
+}
+
+.sortdesc {
+    color: Yellow;
+    background: url(../images/arrow-desc.png) right center no-repeat;
+}
+
+
+.ReqCSS {
+    color: crimson;
+}

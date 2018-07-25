@@ -20,42 +20,46 @@
     <link href="../lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" runat="server" media="screen" href="~/Styles/Authentication.css" />
     <link href="../Styles/NUS%20Style/styleguide.css" rel="stylesheet" />
+
 </head>
 
 <body>
 
     <form id="form1" runat="server">
-        <div class="container">
-            <div class="panel panel-default" style="border: none">
+        <div class="container;">
+            <div class="panel panel-default" style="border: none; width:60%; margin-left:auto; margin-right:auto">
                 <div class="panel-heading; header">
 
                     <img class="img-responsive; img-rounded; logo" src="../images/logo.png" id="panel_img" />
 
                 </div>
-                <div class="panel-body">
+                <div class="panel-body; content-center">
                     <h1 style="font-size: x-large"><b>Log In</b></h1>
 
                     <hr />
                     <asp:PlaceHolder runat="server" ID="LoginStatus" Visible="false">
                         <p>
                             <b>
-                                <asp:Literal runat="server" ID="StatusText" /></b>
+                                 <span style="color:red; font:bold">
+                                    <asp:Literal runat="server" ID="StatusText" />
+                                 </span>
+                            </b>               
                         </p>
                     </asp:PlaceHolder>
                     <asp:PlaceHolder runat="server" ID="LoginForm" Visible="false">
-                        <div style="margin-bottom: 10px">
-                            <label runat="server" for="uname"><b>User name</b></label>
+                        <div style="margin-bottom: 10px;">
+                            <label runat="server" for="uname"><b>User Name</b></label>
                             <div>
                                 <input runat="server" name="uname" placeholder="Enter Username" id="UserName" />
                             </div>
                         </div>
-                        <div style="margin-bottom: 10px">
+                        <div style="margin-bottom: 10px;">
                             <label runat="server" for="pw"><b>Password</b></label>
                             <div>
                                 <input type="password" placeholder="Enter Password" runat="server" name="pw" id="Password" />
                             </div>
                         </div>
-                        <div style="margin-bottom: 20px">
+                        <div style="padding-bottom:40px">
                             <div>
                                 <button runat="server" onserverclick="SignIn" type="submit">Login</button>
                                 <button runat="server" onserverclick="Register" style="background-color: royalblue">Register New User</button>

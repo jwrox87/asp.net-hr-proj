@@ -16,6 +16,5 @@ namespace WebApplication3
     {
         public int JobPosition_ID { get; set; }
         public string Job_Title { get; set; }
-        public System.Guid JobPosition_Identifier { get; set; }
     }
 }

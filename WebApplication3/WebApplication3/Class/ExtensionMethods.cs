@@ -75,6 +75,22 @@ namespace WebApplication3
             return dataTable;
         }
 
+        public static void HideIDColumn(GridView gv, int id_index)
+        {
+            if (gv.FooterRow == null)
+                return;
+
+            if (gv.FooterRow.Cells[id_index] == null)
+                return;
+
+            gv.FooterRow.Cells[id_index].Visible = false;
+            gv.HeaderRow.Cells[id_index].Visible = false;
+            foreach (GridViewRow g in gv.Rows)
+            {
+                g.Cells[id_index].Visible = false;
+            }
+        }
+
         public static void Execute_Insert(string name, int phone, string ic)
         {
             string Conn = ConfigurationManager.ConnectionStrings["SecondConnectionString"].ConnectionString;

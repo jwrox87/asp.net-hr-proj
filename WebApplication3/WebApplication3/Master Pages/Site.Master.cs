@@ -11,8 +11,19 @@ namespace WebApplication3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Ensure that cache is reset each time
+            Response.Cache.SetExpires(DateTime.UtcNow.AddDays(-1));
+            Response.Cache.SetValidUntilExpires(false);
+            Response.Cache.SetRevalidation(HttpCacheRevalidation.AllCaches);
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetNoStore();
+
+            //If no login id available, keep redirecting to login page
+            if (Session["LoginId"] == null)
+                Response.Redirect("~/Pages/Login.aspx");
+
             if (!IsPostBack)
-            {             
+            {
                 if (HttpContext.Current.User.Identity.Name != null)
                     username_text.InnerText = "Welcome, " + HttpContext.Current.User.Identity.Name;
                 else
@@ -25,8 +36,6 @@ namespace WebApplication3
                     manage_positions_link.Visible = false;
                     employee_edit_link.Visible = false;
                     employee_list_link.Visible = false;
-
-                    //manage_positions_link.Disabled = true;
                 }
             }
         }
@@ -36,6 +45,9 @@ namespace WebApplication3
         {
             var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
             authenticationManager.SignOut();
+
+            Session.Clear();
+
             Response.Redirect("~/Pages/Login.aspx");
         }
     }

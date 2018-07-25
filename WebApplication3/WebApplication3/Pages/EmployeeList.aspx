@@ -2,14 +2,14 @@
     MasterPageFile="~/Master Pages/Site.Master" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="HeaderContent" runat="server">
-    <h1 style="color: #EF7C00">Employee List</h1>
+    <h1 class="title-visual">Employee List</h1>
 </asp:Content>
 
 <asp:Content ID="HRMainContent" ContentPlaceHolderID="MainContent" runat="server">
     <!DOCTYPE html>
     <html xmlns="http://www.w3.org/1999/xhtml">
     <body>
-        <div class="container-fluid" style="margin-left: 35%">
+        <div class="container-fluid" style="padding-left:35%">
             Enter search:
                 <asp:TextBox ID="SearchText" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
             <br />
@@ -28,7 +28,7 @@
         <br />
         <div class="container-fluid">
             <asp:GridView ID="GridView1" runat="server" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None" ShowHeaderWhenEmpty="True" ShowFooter="True" OnRowDeleting="GridView1_RowDeleting" OnSelectedIndexChanging="GridView1_SelectedIndexChanging"
-                AllowPaging="true" OnPageIndexChanging="GridView1_PageIndexChanging" AllowSorting="True" OnSorting="GridView1_Sorting" CssClass="table">
+                AllowPaging="true" OnPageIndexChanging="GridView1_PageIndexChanging" AllowSorting="True" OnSorting="GridView1_Sorting" CssClass="table" AutoGenerateColumns="true">
 
                 <PagerSettings Mode="Numeric"
                     Position="Bottom"
@@ -40,19 +40,19 @@
                     HorizontalAlign="Center" />
 
                 <AlternatingRowStyle BackColor="White" />
-                <Columns>
+                <Columns>       
                     <asp:CommandField ShowSelectButton="True" Visible="false" />
                     <asp:CommandField ShowDeleteButton="True" Visible="false" />
                 </Columns>
-                <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
-                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-                <SortedAscendingCellStyle BackColor="#FDF5AC" />
-                <SortedAscendingHeaderStyle BackColor="#4D0000" />
-                <SortedDescendingCellStyle BackColor="#FCF6C0" />
-                <SortedDescendingHeaderStyle BackColor="#820000" />
+                <FooterStyle BackColor="#003D7C" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#003D7C" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="Transparent" ForeColor="Black" />
+                <RowStyle BackColor="#ff9933" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#EF7C00" Font-Bold="True" ForeColor="Navy" />
+<%--                <SortedAscendingCellStyle BackColor="#FDF5AC" CssClass="sortasc" ForeColor="White"/>
+                <SortedAscendingHeaderStyle BackColor="#4D0000" CssClass="sortasc" ForeColor="White" Font-Underline="true"/>
+                <SortedDescendingCellStyle BackColor="#FCF6C0" CssClass="sortdesc" ForeColor="White" />
+                <SortedDescendingHeaderStyle BackColor="#820000" CssClass="sortdesc"  ForeColor="White"/>--%>
             </asp:GridView>
         </div>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:SecondConnectionString %>" SelectCommand="SELECT [Name], [Phone], [IC], [Position] FROM [HRTable]"></asp:SqlDataSource>

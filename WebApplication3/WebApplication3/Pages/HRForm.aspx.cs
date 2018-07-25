@@ -9,24 +9,16 @@ using System.IO;
 
 namespace WebApplication3
 {
-    public partial class HRForm : System.Web.UI.Page, IValidation
+    public partial class HRForm : System.Web.UI.Page
     {
      
         protected void Page_Load(object sender, EventArgs e)
         {
+            InitValidators(); 
             if (IsPostBack)
             {
-                SetValidations(false);
+                
             }
-            else
-            {
-                InitDropDownList();                
-            }
-        }
-
-        public void SetValidations(bool b)
-        {
-            reqName.Visible = b;
         }
 
         private void InitDropDownList()
@@ -48,27 +40,27 @@ namespace WebApplication3
                 if (job_data.Count() <= 0)
                 {
                     ListItem listItem = new ListItem("None");
-                    titleList.Items.Add(listItem);
+                    UserControl.InputJob.Items.Add(listItem);
                     return;
                 }
 
                 for (int i = 0; i < job_data.Count(); i++)
                 {
                     ListItem listItem = new ListItem(job_data.ToList()[i].Job_Title);
-                    titleList.Items.Add(listItem);
+                    UserControl.InputJob.Items.Add(listItem);
                 }
 
                 if (dp_data.Count() <= 0)
                 {
                     ListItem listItem = new ListItem("None");
-                    titleList.Items.Add(listItem);
+                    UserControl.InputJob.Items.Add(listItem);
                     return;
                 }
 
                 for (int i = 0; i < dp_data.Count(); i++)
                 {
                     ListItem listItem = new ListItem(dp_data.ToList()[i].Department_Name);
-                    DepartmentNameList.Items.Add(listItem);
+                    UserControl.InputDepartment.Items.Add(listItem);
                 }
             }
         }
@@ -84,10 +76,17 @@ namespace WebApplication3
             JobTable jobtable = new JobTable();
             using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
             {
-                jobtable.Job_Title = titleList.Text;
+                
+                jobtable.Job_GroupId = UserControl.InputJob.Text;
 
-                if (JobSalaryText.Text != string.Empty)
-                    jobtable.Job_Salary = decimal.Parse(JobSalaryText.Text);
+                var data = (from jposTable in myEntities.JobPositionTables
+                            where jposTable.JobPosition_ID.ToString() == jobtable.Job_GroupId
+                            select jposTable).Single();
+
+                jobtable.Job_Title = data.Job_Title;
+
+                if (UserControl.InputSalary.Text != string.Empty)
+                    jobtable.Job_Salary = decimal.Parse(UserControl.InputSalary.Text);
                 else
                     jobtable.Job_Salary = 0;
 
@@ -97,8 +96,7 @@ namespace WebApplication3
                 myEntities.JobTables.Add(jobtable);
                 myEntities.SaveChanges();
 
-                employee.job_id = jobtable.Job_ID;
-                
+                employee.job_id = jobtable.Job_ID;             
             }   
         }
 
@@ -107,8 +105,15 @@ namespace WebApplication3
             DepartmentTable deptable = new DepartmentTable();
             using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
             {
-                deptable.Department_Name = DepartmentNameList.Text;
+                deptable.Department_GroupId = UserControl.InputDepartment.Text;
 
+                var data = (from dposTable in myEntities.DepartmentPositionTables
+                            where dposTable.DepartmentPos_Id.ToString() == deptable.Department_GroupId
+                            select dposTable).Single();
+
+                deptable.Department_Name = data.Department_Name;
+
+            
                 myEntities.DepartmentTables.Add(deptable);
                 myEntities.SaveChanges();
 
@@ -120,24 +125,24 @@ namespace WebApplication3
         {
             int phone_number = 0;
 
-            if (PhoneText.Text != "")
-                phone_number = int.Parse(PhoneText.Text);
+            if (UserControl.InputPhone.Text != "")
+                phone_number = int.Parse(UserControl.InputPhone.Text);
 
             HRTable hrtable = new HRTable();
             using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
             {
-                hrtable.Name = NameText.Text;
+                hrtable.Name = UserControl.InputName.Text;
                 hrtable.Phone = phone_number.ToString();
-                hrtable.IC = ICText.Text;
+                hrtable.IC = UserControl.InputIC.Text;
                 hrtable.Job_ID = employee.job_id;
                 hrtable.Department_ID = employee.department_id;
-                hrtable.ProfilePicture = FileUpload1.FileBytes;      
+                hrtable.ProfilePicture = UserControl.InputPicture.FileBytes;      
 
                 myEntities.HRTables.Add(hrtable);
                 myEntities.SaveChanges();
 
                 FieldInformationDB.CreateFieldInformation(
-                    TypeOfUpdate.Add, DateTime.Now, "Added new employee: " +NameText.Text,
+                    TypeOfUpdate.Add, DateTime.Now, "Added new employee: " +UserControl.InputName.Text,
                     HttpContext.Current.User.Identity.Name);
             }
         }
@@ -174,12 +179,12 @@ namespace WebApplication3
 
         protected void OnClick_AddEmployee(object sender, EventArgs e)
         {      
-            SetValidations(true);
+           
         }
 
         protected void OnClick_SeeEmployeeList(object sender, EventArgs e)
         {
-            //Response.Redirect("EmployeeList.aspx");
+            
         }
 
         protected void InsertIntoDatabase()
@@ -196,6 +201,20 @@ namespace WebApplication3
             ExtensionMethods.ResetDropDownLists(Page);
         }
 
+
+        private void InitValidators()
+        { 
+            CheckICValidator.ControlToValidate = UserControl.InputIC.ID;
+            UserControl.InputIC.Controls.Add(CheckICValidator);  
+
+            CheckPhoneValidator.ControlToValidate = UserControl.InputPhone.ID;
+            UserControl.InputPhone.Controls.Add(CheckPhoneValidator);
+
+            UploadPicValidator.ControlToValidate = UserControl.InputPicture.ID;
+            UserControl.InputPicture.Controls.Add(new LiteralControl("<br />"));
+            UserControl.InputPicture.Controls.Add(UploadPicValidator);
+        }
+
         bool IC_Checked = false;
         protected void CheckICValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
@@ -210,10 +229,10 @@ namespace WebApplication3
        
         protected void UploadPicValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            if (FileUpload1.PostedFile.FileName != "")
+            if (UserControl.InputPicture.PostedFile.FileName != "")
             {
-                if (FileUpload1.PostedFile.FileName.Contains(".png")
-                    || FileUpload1.PostedFile.FileName.Contains(".jpg"))
+                if (UserControl.InputPicture.PostedFile.FileName.Contains(".png")
+                    || UserControl.InputPicture.PostedFile.FileName.Contains(".jpg"))
                 {
                     if (IC_Checked && Phone_Checked)
                     {
@@ -234,7 +253,6 @@ namespace WebApplication3
             {
                 args.IsValid = false;
             }
-           
         }
 
         bool Phone_Checked = false;

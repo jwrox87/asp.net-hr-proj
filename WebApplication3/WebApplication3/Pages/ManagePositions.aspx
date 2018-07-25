@@ -2,7 +2,7 @@
 
 <%@ Register Assembly="System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeaderContent" runat="server">
-    <h1 style="color: #EF7C00">Manage Positions</h1>
+    <h1 class="title-visual">Manage Positions</h1>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -56,11 +56,11 @@
                     <Columns>
                         <asp:CommandField ShowDeleteButton="True" />
                     </Columns>
-                    <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                    <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                    <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
-                    <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                       <FooterStyle BackColor="#003D7C" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#003D7C" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="Transparent" ForeColor="Black" />
+                <RowStyle BackColor="#ff9933" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#EF7C00" Font-Bold="True" ForeColor="Navy" />
                     <SortedAscendingCellStyle BackColor="#FDF5AC" />
                     <SortedAscendingHeaderStyle BackColor="#4D0000" />
                     <SortedDescendingCellStyle BackColor="#FCF6C0" />

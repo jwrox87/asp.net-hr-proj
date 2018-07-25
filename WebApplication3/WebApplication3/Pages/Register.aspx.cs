@@ -13,13 +13,7 @@ namespace WebFormsIdentity
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
-            //    ListItem listItem = new ListItem("Admin");
-            //    ListItem listItem1 = new ListItem("Normal");
-            //    DropDownList1.Items.Add(listItem);
-            //    DropDownList1.Items.Add(listItem1);
-            //}
+           
         }
 
         protected void CreateUser_Click(object sender, EventArgs e)

@@ -18,44 +18,33 @@ namespace WebApplication3
         //Assign labels with session variables
         void AssignProperties()
         {
-            nameLabel.InnerText = Session["name"].ToString();
-            phoneLabel.InnerText = Session["phone"].ToString();
-            icLabel.InnerText = Session["ic"].ToString();
-            jobPosLabel.InnerText = Session["jobtitle"].ToString();
-            jobSalaryLabel.InnerText = Session["jobsalary"].ToString();
-            depNameLabel.InnerText = Session["departmentname"].ToString();
+            Employee e = (Employee)Session["Employee"];
 
-            if (Session["picture"] != null)
+            nameLabel.InnerText = e.Name;
+            phoneLabel.InnerText = e.Phone;
+            icLabel.InnerText = e.IC;
+            jobPosLabel.InnerText = e.JobPos;
+            jobSalaryLabel.InnerText = ((float.Parse(e.JobSalary) * 100f) / 100f).ToString();
+            depNameLabel.InnerText = e.DepartmentName;
+
+            if (e.Picture != null)
             {
-                byte[] b = (byte[])Session["picture"];
+                byte[] b = (byte[])e.Picture;
                 Image1.ImageUrl = "data:image/jpg;base64," + Convert.ToBase64String(b);
             }
 
-            if (Session["joinDate"] != null)
-                joinDateLabel.InnerText = Session["joinDate"].ToString();
+            if (e.JoinDate != null)
+                joinDateLabel.InnerText = e.JoinDate.ToString();
 
-            idLabel.InnerText = Session["id"].ToString();
-            jobidLabel.InnerText = Session["job_id"].ToString();
-            didLabel.InnerText = Session["department_id"].ToString();
-
-            Session.Clear();
+            idLabel.InnerText = e.id.ToString();
+            jobidLabel.InnerText = e.job_id.ToString();
+            didLabel.InnerText = e.department_id.ToString();
         }
 
         //Store session variables from employee - taken from employee list page
         public void LoadEmployeeDetails(Employee e)
         {
-            Session["name"] = e.Name;
-            Session["phone"] = e.Phone;
-            Session["ic"] = e.IC;
-            Session["jobtitle"] = e.JobPos;
-            Session["jobsalary"] = (float.Parse(e.JobSalary) * 100f) / 100f;
-            Session["joinDate"] = e.JoinDate;
-            Session["departmentname"] = e.DepartmentName;
-            Session["picture"] = e.Picture;
-
-            Session["id"] = e.id;
-            Session["job_id"] = e.job_id;
-            Session["department_id"] = e.department_id;
+            Session["Employee"] = e;
         }
     }
 }

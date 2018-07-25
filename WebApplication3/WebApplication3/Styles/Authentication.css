@@ -108,3 +108,9 @@ span.psw {
     text-indent: 0.01px; /*In Firefox*/
     text-overflow: ''; /*In Firefox*/
 }
+
+.content-center {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}

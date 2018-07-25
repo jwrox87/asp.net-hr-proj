@@ -27,7 +27,7 @@
 
     <form id="form1" runat="server">
         <div class="container">
-            <div class="panel panel-default" style="border: none">
+            <div class="panel panel-default" style="border: none; width:70%; margin-left:auto; margin-right:auto">
 
                 <div class="panel-heading; header">
 
@@ -35,14 +35,18 @@
 
                 </div>
 
-                <div class="panel-body">
+                <div class="panel-body; content-center">
                     <h1 style="font-size: x-large"><b>Register a new user</b></h1>
                     <hr />
                     <p>
-                        <asp:Literal runat="server" ID="StatusMessage" />
+                        <b>
+                        <span style="color:red; font:bold">
+                            <asp:Literal runat="server" ID="StatusMessage" />
+                        </span>
+                            </b>
                     </p>
                     <div style="margin-bottom: 10px">
-                        <label runat="server" for="uname">User name</label>
+                        <label runat="server" for="uname">User Name</label>
                         <div>
                             <input type="text" placeholder="Enter Username" runat="server" name="uname" id="Username2" />
                         </div>
@@ -63,14 +67,14 @@
                     <div style="margin-bottom: 10px">
                         <label runat="server">Select Role</label>
                         <div>
-                            <asp:DropDownList ID="DropDownList1" runat="server" Width="10%">
+                            <asp:DropDownList ID="DropDownList1" runat="server">
                                 <asp:ListItem>Admin</asp:ListItem>
                                 <asp:ListItem>Normal</asp:ListItem>
                             </asp:DropDownList>
                         </div>
                     </div>
                     <div>
-                        <div>
+                        <div style="padding-bottom:40px">
                             <button runat="server" onserverclick="CreateUser_Click" type="button">Register</button>
 
                             <button runat="server" onserverclick="Login_Click" id="Button1" style="background-color: royalblue">Cancel</button>

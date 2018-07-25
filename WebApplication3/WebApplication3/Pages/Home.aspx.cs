@@ -47,11 +47,11 @@ namespace WebApplication3
             dt.AddDays(7);
 
             using (HRDatabaseEntities myEntities = new HRDatabaseEntities())
-            {
+            {           
                 var data = (from d in myEntities.FieldInfoTables
                             select d);
 
-                List<FieldInfoTable> fits = data.ToList();
+                List < FieldInfoTable > fits = data.ToList();
 
                 foreach (FieldInfoTable fit in fits)
                 {
@@ -132,7 +132,7 @@ namespace WebApplication3
         {
             label_time.Text = fi.GetFieldInfo().Item2.ToString();
             label_time.Width = Unit.Percentage(60);
-            label_time.Style.Add("text-align", "left");
+            label_time.Style.Add("text-align", "right");
             label_time.Font.Size = FontUnit.Large;
             //label_time.Style.Add("background-color", fi.GetColor());
         }
@@ -165,15 +165,15 @@ namespace WebApplication3
             PrintDescription(label_desc, fi);
             PrintAuthor(label_author,fi);
 
-            string div_type = "<div class='alert-primary rounded;border border-secondary' role='alert' style='width:600px'>";
+            string div_type = "<div class='alert-primary rounded;border border-secondary' role='alert' style='width:80%'>";
 
             if (fi.GetFieldInfo().Item1 == TypeOfUpdate.Delete)
             {
-                div_type = "<div class='alert-danger rounded;border border-secondary' role='alert' style='width:600px'>";
+                div_type = "<div class='alert-danger rounded;border border-secondary' role='alert' style='width:80%'>";
             }
             else if (fi.GetFieldInfo().Item1 == TypeOfUpdate.Modify)
             {
-                div_type = "<div class='alert-info rounded;border border-secondary' role='alert' style='width:600px'>";
+                div_type = "<div class='alert-info rounded;border border-secondary' role='alert' style='width:80%'>";
             }
           
             UpdatePanel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<div style='padding-left:20%'>"));
@@ -210,7 +210,7 @@ namespace WebApplication3
         }
 
         protected void Page_Load(object sender, EventArgs e)
-        {            
+        {
             LoadDatabase();
 
             if (fieldInfo_List.Count > 5

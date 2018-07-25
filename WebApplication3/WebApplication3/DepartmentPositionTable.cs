@@ -16,6 +16,5 @@ namespace WebApplication3
     {
         public int DepartmentPos_Id { get; set; }
         public string Department_Name { get; set; }
-        public System.Guid DepartmentPos_Identifier { get; set; }
     }
 }

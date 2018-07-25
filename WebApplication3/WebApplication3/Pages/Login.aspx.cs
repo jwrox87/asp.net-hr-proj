@@ -19,12 +19,10 @@ namespace WebFormsIdentity
                     LoginStatus.Visible = true;
                     LogoutButton.Visible = true;
                 }
-                else
+                if (!User.Identity.IsAuthenticated)
                 {
                     LoginForm.Visible = true;
                 }
-
-                //LoginForm.Visible = true;
             }
         }
 
@@ -37,6 +35,8 @@ namespace WebFormsIdentity
 
             if (user != null)
             {
+                Session["LoginId"] = HttpContext.Current.User.Identity.Name;
+
                 var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
                 var userIdentity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
 

@@ -20,7 +20,7 @@
     <script type="text/javascript">
 
         function GetEmployeeName() {
-            return '<%= Session["name"] %>';
+            return '<%= Session["Employee"] %>';
         }
 
         top.document.title = "Employee: " + GetEmployeeName();
