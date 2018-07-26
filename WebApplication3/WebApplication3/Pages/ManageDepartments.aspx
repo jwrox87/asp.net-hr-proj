@@ -25,11 +25,11 @@
                         <label for="colFormLabelLg" class="col-sm-1 col-form-label">Department Title:</label>
 
                         <div class="col-sm-8">
-                            <input id="AddDepText" class="form-control" placeholder="Enter Department Name"
-                                runat="server" type="text" style="padding: 0 7px 2px;" />
+                            <input id="AddDepText" class="form-control; inputbox-size" placeholder="Enter Department Name"
+                                runat="server" type="text"/>
 
-                            <button id="AddDepSubmitBtn" runat="server" onserverclick="AddDepSubmitBtn_Click" class="rounded"
-                                type="button" style="margin-left: 8px; width: 100px; height: 35px; padding: 0 7px 2px;">
+                            <button id="AddDepSubmitBtn" runat="server" onserverclick="AddDepSubmitBtn_Click" class="rounded; button-size"
+                                type="button">
                                 Add
                             </button>
 
@@ -40,7 +40,7 @@
                     </p>
 
                 </asp:Panel>
-
+                
                 <asp:CustomValidator ID="AddDepValidator" runat="server" ErrorMessage="Duplicate Entry"
                     Display="Dynamic" ForeColor="Red" ControlToValidate="AddDepText" OnServerValidate="AddDepValidator_ServerValidate"></asp:CustomValidator>
 

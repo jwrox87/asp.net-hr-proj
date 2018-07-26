@@ -101,6 +101,7 @@ namespace WebApplication3
                 for (int i = 0; i < job_data.Count(); i++)
                 {
                     job_data.ToList()[i].Job_Title = "None";
+                    job_data.ToList()[i].Job_GroupId = null;
                 }
 
                 myEntities.SaveChanges();

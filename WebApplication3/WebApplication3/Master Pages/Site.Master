@@ -31,13 +31,17 @@
 </head>
 <body>
     
-    <div class="panel panel-default" style="border: none; background-color: #F8F8F8">
+    <div class="panel panel-default" style="border: none; background-color: #F8F8F8; ">
         <form id="form1" runat="server">
 
             <div class="signout">
-                <label runat="server" id="username_text" />
+                <label runat="server" id="username_text" /> 
+                &nbsp;&nbsp;
+                <div>
                 <asp:LinkButton ID="LinkButton1" runat="server" OnClick="Sign_Out" Font-Underline="true" CausesValidation="false" ForeColor="Blue">Sign Out</asp:LinkButton>
             </div>
+                </div>
+
 
             <div class="panel-heading; header">
 

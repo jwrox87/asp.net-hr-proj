@@ -49,24 +49,6 @@ namespace WebApplication3 {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl idLabel;
         
         /// <summary>
-        /// jobidLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl jobidLabel;
-        
-        /// <summary>
-        /// didLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl didLabel;
-        
-        /// <summary>
         /// nameLabel control.
         /// </summary>
         /// <remarks>

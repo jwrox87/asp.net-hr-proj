@@ -47,7 +47,7 @@
                         <label id="idLabel" runat="server"></label>
                     </div>
 
-                    <div class="justify-content-between col">
+<%--                    <div class="justify-content-between col">
                         Job Id:
                         <label id="jobidLabel" runat="server"></label>
                     </div>
@@ -55,7 +55,7 @@
                     <div class="justify-content-end col">
                         Department ID:
                         <label id="didLabel" runat="server"></label>
-                    </div>
+                    </div>--%>
 
                 </div>
 

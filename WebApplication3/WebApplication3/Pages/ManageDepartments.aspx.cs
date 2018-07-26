@@ -69,6 +69,7 @@ namespace WebApplication3
                 for (int i=0; i < department_data.Count(); i++)
                 {
                     department_data.ToList()[i].Department_Name = "None";
+                    department_data.ToList()[i].Department_GroupId = null;
                 }
 
                 myEntities.SaveChanges();

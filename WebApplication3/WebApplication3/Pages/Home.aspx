@@ -7,6 +7,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="container;" style=" ">
+        <br />
         <h3 style="width:60%; margin-left:20%; font-family: Arial, Helvetica, sans-serif">What's new:</h3>
 
         <div style="margin-left:20%; padding-left:50%;"> 
@@ -14,7 +15,7 @@
         </div>
 
     </div>
-    <div id="div1" runat="server" style="height: 300px; width: 60%; overflow: scroll; background-color: white; margin-left: 20%; border: 2px solid black"
+    <div id="div1" runat="server" style="height: 300px; width: 60%; overflow: scroll; overflow-x:auto; background-color: white; margin-left: 20%; border: 2px solid black"
         class="rounded">
 
         <asp:ScriptManager ID="ScriptManager1" runat="server">

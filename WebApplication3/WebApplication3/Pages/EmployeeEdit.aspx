@@ -16,20 +16,21 @@
 
     <asp:Panel ID="Panel1" runat="server">
 
-        <div class="form-group row content-center col-md-6">
+        <br />
+        <div class="form-group row content-center col-md-6" style="margin-left:30%"> 
 
-            <label for="RefIDText" class="col-sm-5 col-form-label">Enter search: </label>
+             <label for="RefIDText" class="col-sm-5 col-form-label; font-visual">Enter search: </label>
 
             <div class="col-sm-8">
+   
+                <div>
+                <input id="RefIDText" class="form-control; inputbox-size" placeholder="Enter search"
+                    runat="server" type="text"/>
 
-                <input id="RefIDText" class="form-control" placeholder="Enter search"
-                    runat="server" type="text" style="padding: 0 7px 2px;" />
-
-                <button id="RefIDBtn" runat="server" class="rounded" type="submit"
-                    style="margin-left: 8px; width: 100px; height: 23px; padding: 0 7px 2px;">
+                <button id="RefIDBtn" runat="server" class="rounded; button-size" type="submit">
                     Submit
                 </button>
-
+                    </div>
                 <div>
                 <asp:CustomValidator ID="RefIDValidator" runat="server" 
                     ErrorMessage="Entry not found"
@@ -39,7 +40,7 @@
                     ValidateEmptyText="true"
                     OnServerValidate="RefIDValidator_ServerValidate" />
 
-                    <label id="NotificationLabel" runat="server" visible="false" style="align-items: stretch; color: red;" />
+                    <label id="NotificationLabel" runat="server" visible="false" style="align-items: stretch; color: blue;" />
        
                 </div>
             </div>
@@ -87,8 +88,8 @@
             OnServerValidate="UploadPicValidator_ServerValidate" />
 
         <div class=" hrform">
-          <div style="margin-left:auto">
-                <button id="ApplyChangeBtn" runat="server" onserverclick="ApplyChangeBtn_Click"
+          <div style="margin-left:15%">
+                <button id="ApplyChangeBtn" runat="server" onserverclick="ApplyChangeBtn_Click" class="rounded"
                     style="width: 120px">
                     Apply
                 </button>

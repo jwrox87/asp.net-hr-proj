@@ -10,12 +10,14 @@
     <html xmlns="http://www.w3.org/1999/xhtml">
     <body>
         <div class="container-fluid" style="padding-left:35%">
-            Enter search:
+            <br />
+           <label for="SearchText" class="col-sm-5 col-form-label; font-visual">Enter search: </label>
+             <div class="col-sm-8">
                 <asp:TextBox ID="SearchText" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
-            <br />
-            <br />
+                 </div>
 
-            <button id="Button1" runat="server" onserverclick="Button1_Click" type="button" style="width: 200px">Show All</button>
+            <div style="margin-right:auto">
+            <button id="Button1" runat="server" onserverclick="Button1_Click" type="button" class="rounded; button-size">Show All</button>
 
             &nbsp;
             Show Select:
@@ -23,8 +25,9 @@
             &nbsp;
             Show Delete:
             <asp:CheckBox ID="DeleteCheckBox" runat="server" OnCheckedChanged="DeleteCheckBox_CheckedChanged" AutoPostBack="true" />
-
+            </div>
         </div>
+        <hr />
         <br />
         <div class="container-fluid">
             <asp:GridView ID="GridView1" runat="server" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None" ShowHeaderWhenEmpty="True" ShowFooter="True" OnRowDeleting="GridView1_RowDeleting" OnSelectedIndexChanging="GridView1_SelectedIndexChanging"

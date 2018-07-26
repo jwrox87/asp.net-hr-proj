@@ -49,15 +49,19 @@
             xxxxx--%>
 
             <p>
-                <asp:Label ID="UpdateStatus" runat="server" Text="Label" Visible="False" />
+                <asp:Label ID="UpdateStatus" runat="server" Text="Label" ForeColor="Blue" Visible="False" />
             </p>
 
             <p></p>
 
+            <div style="margin-left:10%">
             <p>
-                <button id="AddEmployeeBtn" runat="server" onserverclick="OnClick_AddEmployee" type="button" style="width: 200px">
+                
+                <button id="AddEmployeeBtn" runat="server" onserverclick="OnClick_AddEmployee" type="button" style="width: 200px; border-radius:5px">
                     Add Employee</button>
+                
             </p>
+                </div>
 
         </div>
 

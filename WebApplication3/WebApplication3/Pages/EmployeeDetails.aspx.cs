@@ -37,8 +37,6 @@ namespace WebApplication3
                 joinDateLabel.InnerText = e.JoinDate.ToString();
 
             idLabel.InnerText = e.id.ToString();
-            jobidLabel.InnerText = e.job_id.ToString();
-            didLabel.InnerText = e.department_id.ToString();
         }
 
         //Store session variables from employee - taken from employee list page

@@ -130,8 +130,9 @@ span.psw {
 
 .signout {
     position: absolute;
-    left: 70%;
-    top: 60px;
+    top: 5%;
+    margin-left:80%;
+    white-space:nowrap;
 }
 
 a {
@@ -168,9 +169,29 @@ a {
     margin-left:20%;
 }
 
+input.inputbox-size
+{
+    padding:0 7px 2px;
+    height:40px;
+}
+
+button.button-size {
+    margin-left: 8px;
+    width: 100px;
+    height: 35px;
+    padding: 0 7px 2px;
+    border-radius:5px;
+}
+
 .title-visual {
     color: White;
     padding-left: 30px;
+}
+
+.font-visual {
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    font-size:large;
+    font-weight:bold;
 }
 
 .sortasc {

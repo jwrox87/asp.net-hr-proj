@@ -25,11 +25,11 @@
                         <label for="colFormLabelLg" class="col-sm-1 col-form-label">Job Title:</label>
 
                         <div class="col-sm-8">
-                            <input id="AddPositionText" class="form-control" placeholder="Enter Position Name"
-                                runat="server" type="text" style="padding: 0 7px 2px;" />
+                            <input id="AddPositionText" class="form-control; inputbox-size" placeholder="Enter Position Name"
+                                runat="server" type="text"/>
 
-                            <button id="AddPosSubmitBtn" runat="server" onserverclick="AddPosSubmitBtn_Click" class="rounded"
-                                type="button" style="margin-left: 8px; width: 100px; height: 35px; padding: 0 7px 2px;">
+                            <button id="AddPosSubmitBtn" runat="server" onserverclick="AddPosSubmitBtn_Click" class="rounded; button-size"
+                                type="button">
                                 Add
                             </button>
 
